@@ -7,5 +7,3 @@ var save:bool = false
 
 var Projects:Array = []
 var projectSelected
-
-var Testing
