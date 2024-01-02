@@ -10,11 +10,11 @@ var attempt = 0
 
 func _ready():
 	await get_tree().create_timer(0.5).timeout
-	$VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking for Updates[/color]")
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking for Updates[/color]")
 	await get_tree().create_timer(1).timeout
-	$VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]No Updates Found[/color]")
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]No Updates Found[/color]")
 	await get_tree().create_timer(0.2).timeout
-	$VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Projects[/color]")
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Projects[/color]")
 	await SearchProjects()
 	get_tree().change_scene_to_file("res://ProjectList.tscn")
 
@@ -30,7 +30,7 @@ func SearchProjects():
 		dir.list_dir_begin()
 		_add_dir_contents(dir, files, directories)
 	else:
-		$VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]An error occurred when trying to access the path.[/color]")
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]An error occurred when trying to access the path.[/color]")
 		await get_tree().create_timer(0.5).timeout
 		verifyFolders()
 	print(files)
@@ -39,7 +39,7 @@ func SearchProjects():
 			var f = FileAccess.open(i,FileAccess.READ)
 			Console.Projects.append(f.get_line())
 	await get_tree().create_timer(0.3).timeout
-	$VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Projects Loaded[/color]")
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Projects Loaded[/color]")
 	await get_tree().create_timer(0.5).timeout
 
 
@@ -58,7 +58,7 @@ func _add_dir_contents(dir: DirAccess, files: Array, directories: Array):
 			_add_dir_contents(subDir, files, directories)
 		else:
 			print("Found File: "+path)
-			$VBoxContainer/RichTextLabel.append_text("\n[color="+CWhite+"]Found File: "+path+"[/color]")
+			$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CWhite+"]Found File: "+path+"[/color]")
 			files.append(path)
 
 		file_name = dir.get_next()
@@ -66,19 +66,19 @@ func _add_dir_contents(dir: DirAccess, files: Array, directories: Array):
 	dir.list_dir_end()
 
 func verifyFolders():
-	$VBoxContainer/RichTextLabel.append_text('\n[color='+CBlue+']Creating "saves" Folder[/color]')
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CBlue+']Creating "saves" Folder[/color]')
 	var d = DirAccess.open("user://")
 	d.make_dir_recursive("saves")
 	d.open("user:///saves")
 	if d:
-		$VBoxContainer/RichTextLabel.append_text('\n[color='+CGreen+']Successfuly Created "saves" Folder[/color]')
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CGreen+']Successfuly Created "saves" Folder[/color]')
 		await get_tree().create_timer(2).timeout
 		SearchProjects()
 	else:
 		failedSavesFolder()
 
 func failedSavesFolder():
-	$VBoxContainer/RichTextLabel.append_text('\n[color='+CRed+']Failed to create "saves" Folder[/color]')
-	$VBoxContainer/RichTextLabel.append_text('\n[color='+CRed+']Aborting...[/color]')
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CRed+']Failed to create "saves" Folder[/color]')
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CRed+']Aborting...[/color]')
 	await get_tree().create_timer(999999999999999999).timeout
 
