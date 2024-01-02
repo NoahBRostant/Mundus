@@ -1,0 +1,49 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Mundus (World Builder)"
+config/version="v0.0.1"
+run/main_scene="res://SplashScreen.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Mundus"
+config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Assets/Splash Screen/New Splash Screen notextbg.png"
+config/icon="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png"
+
+[autoload]
+
+Console="*res://Console.gd"
+Global="*res://Global.gd"
+InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
+
+[display]
+
+window/size/borderless=true
+window/size/transparent=true
+window/per_pixel_transparency/allowed=true
+window/fullsize=true
+window/image=""
+window/bg_color=Color(0.0807833, 0.0807833, 0.0807833, 1)
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/QuickPluginManager/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg")
+
+[rendering]
+
+viewport/transparent_background=true

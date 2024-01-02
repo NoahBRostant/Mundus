@@ -1,0 +1,185 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjo0udh5tsxap"]
+
+[ext_resource type="Script" path="res://ProjectItem.gd" id="1_wfgkf"]
+[ext_resource type="Texture2D" uid="uid://djk7bfnygs3iu" path="res://Assets/Ruleset Logos/DnD_Bug_1c_Blk_V1_XL_RGB Copy.png" id="3_atcwi"]
+[ext_resource type="Texture2D" uid="uid://85arwkwvu7x3" path="res://Assets/Basic Icons/ellipsis-vertical-solid.svg" id="3_jqqym"]
+[ext_resource type="Texture2D" uid="uid://dg2spcde7cxgw" path="res://Assets/Ruleset Logos/PF2Logo1600.webp" id="4_kyn7e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk1fu"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjkiv"]
+draw_center = false
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_color = Color(0.160784, 0.168627, 0.184314, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ageks"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvfjt"]
+bg_color = Color(0, 0, 0, 0.627451)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(150, 180)
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bk1fu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bk1fu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bk1fu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bk1fu")
+script = ExtResource("1_wfgkf")
+metadata/flex_metas = {
+"grow": 0.0
+}
+
+[node name="ProjectThumbnail" type="TextureRect" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.678431)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_right = 75.0
+offset_bottom = 150.0
+grow_horizontal = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Panel2" type="Panel" parent="ProjectThumbnail"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vjkiv")
+metadata/_edit_lock_ = true
+
+[node name="ProjectName" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "World One"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ageks")
+
+[node name="Panel" type="Panel" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvfjt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 1.0
+offset_right = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel2/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Rename"
+
+[node name="Button2" type="Button" parent="Panel2/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Duplicate"
+
+[node name="Button3" type="Button" parent="Panel2/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.890196, 0.396078, 0.368627, 1)
+text = "Delete"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_top = 7.0
+offset_right = -8.0
+offset_bottom = 24.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_jqqym")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 32.0
+offset_bottom = 26.0
+texture = ExtResource("3_atcwi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 92.0
+offset_bottom = 26.0
+texture = ExtResource("4_kyn7e")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="button_up" from="Panel2/Panel/VBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Panel2/Panel/VBoxContainer/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="button_up" from="Panel2/Panel/VBoxContainer/Button3" to="." method="_on_button_3_button_up"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]

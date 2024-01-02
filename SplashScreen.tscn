@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8qf6q4gkukyv"]
+
+[ext_resource type="Texture2D" uid="uid://b7e14y858u4qo" path="res://Assets/Splash Screen/New Splash Screen notext.png" id="1_smdfh"]
+[ext_resource type="Script" path="res://SplashScreen.gd" id="1_sta8y"]
+[ext_resource type="FontFile" uid="uid://cnk6bhvrw6w6a" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Regular.ttf" id="2_hktve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvosb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7wf5v"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sta8y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 44.0
+offset_right = -502.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_smdfh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 101.0
+offset_right = -554.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.85098, 0.85098, 1)
+theme_override_fonts/normal_font = ExtResource("2_hktve")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lvosb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7wf5v")
+bbcode_enabled = true
+text = "Starting Mundus : v0.0.1
+--------------------------"
+fit_content = true
+scroll_following = true
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+text_direction = 1
