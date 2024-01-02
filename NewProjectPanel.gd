@@ -46,8 +46,15 @@ func _on_line_edit_text_changed(new_text):
 
 func createSave():
 	var fileType
-	if $Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer2/OptionButton.selected == 1:
+	if $Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer2/OptionButton.selected == 0:
+		projectType = "none"
+		Global.projectType = projectType
+	elif $Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer2/OptionButton.selected == 1:
 		projectType = "DnD5e"
+		Global.projectType = projectType
+	elif $Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer2/OptionButton.selected == 2:
+		projectType = "Pathfinder"
+		Global.projectType = projectType
 	var dir = DirAccess.open("user:///saves")
 	dir.make_dir(projectName)
 	projectFileName = projectName

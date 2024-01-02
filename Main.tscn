@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=28 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Main.gd" id="1_uxxeo"]
@@ -7,10 +7,11 @@
 [ext_resource type="Script" path="res://addons/dockable_container/layout.gd" id="5_ip3ue"]
 [ext_resource type="Texture2D" uid="uid://dicls5h3u6ckf" path="res://Assets/Basic Icons/Add.png" id="6_r5gtn"]
 [ext_resource type="Texture2D" uid="uid://c0lgwk60pwwdx" path="res://Assets/Basic Icons/Refresh.png" id="7_hmtfy"]
-[ext_resource type="Texture2D" uid="uid://djk7bfnygs3iu" path="res://Assets/Ruleset Logos/DnD_Bug_1c_Blk_V1_XL_RGB Copy.png" id="8_f420e"]
+[ext_resource type="Texture2D" uid="uid://ck2uu7o2kbglh" path="res://Assets/Ruleset Logos/DnD-Symbol.png" id="8_1nibx"]
 [ext_resource type="Texture2D" uid="uid://dsdke1duouxap" path="res://Assets/Splash Screen/Version.png" id="9_3dk5g"]
 [ext_resource type="Texture2D" uid="uid://dwxld143413vf" path="res://Assets/Basic Icons/d-and-d.svg" id="9_5ku5e"]
 [ext_resource type="Texture2D" uid="uid://bf0hs76ilw1st" path="res://Assets/Basic Icons/book-bookmark-solid.svg" id="9_7w1fw"]
+[ext_resource type="Texture2D" uid="uid://dg2spcde7cxgw" path="res://Assets/Ruleset Logos/PF2Logo1600.webp" id="9_w85mx"]
 [ext_resource type="Texture2D" uid="uid://cuk1q342axru" path="res://Assets/Basic Icons/xmark-solid.svg" id="10_1aiwj"]
 [ext_resource type="Texture2D" uid="uid://c6j6khryuva0u" path="res://Assets/Basic Icons/beer-mug-empty-solid.svg" id="12_5qf4r"]
 [ext_resource type="FontFile" uid="uid://dvwe1n5qn2bo0" path="res://Assets/Fonts/Segoe UI Bold.ttf" id="13_tnq5r"]
@@ -286,10 +287,19 @@ theme_override_font_sizes/font_size = 20
 text = "Untitled"
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="DnDLogo" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(29, 0)
 layout_mode = 2
-texture = ExtResource("8_f420e")
+texture = ExtResource("8_1nibx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PathfinderLogo" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+texture = ExtResource("9_w85mx")
 expand_mode = 1
 stretch_mode = 5
 

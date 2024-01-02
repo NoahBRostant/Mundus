@@ -1,6 +1,7 @@
 extends Control
 
-var projectName = "Test"
+var projectName = ""
+var projectType = ""
 
 func _ready():
 	get_window().borderless = false
@@ -8,7 +9,11 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	%ProjectName.text = Global.projectName
-
+	projectType = Global.projectType
+	if projectType == "DnD5e":
+		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/DnDLogo.show()
+	elif projectType == "Pathfinder":
+		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/PathfinderLogo.show()
 
 
 func _on_file_id_pressed(id):
