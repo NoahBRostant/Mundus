@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlgusv58q1ygb"]
+[gd_scene load_steps=10 format=3 uid="uid://dlgusv58q1ygb"]
 
 [ext_resource type="Script" path="res://ProjectItem.gd" id="1_07wqs"]
 [ext_resource type="Texture2D" uid="uid://85arwkwvu7x3" path="res://Assets/Basic Icons/ellipsis-vertical-solid.svg" id="2_gr2cv"]
 [ext_resource type="Texture2D" uid="uid://cc0sndolj080q" path="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0_BNW.png" id="2_leuk8"]
-[ext_resource type="Texture2D" uid="uid://djk7bfnygs3iu" path="res://Assets/Ruleset Logos/DnD_Bug_1c_Blk_V1_XL_RGB Copy.png" id="3_n0dv7"]
 [ext_resource type="Texture2D" uid="uid://dg2spcde7cxgw" path="res://Assets/Ruleset Logos/PF2Logo1600.webp" id="4_dot2i"]
+[ext_resource type="Texture2D" uid="uid://ck2uu7o2kbglh" path="res://Assets/Ruleset Logos/DnD-Symbol.png" id="4_hvyuj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk1fu"]
 content_margin_left = 10.0
@@ -14,6 +14,13 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x22ej"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+corner_radius_bottom_right = 16
 corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eydt3"]
@@ -59,6 +66,7 @@ metadata/flex_metas = {
 }
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0.478431)
 layout_mode = 1
 anchors_preset = 8
@@ -127,24 +135,36 @@ texture_normal = ExtResource("2_gr2cv")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="DnDLogo" type="TextureRect" parent="."]
+[node name="DnDLogo" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 8.0
-offset_top = 2.0
-offset_right = 32.0
+offset_right = 49.0
 offset_bottom = 26.0
-texture = ExtResource("3_n0dv7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_x22ej")
+
+[node name="DnDLogo" type="TextureRect" parent="DnDLogo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -4.0
+offset_right = 41.0
+offset_bottom = 29.0
+texture = ExtResource("4_hvyuj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="PathfinderLogo" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 8.0
-offset_top = 2.0
-offset_right = 92.0
+offset_right = 101.0
 offset_bottom = 26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x22ej")
+
+[node name="PathfinderLogo" type="TextureRect" parent="PathfinderLogo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -3.0
+offset_right = 92.0
+offset_bottom = 28.0
 texture = ExtResource("4_dot2i")
 expand_mode = 1
 stretch_mode = 5

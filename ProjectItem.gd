@@ -18,12 +18,17 @@ func _ready():
 	var error = image.load(image_path)
 	if error != OK:
 		image_path = "user:///saves/"+projectFileName+"/Thumbnail.png"
+		error = image.load(image_path)
+		if error != OK:
+			$TextureRect3.show()
 	image.load(image_path)
 	var image_texture = ImageTexture.new()
 	image_texture.set_image(image)
 	%ProjectThumbnail.texture = image_texture
 	if projectType == "DnD5e":
 		$DnDLogo.show()
+	elif projectType == "Pathfinder":
+		$PathfinderLogo.show()
 
 func _on_texture_button_button_up():
 	if toggleOptions == false:

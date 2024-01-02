@@ -76,6 +76,7 @@ func _on_button_3_button_down():
 
 func _on_open_button_down():
 	Global.projectName = Console.projectSelected.projectName
+	Global.projectType = Console.projectSelected.projectType
 	Global.projectFileName = Console.projectSelected.projectFileName
 	Console.debug = 'Successfuly Loaded "'+Global.projectName+'"'
 	Console.ECode = "0000"
