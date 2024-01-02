@@ -42,7 +42,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/QuickPluginManager/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/github_push/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg")
+enabled=PackedStringArray("res://addons/QuickPluginManager/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg")
 
 [rendering]
 

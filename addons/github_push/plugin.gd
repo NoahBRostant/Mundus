@@ -3,6 +3,7 @@ extends EditorPlugin
 
 var button = Button.new()
 var icon = preload("res://addons/github_push/github.svg")
+var output = []
 
 func _enter_tree():
 	button.icon = icon
@@ -19,4 +20,13 @@ func _exit_tree():
 
 
 func _timetopush():
-	OS.execute("git",["push","origin","master"])
+	OS.set_environment("SSH_ASKPASS", "")
+	
+	var error = OS.execute("sudo git",["push","origin","master"], output, true)
+	
+	if error != OK:
+		printerr(output)
+		_exit_tree()
+	else:
+		print(output)
+		print("Succes")
