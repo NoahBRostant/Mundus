@@ -17,7 +17,7 @@ config/use_custom_user_dir=true
 config/custom_user_dir_name="Mundus"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://Assets/Splash Screen/New Splash Screen notextbg.png"
+boot_splash/image="res://Assets/Splash Screen/New Splash Screen notextbg title.png"
 config/icon="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png"
 
 [autoload]

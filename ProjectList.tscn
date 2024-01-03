@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b00q3c5tjoe4o"]
+[gd_scene load_steps=10 format=3 uid="uid://b00q3c5tjoe4o"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_7wiki"]
 [ext_resource type="Script" path="res://ProjectList.gd" id="1_kv3j5"]
 [ext_resource type="Texture2D" uid="uid://bcl1sle6le3em" path="res://Assets/Basic Icons/list-solid.svg" id="3_krk3e"]
 [ext_resource type="Texture2D" uid="uid://dsdke1duouxap" path="res://Assets/Splash Screen/Version.png" id="4_1lhqy"]
 [ext_resource type="Texture2D" uid="uid://cm4pwow6cnpyp" path="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png" id="5_tvpou"]
+[ext_resource type="Texture2D" uid="uid://b0etbfocqvbsq" path="res://Assets/Splash Screen/LogoTitle.png" id="6_i4gdu"]
 [ext_resource type="Texture2D" uid="uid://bo61x22sej7hd" path="res://Assets/Basic Icons/up-right-from-square-solid.svg" id="6_liieb"]
 [ext_resource type="Texture2D" uid="uid://dmcoq2hcx0vsj" path="res://Assets/Basic Icons/gear-solid(1).svg" id="8_buk3a"]
 
@@ -201,12 +202,26 @@ offset_right = -10.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Panel4/VBoxContainer"]
-custom_minimum_size = Vector2(0, 170)
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 texture = ExtResource("5_tvpou")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Panel4/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_i4gdu")
 expand_mode = 1
 stretch_mode = 5
 
@@ -263,10 +278,6 @@ text = "Manage Tags"
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
 text = "Delete"
-
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Panel4/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
 
 [node name="Panel2" type="Panel" parent="VBoxContainer/HBoxContainer/Panel4/VBoxContainer"]
 layout_mode = 2
@@ -325,6 +336,7 @@ texture_normal = ExtResource("6_liieb")
 stretch_mode = 3
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Panel4"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
