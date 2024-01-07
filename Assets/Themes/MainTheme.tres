@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=3 uid="uid://bqjx1o53xo1v6"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://bqjx1o53xo1v6"]
 
 [ext_resource type="FontFile" uid="uid://bhydxkd7hoogf" path="res://Assets/Fonts/Segoe UI.ttf" id="1_vehbo"]
 
@@ -113,6 +113,8 @@ corner_detail = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3jqw"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bi7w"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7q3a"]
 content_margin_left = 5.0
 content_margin_right = 5.0
@@ -181,6 +183,7 @@ OptionButton/styles/pressed = SubResource("StyleBoxFlat_oxbg1")
 Panel/styles/panel = SubResource("StyleBoxFlat_pltn0")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_j66c5")
 TabContainer/styles/panel = SubResource("StyleBoxEmpty_i3jqw")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_4bi7w")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxEmpty_b7q3a")
 TabContainer/styles/tab_selected = SubResource("StyleBoxEmpty_c8bko")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxEmpty_u8l6o")
