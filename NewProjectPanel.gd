@@ -37,11 +37,16 @@ func _on_start_btn_button_down():
 
 
 func _on_line_edit_text_changed(new_text):
-	projectName = new_text
-	if projectName != "":
-		%StartBtn.disabled = false
+	if new_text.similarity(str(Console.Projects)) < 1:
+		%StartBtn.text = "Start"
+		projectName = new_text
+		if projectName != "":
+			%StartBtn.disabled = false
+		else:
+			%StartBtn.disabled = true
 	else:
 		%StartBtn.disabled = true
+		%StartBtn.text = "Name Already Exists"
 
 
 func createSave():

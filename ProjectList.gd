@@ -40,8 +40,8 @@ func _process(delta):
 	else:
 		$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button.disabled = false
 		$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button2.disabled = false
-		$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button3.disabled = false
-		$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button4.disabled = false
+		#$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button3.disabled = false
+		#$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button4.disabled = false
 		$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button5.disabled = false
 	if oldProject != Console.projectSelected:
 		change_info()
@@ -75,16 +75,25 @@ func _on_button_3_button_down():
 
 
 func _on_open_button_down():
-	Global.projectName = Console.projectSelected.projectName
-	Global.projectType = Console.projectSelected.projectType
-	Global.projectFileName = Console.projectSelected.projectFileName
-	Console.debug = 'Successfuly Loaded "'+Global.projectName+'"'
-	Console.ECode = "0000"
-	get_tree().change_scene_to_file("res://Main.tscn")
+	Console.projectSelected.OpenProject()
 
 
 func _on_delete_button_down():
 	Console.projectSelected.DeleteProject()
+
+func _on_rename_button_down():
+	$RenamePanel.show()
+
+func _on_renamepanelclose_button_down():
+	$RenamePanel.hide()
+	$RenamePanel/Panel/VBoxContainer/LineEdit.text = ""
+
+func _on_renamepaneldone_button_down():
+	Console.projectSelected.projectName = $RenamePanel/Panel/VBoxContainer/LineEdit.text
+	$RenamePanel.hide()
+	$RenamePanel/Panel/VBoxContainer/LineEdit.text = ""
+	oldProject = null
+	Console.projectSelected.get_node("%ProjectName").text = Console.projectSelected.projectName
 
 
 func change_info():

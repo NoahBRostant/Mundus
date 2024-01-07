@@ -38,6 +38,21 @@ func _on_texture_button_button_up():
 		$Panel2.hide()
 		toggleOptions = false
 
+func OpenProject():
+	var items = get_parent().get_children()
+	for i in items:
+		i.toggle = false
+		i.get_node("Panel4").hide()
+	Console.projectSelected = self
+	$Panel4.show()
+	toggle = true
+	Global.projectName = Console.projectSelected.projectName
+	Global.projectType = Console.projectSelected.projectType
+	Global.projectFileName = Console.projectSelected.projectFileName
+	Console.debug = 'Successfuly Loaded "'+Global.projectName+'"'
+	Console.ECode = "0000"
+	get_tree().change_scene_to_file("res://Main.tscn")
+
 func DeleteProject():
 	Console.projectSelected = null
 	get_parent().remove_child(self)
@@ -84,15 +99,23 @@ func _on_button_button_up():
 
 
 func _on_button_down():
-	if toggle == false:
-		var items = get_parent().get_children()
-		for i in items:
-			i.toggle = false
-			i.get_node("Panel4").hide()
-		Console.projectSelected = self
-		$Panel4.show()
-		toggle = true
-	else:
-		$Panel4.hide()
-		toggle = false
-		Console.projectSelected = null
+	pass
+
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton and event.is_pressed():
+		if event.double_click:
+			OpenProject()
+		else:
+			if toggle == false:
+				var items = get_parent().get_children()
+				for i in items:
+					i.toggle = false
+					i.get_node("Panel4").hide()
+				Console.projectSelected = self
+				$Panel4.show()
+				toggle = true
+			else:
+				$Panel4.hide()
+				toggle = false
+				Console.projectSelected = null

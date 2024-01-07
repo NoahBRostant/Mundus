@@ -20,7 +20,7 @@ corner_detail = 10
 content_margin_left = 10.0
 content_margin_right = 10.0
 bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
-corner_radius_bottom_right = 16
+corner_radius_bottom_right = 8
 corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eydt3"]
@@ -191,4 +191,5 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2nypv")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
