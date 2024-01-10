@@ -1,0 +1,178 @@
+[gd_scene load_steps=3 format=3 uid="uid://codewh1n4a0fp"]
+
+[ext_resource type="PackedScene" uid="uid://d0g1o5k4e4yat" path="res://MDNoteEditor.tscn" id="1_qyamw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdbne"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Character Article"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Article Name"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Pronounciation"
+
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 1
+
+[node name="Content" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TabContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tdbne")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Content/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" parent="VBoxContainer/TabContainer/Content/Panel/MarginContainer" instance=ExtResource("1_qyamw")]
+layout_mode = 2
+
+[node name="Description" type="TabBar" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TabContainer/Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tdbne")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Description/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Backstory & Personality"
+
+[node name="Control" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_qyamw")]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder = "Describe your character's history. Where did they grow up? What significant events shaped their life? What are their fears, desires, and ambitions? How do these elements influence their personality? For example, a wizard who's seeking ancient knowledge to revive a lost loved one, driven by guilt and curiosity."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Alignment & Moral Compass"
+
+[node name="Control" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_qyamw")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder = "Define your character's ethical and moral beliefs. Are they lawful, valuing order and tradition, or chaotic, valuing personal freedom? Are they good, evil, or neutral? Describe how these alignments manifest in their decisions and interactions. For instance, a chaotic good character might break laws to help others, driven by a strong sense of justice."
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Role in Sociaty & Within the Party"
+
+[node name="Control" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("1_qyamw")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder = "What role does your character play in their adventuring group? Are they a fighter, protector, strategist, or the heart of the team? Think beyond just combat roles - how do they interact socially? Perhaps they're the mediator who resolves conflicts or the prankster who keeps spirits high."
+
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Abilities & Skills"
+
+[node name="Control2" parent="VBoxContainer/TabContainer/Description/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_qyamw")]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder = "List your character’s key skills and abilities, linking them to their backstory and role. For example, a character raised by wolves might have exceptional survival skills and heightened senses. Don't forget to add a unique or unexpected skill, like a warrior who's also a skilled cook."
+
+[node name="Stats" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
