@@ -5,3 +5,5 @@ var projectType = ""
 var projectFileName = ""
 
 var noteSave
+
+var loggedIn = false

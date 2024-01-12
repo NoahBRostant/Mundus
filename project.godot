@@ -25,6 +25,7 @@ config/icon="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app
 Console="*res://Console.gd"
 Global="*res://Global.gd"
 InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 
@@ -42,7 +43,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/QuickPluginManager/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg")
+enabled=PackedStringArray("res://addons/QuickPluginManager/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg")
 
 [rendering]
 
