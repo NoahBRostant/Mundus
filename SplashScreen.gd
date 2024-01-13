@@ -9,6 +9,8 @@ var CYellow:String = "#E6F385"
 var attempt = 0
 
 func _ready():
+	get_window().size = Vector2i(1152,648)
+	get_window().borderless = true
 	await get_tree().create_timer(0.5).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Account Info[/color]")
 	if Global.loggedIn == false:
@@ -19,9 +21,9 @@ func _ready():
 	else:
 		await get_tree().create_timer(0.2).timeout
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Logged In[/color]")
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.2).timeout
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking for Updates[/color]")
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.2).timeout
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]No Updates Found[/color]")
 		await get_tree().create_timer(0.2).timeout
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Projects[/color]")

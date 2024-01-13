@@ -117,9 +117,7 @@ corner_detail = 10
 content_margin_left = 5.0
 content_margin_right = 5.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8bko"]
-content_margin_left = 5.0
-content_margin_right = 5.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ae8w5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8l6o"]
 content_margin_left = 5.0
@@ -182,7 +180,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_pltn0")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_j66c5")
 TabContainer/styles/panel = SubResource("StyleBoxEmpty_i3jqw")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxEmpty_b7q3a")
-TabContainer/styles/tab_selected = SubResource("StyleBoxEmpty_c8bko")
+TabContainer/styles/tab_selected = SubResource("StyleBoxEmpty_ae8w5")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxEmpty_u8l6o")
 TextEdit/styles/focus = SubResource("StyleBoxFlat_kvks0")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_wks88")
