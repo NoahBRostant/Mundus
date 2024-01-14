@@ -13,22 +13,40 @@ func _ready():
 	get_window().borderless = true
 	await get_tree().create_timer(0.5).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Account Info[/color]")
-	if Global.loggedIn == false:
+	var check_auth = Firebase.Auth.check_auth_file()
+	if check_auth != true:
 		await get_tree().create_timer(0.2).timeout
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Not Logged In[/color]")
-		await get_tree().create_timer(1).timeout
-		get_tree().change_scene_to_file("res://Login.tscn")
+		await get_tree().create_timer(0.5).timeout
+		$Panel2.show()
+		#get_tree().change_scene_to_file("res://Login.tscn")
 	else:
+		auth_success()
+
+func auth_success():
+	await get_tree().create_timer(0.2).timeout
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Logged In[/color]")
+	await get_tree().create_timer(0.2).timeout
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking for Updates[/color]")
+	await get_tree().create_timer(0.2).timeout
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]No Updates Found[/color]")
+	await get_tree().create_timer(0.2).timeout
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Projects[/color]")
+	await SearchProjects()
+	get_tree().change_scene_to_file("res://ProjectList.tscn")
+
+func retry(error_code, message):
+	await get_tree().create_timer(0.2).timeout
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Authentication[/color]")
+	var check_auth = Firebase.Auth.check_auth_file()
+	if check_auth != true:
 		await get_tree().create_timer(0.2).timeout
-		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Logged In[/color]")
-		await get_tree().create_timer(0.2).timeout
-		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking for Updates[/color]")
-		await get_tree().create_timer(0.2).timeout
-		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]No Updates Found[/color]")
-		await get_tree().create_timer(0.2).timeout
-		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Projects[/color]")
-		await SearchProjects()
-		get_tree().change_scene_to_file("res://ProjectList.tscn")
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Failed to Login: "+str(error_code)+" "+str(message)+"[/color]")
+		await get_tree().create_timer(0.5).timeout
+		$Panel2.show()
+	else:
+		auth_success()
+
 
 func SearchProjects():
 	attempt+=1

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cm4pwow6cnpyp" path="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png" id="5_tvpou"]
 [ext_resource type="Texture2D" uid="uid://b0etbfocqvbsq" path="res://Assets/Splash Screen/LogoTitle.png" id="6_i4gdu"]
 [ext_resource type="Texture2D" uid="uid://bo61x22sej7hd" path="res://Assets/Basic Icons/up-right-from-square-solid.svg" id="6_liieb"]
-[ext_resource type="Texture2D" uid="uid://dmcoq2hcx0vsj" path="res://Assets/Basic Icons/gear-solid(1).svg" id="8_buk3a"]
+[ext_resource type="Texture2D" uid="uid://b07vu36odc0rc" path="res://addons/godot-firebase/circle-user-regular(1).svg" id="8_boox6"]
 [ext_resource type="FontFile" uid="uid://cnk6bhvrw6w6a" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Regular.ttf" id="9_torc2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwv1g"]
@@ -253,14 +253,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 38)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Options"
-horizontal_alignment = 1
-
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
@@ -343,7 +335,6 @@ texture_normal = ExtResource("6_liieb")
 stretch_mode = 3
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/Panel4"]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -364,13 +355,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -8.5
-offset_top = -8.5
-offset_right = 8.5
-offset_bottom = 8.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_buk3a")
+texture = ExtResource("8_boox6")
 expand_mode = 1
 stretch_mode = 5
 
@@ -469,6 +460,7 @@ text = "Rename"
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button" to="." method="_on_open_button_down"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button2" to="." method="_on_rename_button_down"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button5" to="." method="_on_delete_button_down"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/Panel4/Button" to="." method="_on_button_button_up"]
 [connection signal="button_down" from="RenamePanel/Button" to="." method="_on_renamepanelclose_button_down"]
 [connection signal="button_down" from="RenamePanel/Panel/VBoxContainer/HBoxContainer/CenterContainer/Button" to="." method="_on_renamepanelclose_button_down"]
 [connection signal="button_down" from="RenamePanel/Panel/VBoxContainer/HBoxContainer/CenterContainer2/Button" to="." method="_on_renamepaneldone_button_down"]

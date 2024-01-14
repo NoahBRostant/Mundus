@@ -1,8 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=41 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Main.gd" id="1_uxxeo"]
 [ext_resource type="Script" path="res://addons/dockable_container/dockable_container.gd" id="3_1uq5w"]
+[ext_resource type="Texture2D" uid="uid://b07vu36odc0rc" path="res://addons/godot-firebase/circle-user-regular(1).svg" id="3_ck3df"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout_panel.gd" id="4_7mtdk"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout.gd" id="5_ip3ue"]
 [ext_resource type="Texture2D" uid="uid://dicls5h3u6ckf" path="res://Assets/Basic Icons/Add.png" id="6_r5gtn"]
@@ -713,6 +714,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
@@ -919,6 +921,34 @@ fit_content = true
 [node name="Dictionary" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer"]
 visible = false
 layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_top = 9.0
+offset_right = -19.0
+offset_bottom = 39.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ck3df")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="sort_children" from="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" to="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" method="_on_sort_children"]

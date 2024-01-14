@@ -102,3 +102,7 @@ func change_info():
 	else:
 		%ProjectInfo.text = "Name:\nRuleset:\nDate Created:\nModified On:\nTags: "
 	oldProject = Console.projectSelected
+
+
+func _on_button_button_up():
+	Firebase.Auth.logout()

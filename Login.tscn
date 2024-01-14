@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bm0dt3qo0vag6"]
+[gd_scene load_steps=17 format=3 uid="uid://bm0dt3qo0vag6"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_um3dt"]
 [ext_resource type="Script" path="res://Login.gd" id="2_2ih51"]
+[ext_resource type="Texture2D" uid="uid://b5s57r0foiqg3" path="res://Assets/Splash Screen/DALL·E 2024-01-13 21.07.12 - A subtle and artistic background image representing the themes of Dungeons and Dragons (DnD), world building, and storytelling. The image should evoke.png" id="3_orw5d"]
 [ext_resource type="Texture2D" uid="uid://2u7vu1ldi7mw" path="res://addons/godot-firebase/Google_ G _logo.svg.png" id="3_r2l2b"]
 [ext_resource type="Texture2D" uid="uid://dc4pcqney6u6n" path="res://addons/godot-firebase/25231.png" id="4_ijrih"]
 [ext_resource type="Texture2D" uid="uid://b07vu36odc0rc" path="res://addons/godot-firebase/circle-user-regular(1).svg" id="5_xh5b8"]
@@ -100,6 +101,19 @@ fit_content = true
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel"]
+visible = false
+modulate = Color(1, 1, 1, 0.0352941)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_orw5d")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -120,7 +134,9 @@ theme_override_constants/margin_bottom = 50
 [node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_qan2r")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_qan2r")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4hy5c")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_qan2r")
 tab_alignment = 1
 
 [node name="Login" type="TabBar" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer"]
@@ -141,7 +157,10 @@ offset_right = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
-alignment = 1
+
+[node name="Control5" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="Loginerrors" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
 unique_name_in_owner = true
@@ -157,7 +176,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
 layout_mode = 2
-text = "Username / Email"
+text = "Email"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -200,10 +219,8 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0.290196)
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-disabled = true
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button"]
 layout_mode = 1
@@ -221,10 +238,8 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Button2" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0.290196)
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-disabled = true
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button2"]
 layout_mode = 1
@@ -270,6 +285,7 @@ stretch_mode = 5
 [node name="Control3" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Login" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
 unique_name_in_owner = true
@@ -293,15 +309,22 @@ offset_right = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
-alignment = 1
+
+[node name="Control4" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="Registererrors" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
 bbcode_enabled = true
-text = "[center]You will recieve a verification email upon sign up."
+text = "[center]Fill your details to Register"
 fit_content = true
+
+[node name="Control3" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
 layout_mode = 2
@@ -351,9 +374,10 @@ caret_blink = true
 [node name="Control2" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Register" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(150, 29)
 layout_mode = 2
 text = "Register"
 
@@ -364,6 +388,7 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -475,9 +500,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -373.0
+offset_left = -92.0
 offset_top = -283.0
-offset_right = -189.0
+offset_right = 92.0
 offset_bottom = -141.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -519,5 +544,7 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button2" to="." method="_on_github_button_up"]
 [connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/Login" to="." method="_on_login_button_up"]
 [connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer/Register" to="." method="_on_register_button_up"]
