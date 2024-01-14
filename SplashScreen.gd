@@ -9,8 +9,8 @@ var CYellow:String = "#E6F385"
 var attempt = 0
 
 func _ready():
-	get_window().size = Vector2i(1152,648)
 	get_window().borderless = true
+	get_window().size = Vector2i(1152,648)
 	await get_tree().create_timer(0.5).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Account Info[/color]")
 	var check_auth = Firebase.Auth.check_auth_file()

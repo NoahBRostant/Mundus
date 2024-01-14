@@ -12,8 +12,8 @@ var items
 var oldProject
 
 func _ready():
-	get_window().size = Vector2i(1152,648)
 	get_window().borderless = false
+	get_window().size = Vector2i(1152,648)
 	get_window().title = "Mundus - Project List"
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	for i in Console.Projects:
