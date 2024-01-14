@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b00q3c5tjoe4o"]
+[gd_scene load_steps=12 format=3 uid="uid://b00q3c5tjoe4o"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_7wiki"]
 [ext_resource type="Script" path="res://ProjectList.gd" id="1_kv3j5"]
@@ -11,6 +11,16 @@
 [ext_resource type="FontFile" uid="uid://cnk6bhvrw6w6a" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Regular.ttf" id="9_torc2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwv1g"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45gew"]
 content_margin_left = 10.0
 content_margin_right = 10.0
 bg_color = Color(0.141176, 0.14902, 0.164706, 1)
@@ -454,6 +464,197 @@ custom_minimum_size = Vector2(100, 29)
 layout_mode = 2
 text = "Rename"
 
+[node name="AccountOptions" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="Panel" type="Panel" parent="AccountOptions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -365.0
+offset_top = -262.0
+offset_right = 365.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AccountOptions/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AccountOptions/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="AccountOptions/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme_override_styles/panel = SubResource("StyleBoxFlat_45gew")
+
+[node name="MarginContainer" type="MarginContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Account Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+text = "General"
+
+[node name="Button2" type="Button" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+text = "Marketplace"
+
+[node name="Button3" type="Button" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+text = "Subscription"
+
+[node name="Button4" type="Button" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+text = "Advanced"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="LogOut" type="Button" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+text = "Log Out"
+
+[node name="Closeaccount" type="Button" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+text = "Close"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+text = "Display Name"
+
+[node name="LineEdit" type="LineEdit" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel2" type="Panel" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+text = "Email"
+
+[node name="LineEdit" type="LineEdit" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Panel3" type="Panel" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/Panel3/HBoxContainer"]
+layout_mode = 2
+text = "Change Email"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+alignment = 1
+
+[node name="DeleteAccount" type="Button" parent="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.372549, 0.286275, 1)
+text = "Delete Account"
+
 [connection signal="button_down" from="VBoxContainer/Panel2/HBoxContainer/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/Panel2/HBoxContainer/Button3" to="." method="_on_button_3_button_down"]
 [connection signal="text_changed" from="VBoxContainer/Panel2/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
@@ -464,3 +665,6 @@ text = "Rename"
 [connection signal="button_down" from="RenamePanel/Button" to="." method="_on_renamepanelclose_button_down"]
 [connection signal="button_down" from="RenamePanel/Panel/VBoxContainer/HBoxContainer/CenterContainer/Button" to="." method="_on_renamepanelclose_button_down"]
 [connection signal="button_down" from="RenamePanel/Panel/VBoxContainer/HBoxContainer/CenterContainer2/Button" to="." method="_on_renamepaneldone_button_down"]
+[connection signal="button_up" from="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/LogOut" to="." method="_on_log_out_button_up"]
+[connection signal="button_up" from="AccountOptions/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/Closeaccount" to="." method="_on_closeaccount_button_up"]
+[connection signal="button_up" from="AccountOptions/Panel/MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/DeleteAccount" to="." method="_on_delete_account_button_up"]

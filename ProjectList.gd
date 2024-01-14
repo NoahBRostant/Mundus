@@ -105,4 +105,19 @@ func change_info():
 
 
 func _on_button_button_up():
+	$AccountOptions.show()
+
+
+func _on_log_out_button_up():
 	Firebase.Auth.logout()
+	get_tree().change_scene_to_file("res://SplashScreen.tscn")
+
+
+func _on_closeaccount_button_up():
+	$AccountOptions.hide()
+
+
+func _on_delete_account_button_up():
+	Firebase.Auth.delete_user_account()
+	Firebase.Auth.logout()
+	get_tree().change_scene_to_file("res://SplashScreen.tscn")

@@ -43,6 +43,7 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 	pass
 
 func _on_FirebaseAuth_signup_succeeded(auth_info):
+	Firebase.Auth.send_account_verification_email()
 	var empty = ""
 	print("Success!")
 	#get_tree().change_scene_to_file("res://SplashScreen.tscn")
