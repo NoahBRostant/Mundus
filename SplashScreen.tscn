@@ -51,6 +51,8 @@ offset_left = 75.0
 offset_top = 100.0
 offset_right = 610.0
 offset_bottom = 564.0
+mouse_filter = 0
+follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 clip_contents = true
@@ -81,6 +83,7 @@ offset_left = 231.0
 offset_top = 102.0
 offset_right = 441.0
 offset_bottom = 170.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yxxpd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -90,6 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_h7nws")
 expand_mode = 1
 stretch_mode = 5

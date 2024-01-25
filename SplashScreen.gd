@@ -13,15 +13,15 @@ func _ready():
 	get_window().size = Vector2i(1152,648)
 	await get_tree().create_timer(0.5).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Account Info[/color]")
-	var check_auth = Firebase.Auth.check_auth_file()
+	var check_auth = await Firebase.Auth.check_auth_file()
 	if check_auth != true:
 		await get_tree().create_timer(0.2).timeout
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Not Logged In[/color]")
 		await get_tree().create_timer(0.5).timeout
 		$Panel2.show()
-		#get_tree().change_scene_to_file("res://Login.tscn")
 	else:
 		auth_success()
+
 
 func auth_success():
 	await get_tree().create_timer(0.2).timeout
@@ -30,6 +30,10 @@ func auth_success():
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking for Updates[/color]")
 	await get_tree().create_timer(0.2).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]No Updates Found[/color]")
+	await get_tree().create_timer(0.2).timeout
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Server Data[/color]")
+	await startup_sequence()
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Loaded Server Data[/color]")
 	await get_tree().create_timer(0.2).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Projects[/color]")
 	await SearchProjects()
@@ -50,6 +54,7 @@ func retry(error_code, message):
 
 func SearchProjects():
 	attempt+=1
+	Console.Projects = []
 	if attempt > 3:
 		failedSavesFolder()
 	var files = []
@@ -112,3 +117,11 @@ func failedSavesFolder():
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CRed+']Aborting...[/color]')
 	await get_tree().create_timer(999999999999999999).timeout
 
+
+
+func startup_sequence():
+	var collection: FirestoreCollection = Firebase.Firestore.collection("UserData")
+	var document_task: FirestoreTask = collection.get_doc(Firebase.Auth.auth.localid)
+	var document: FirestoreDocument = await document_task.get_document
+	Global.userEmail = document.doc_fields.email
+	return

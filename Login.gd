@@ -1,7 +1,6 @@
 extends Control
 
 var provider = AuthProvider
-var Hprovider = AuthProvider
 var port = 8060
 
 func _ready():
@@ -28,6 +27,7 @@ func _on_login_button_up():
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	Firebase.Auth.save_auth(auth_info)
+	#print(auth_info)
 	var empty = ""
 	print("Success!")
 	#get_tree().change_scene_to_file("res://SplashScreen.tscn")
@@ -43,12 +43,16 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 	pass
 
 func _on_FirebaseAuth_signup_succeeded(auth_info):
-	Firebase.Auth.send_account_verification_email()
+	#Firebase.Auth.send_account_verification_email()
+	print(auth_info)
+	#await get_tree().create_timer(0.2).timeout
+	#var collection: FirestoreCollection = Firebase.Firestore.collection("UserData")
+	#var add_task: FirestoreTask = collection.add(auth_info.localid, {'SubscriptionPlan': 'Free', 'DisplayName': null})
+	#var document = await add_task.task_finished
 	var empty = ""
 	print("Success!")
-	#get_tree().change_scene_to_file("res://SplashScreen.tscn")
-	get_parent().hide()
-	get_parent().get_parent().retry(auth_info, empty)
+	%Loginerrors.text = "[center]Successfuly Created Account[/center]"
+	$ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer.current_tab = 0
 	pass
 
 func _on_FirebaseAuth_signup_failed(error_code, message):

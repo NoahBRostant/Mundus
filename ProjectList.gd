@@ -1,11 +1,5 @@
 extends Control
 
-@export var reload = false:
-	set (value):
-		_reload
-	get:
-		_reload
-
 var newProject = preload("res://NewProjectPanel.tscn")
 var projectItem = preload("res://ProjectItem.tscn")
 var items
@@ -16,16 +10,8 @@ func _ready():
 	get_window().size = Vector2i(1152,648)
 	get_window().title = "Mundus - Project List"
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	for i in Console.Projects:
-		var instance = projectItem.instantiate()
-		instance.get_node("%ProjectName").text = i.split(",")[1]
-		instance.get_node("%ProjectModDate").text = i.split(",")[5]
-		instance.projectName =  i.split(",")[1]
-		instance.projectFileName =  i.split(",")[0]
-		instance.projectType =  i.split(",")[3]
-		instance.projectMadeDate =  i.split(",")[2]
-		instance.projectModDate =  i.split(",")[5]
-		%ProjectGrid.add_child(instance)
+	await ClearList()
+	await PopulateList()
 	items = %ProjectGrid.get_children()
 	oldProject = Console.projectSelected
 
@@ -47,6 +33,25 @@ func _process(delta):
 		change_info()
 
 
+func ClearList():
+	var children = %ProjectGrid.get_children()
+	print(children)
+	for i in children:
+		%ProjectGrid.remove_child(i)
+
+func PopulateList():
+	for i in Console.Projects:
+		var instance = projectItem.instantiate()
+		instance.get_node("%ProjectName").text = i.split(",")[1]
+		instance.get_node("%ProjectModDate").text = i.split(",")[5]
+		instance.projectName =  i.split(",")[1]
+		instance.projectFileName =  i.split(",")[0]
+		instance.projectType =  i.split(",")[3]
+		instance.projectMadeDate =  i.split(",")[2]
+		instance.projectModDate =  i.split(",")[5]
+		%ProjectGrid.add_child(instance)
+
+
 func _on_button_button_down():
 	var instance = newProject.instantiate()
 	self.add_child(instance)
@@ -63,15 +68,10 @@ func _on_line_edit_text_changed(new_text):
 		for i in items:
 			i.show()
 
-func _reload(x):
-	items = %ProjectGrid.get_children()
-	for i in items:
-		%ProjectGrid.remove_child(i)
-	_ready()
-
 
 func _on_button_3_button_down():
-	_reload(null)
+	await ClearList()
+	await PopulateList()
 
 
 func _on_open_button_down():
@@ -108,16 +108,5 @@ func _on_button_button_up():
 	$AccountOptions.show()
 
 
-func _on_log_out_button_up():
-	Firebase.Auth.logout()
-	get_tree().change_scene_to_file("res://SplashScreen.tscn")
-
-
 func _on_closeaccount_button_up():
 	$AccountOptions.hide()
-
-
-func _on_delete_account_button_up():
-	Firebase.Auth.delete_user_account()
-	Firebase.Auth.logout()
-	get_tree().change_scene_to_file("res://SplashScreen.tscn")

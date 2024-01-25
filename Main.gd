@@ -8,6 +8,9 @@ func _ready():
 	get_window().title = "Mundus - World Builder"
 	await get_tree().create_timer(0.1).timeout
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+	if Console.hasGlobalMenu == true:
+		%MenuBar.hide()
+		var File = DisplayServer.global_menu_add_item("File","New Article",_on_file_id_pressed(0))
 	%ProjectName.text = Global.projectName
 	projectType = Global.projectType
 	if projectType == "DnD5e":

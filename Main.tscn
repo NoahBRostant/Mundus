@@ -157,6 +157,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 
 [node name="MenuBar" type="MenuBar" parent="Control2/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
 flat = true
