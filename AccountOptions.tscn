@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdstvg1e5a7mn"]
+[gd_scene load_steps=5 format=3 uid="uid://cdstvg1e5a7mn"]
 
 [ext_resource type="Script" path="res://AccountOptions.gd" id="1_cvx7j"]
+[ext_resource type="Texture2D" uid="uid://d2n2wcdkrope4" path="res://Assets/Subscription/alchemyrefiner_alchemymagic_0_4ae15ad8-bbd4-40db-9e24-a8f6b6b993fb_0.png" id="2_yduii"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45gew"]
-content_margin_left = 10.0
-content_margin_right = 10.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujedc"]
 bg_color = Color(0.141176, 0.14902, 0.164706, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -30,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujedc")
 script = ExtResource("1_cvx7j")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -52,7 +52,6 @@ theme_override_constants/separation = 10
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
-theme_override_styles/panel = SubResource("StyleBoxFlat_45gew")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel"]
 layout_mode = 1
@@ -205,91 +204,39 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Subscription"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_45gew")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -5.5
+offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel/MarginContainer"]
 layout_mode = 2
-
-[node name="SubEmail" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.4
-text = "EMAIL"
+theme_override_font_sizes/font_size = 20
+text = "Subscription"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel/MarginContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel/MarginContainer/HBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="SubPayment" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Next Payment: "
-
-[node name="StripeDashboard" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3/Panel"]
-custom_minimum_size = Vector2(0, 29)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -113.0
-offset_top = -15.0
-offset_right = -10.0
-offset_bottom = 16.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Dashboard"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 10
 
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_45gew")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel"]
 layout_mode = 1
@@ -298,7 +245,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
@@ -307,28 +254,60 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Sub1Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="Sub1Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "Account Details"
 vertical_alignment = 1
 
-[node name="Sub1Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="StripeDashboard" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+text = "Dashboard"
+
+[node name="AccountName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Name: "
 vertical_alignment = 1
 
-[node name="Sub1Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="AccountEmail" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Email: "
 vertical_alignment = 1
 
-[node name="Sub1Label4" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="BillingAddress" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Billing Address: "
 vertical_alignment = 1
 
-[node name="Sub1Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Line1" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Line 1: "
+
+[node name="Line2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Line 2: "
+
+[node name="CountryRegion" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Region / Country: "
+
+[node name="PostCode" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Post Code: "
+
+[node name="AccountCreated" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Account Created: "
 vertical_alignment = 1
@@ -342,14 +321,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_n4wm2")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.4
-theme_override_styles/panel = SubResource("StyleBoxFlat_45gew")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel3"]
 layout_mode = 1
@@ -366,6 +343,18 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel3/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel3/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_yduii")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="CurrentSubType" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel3/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -434,4 +423,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_n4wm2")
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/LogOut" to="." method="_on_log_out_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/Closeaccount" to="." method="_on_closeaccount_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/DeleteAccount" to="." method="_on_delete_account_button_up"]
-[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer3/Panel/StripeDashboard" to="." method="_on_stripe_dashboard_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/StripeDashboard" to="." method="_on_stripe_dashboard_button_up"]

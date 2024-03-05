@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=42 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Main.gd" id="1_uxxeo"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://INSP_ArticleBase.gd" id="21_auidd"]
 [ext_resource type="Script" path="res://addons/collapsible_container/collapsible_elements/collapsible_container.gd" id="21_av3o3"]
 [ext_resource type="Texture2D" uid="uid://7bl700cicc6a" path="res://Assets/Basic Icons/chevron-right-solid.svg" id="21_awm0w"]
+[ext_resource type="PackedScene" uid="uid://cdstvg1e5a7mn" path="res://AccountOptions.tscn" id="27_b43or"]
 
 [sub_resource type="Resource" id="Resource_qqlnt"]
 resource_name = "Tabs"
@@ -461,7 +462,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -489,6 +489,7 @@ text = "[center]No articles selected for viewing or editing. Please create a new
 scroll_active = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -951,7 +952,40 @@ texture = ExtResource("3_ck3df")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="AccountOptions" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="Button" type="Button" parent="AccountOptions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Panel" parent="AccountOptions" instance=ExtResource("27_b43or")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -242.0
+offset_right = 432.0
+offset_bottom = 242.0
+
 [connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="sort_children" from="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" to="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" method="_on_sort_children"]
 [connection signal="text_submitted" from="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal/MarginContainer/VBoxContainer/CMDLine" to="Control2/HBoxContainer/VBoxContainer/Control3/Panel" method="_on_CMDLine_text_entered"]
 [connection signal="button_up" from="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/Button" to="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase" method="_on_button_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_accountoptions_button_up"]
+[connection signal="button_up" from="AccountOptions/Button" to="." method="_on_closeaccount_button_up"]

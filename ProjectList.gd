@@ -72,6 +72,7 @@ func _on_line_edit_text_changed(new_text):
 func _on_button_3_button_down():
 	await ClearList()
 	await PopulateList()
+	
 
 
 func _on_open_button_down():
@@ -110,3 +111,74 @@ func _on_button_button_up():
 
 func _on_closeaccount_button_up():
 	$AccountOptions.hide()
+
+
+func _on_Import_button_up():
+	$NativeFileDialog.show()
+
+
+func _on_native_file_dialog_dir_selected(dir):
+	await SearchProjects(dir)
+	await ClearList()
+	PopulateList()
+
+func SearchProjects(dir):
+	var error = true
+	var files = []
+	var directories = []
+	dir = DirAccess.open(dir)
+
+	if dir:
+		dir.list_dir_begin()
+		_add_dir_contents(dir, files, directories)
+	else:
+		await get_tree().create_timer(0.5).timeout
+	print(files)
+	for i in files:
+		if "data.save" in i:
+			var f = FileAccess.open(i,FileAccess.READ)
+			Console.Projects.append(f.get_line())
+			#dir.copy_absolute(dir.get_current_dir()+"/data.save", "user://saves/data.save")
+			error = false
+	if error == true:
+		return(error)
+
+
+func _add_dir_contents(dir: DirAccess, files: Array, directories: Array):
+	var file_name = dir.get_next()
+
+	while (file_name != ""):
+		var path = dir.get_current_dir() + "/" + file_name
+
+		if dir.current_is_dir():
+			print("Found directory: "+path)
+			#$VBoxContainer/RichTextLabel.append_text("\n[color="+CWhite+"]Found directory: "+path+"[/color]")
+			var subDir = DirAccess.open(path)
+			subDir.list_dir_begin()
+			directories.append(path)
+			_add_dir_contents(subDir, files, directories)
+		else:
+			print("Found File: "+path)
+			files.append(path)
+
+		file_name = dir.get_next()
+
+	dir.list_dir_end()
+
+func copy_folder(source_path: String, dest_path: String) -> void:
+	var source_dir = DirAccess.open(source_path)
+	#if source_dir != OK:
+		#print("Source directory not found")
+		#return
+
+	source_dir.list_dir_begin()
+	var filename = source_dir.get_next()
+	while filename != "":
+		if not source_dir.current_is_dir():
+			var source_file =+ filename
+			var dest_file =+ filename
+			var err = source_dir.copy(source_file, dest_file)
+			if err != OK:
+				print("Failed to copy file: " + filename)
+		filename = source_dir.get_next()
+	source_dir.list_dir_end()

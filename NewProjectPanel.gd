@@ -8,12 +8,14 @@ var projectModDate = ""
 var projectDescription = ""
 var projectThumbnail = ""
 
+var randomFactor = randi_range(0,20)*Time.get_datetime_dict_from_system().second
+
 func _ready():
 	var date = Time.get_date_dict_from_system()
 	var day = date.day
 	var month = date.month
 	var year = date.year
-	print(day,month,year)
+	print(randomFactor)
 	if day < 10:
 		day = "0"+str(day)
 	if month < 10:
@@ -27,12 +29,18 @@ func _on_button_button_down():
 	
 
 func _on_start_btn_button_down():
+	$Button.hide()
+	$Panel2/VBoxContainer.hide()
+	$Panel2/CenterContainer.show()
 	%StartBtn.hide()
 	%ProgressBar.show()
+	await get_tree().create_timer(1).timeout
+	$Panel2/Label.show()
 	createSave()
 	Global.projectName = projectName
 	Console.debug = 'Successfuly Created "'+projectName+'"'
 	Console.ECode = "0000"
+	#YASM.load_scene("res://Main.tscn")
 	get_tree().change_scene_to_file("res://Main.tscn")
 
 
@@ -64,7 +72,7 @@ func createSave():
 	dir.make_dir(projectName)
 	projectFileName = projectName
 	var f = FileAccess.open("user:///saves/"+projectName+"/data.save",FileAccess.WRITE)
-	if projectThumbnail.ends_with(".png") or projectThumbnail.ends_with(".PNG") or projectThumbnail.ends_with(".jpg") or projectThumbnail.ends_with(".JPG") or projectThumbnail.ends_with(".jpeg") or projectThumbnail.ends_with(".JPEG"):
+	if projectThumbnail.ends_with(".png") or projectThumbnail.ends_with(".PNG") or projectThumbnail.ends_with(".jpg") or projectThumbnail.ends_with(".JPG") or projectThumbnail.ends_with(".jpeg") or projectThumbnail.ends_with(".JPEG") or projectThumbnail.ends_with(".webp") or projectThumbnail.ends_with(".bmp") or projectThumbnail.ends_with(".ktx") or projectThumbnail.ends_with(".tga"):
 		var dir2 = DirAccess.open("user:///saves/"+projectFileName)
 		var tempPath = projectThumbnail.split(".",false)
 		fileType = str(tempPath[tempPath.size()-1])

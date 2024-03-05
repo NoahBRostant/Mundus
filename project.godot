@@ -19,6 +19,8 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Assets/Splash Screen/New Splash Screen notextbg title.png"
 config/icon="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png"
+scenes/loading_scene_path="res://addons/yet_another_scene_manager/Scenes/Loading.tscn"
+scenes/error_scene_path="res://addons/yet_another_scene_manager/Scenes/Error.tscn"
 
 [autoload]
 
@@ -26,11 +28,18 @@ Console="*res://Console.gd"
 Global="*res://Global.gd"
 InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+HttpRequest="*res://AwaitableHTTPRequest.gd"
+YASM="res://addons/yet_another_scene_manager/Scenes.gd"
+Stripe="*res://addons/godot-firebase/stripe.gd"
 
 [display]
 
+window/size/viewport_width=2304
+window/size/viewport_height=1296
 window/size/borderless=true
 window/size/transparent=true
+window/size/window_width_override=1152
+window/size/window_height_override=648
 window/per_pixel_transparency/allowed=true
 window/fullsize=true
 window/image=""
@@ -47,7 +56,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/QuickPluginManager/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/http-sse-client/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg")
+enabled=PackedStringArray("res://addons/QuickPluginManager/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/http-sse-client/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/rcalc_gd/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg", "res://addons/varedit/plugin.cfg")
 
 [rendering]
 

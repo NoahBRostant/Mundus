@@ -87,27 +87,45 @@ func _on_CMDLine_text_entered(_new_text):
 			write_to_debug.text += "[code][/code]   Godot: Godot_v4.2.1.stable\n"
 		else:
 			pass
-	elif cmd.begins_with("print("):
-		if cmd.ends_with(")"):
-			var tempcmd = cmd.trim_prefix("print(")
+	elif cmd.begins_with("console"):
+		var consoleType
+		var error = true
+		var tempcmd = cmd.trim_prefix("console")
+		if tempcmd.begins_with(".log("):
+			consoleType = CWhite+"][code][/code] Console: "
+			tempcmd = tempcmd.trim_prefix(".log(")
+			error = false
+		elif tempcmd.begins_with(".error("):
+			consoleType = CRed+"][code]󰅙[/code]   Error: "
+			tempcmd = tempcmd.trim_prefix(".error(")
+			error = false
+		elif tempcmd.begins_with(".alert("):
+			consoleType = CYellow+"][code][/code]   Alert: "
+			tempcmd = tempcmd.trim_prefix(".alert(")
+			error = false
+		elif tempcmd.begins_with(".success("):
+			consoleType = CGreen+"][code][/code] Success: "
+			tempcmd = tempcmd.trim_prefix(".success(")
+			error = false
+		if tempcmd.ends_with(")"):
 			tempcmd = tempcmd.trim_suffix(")")
 			if tempcmd.begins_with("'"):
 				if tempcmd.ends_with("'"):
 					tempcmd = tempcmd.trim_prefix("'")
 					tempcmd = tempcmd.trim_suffix("'")
-					write_to_debug.text += "[color="+CWhite+"][code][/code]   Print: "+str(tempcmd)+"[/color]\n"
+					write_to_debug.text += "[color="+consoleType+str(tempcmd)+"[/color]\n"
 				else:
 					ERROR("0004")
 			elif tempcmd.begins_with('"'):
 				if tempcmd.ends_with('"'):
 					tempcmd = tempcmd.trim_prefix('"')
 					tempcmd = tempcmd.trim_suffix('"')
-					write_to_debug.text += "[color="+CWhite+"][code][/code]   Print: "+str(tempcmd)+"[/color]\n"
+					write_to_debug.text += "[color="+consoleType+str(tempcmd)+"[/color]\n"
 				else:
 					ERROR("0004")
 			else:
 				var variable = $"/root/Global".get(tempcmd)
-				write_to_debug.text += "[color="+CWhite+"][code][/code]   Print: "+str(variable)+"[/color]\n"
+				write_to_debug.text += "[color="+consoleType+str(tempcmd)+"[/color]\n"
 		else:
 			ERROR("0003")
 	elif cmd == "info":

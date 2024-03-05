@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1bm56qf4c7hc"]
+[gd_scene load_steps=15 format=3 uid="uid://1bm56qf4c7hc"]
 
 [ext_resource type="Script" path="res://NewProjectPanel.gd" id="1_umbs1"]
 [ext_resource type="Script" path="res://addons/spin_button/src/controls/sb_spin_button.gd" id="1_y726x"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://baholvlj43whh" path="res://Assets/Basic Icons/chevron-left-solid.svg" id="3_5b4aw"]
 [ext_resource type="Texture2D" uid="uid://c6j6khryuva0u" path="res://Assets/Basic Icons/beer-mug-empty-solid.svg" id="4_rnk2o"]
 [ext_resource type="Texture2D" uid="uid://dwxld143413vf" path="res://Assets/Basic Icons/d-and-d.svg" id="5_l4vc4"]
+[ext_resource type="VideoStream" path="res://Assets/Animated Icons/Animation-1707432535696_2_.ogv" id="9_g8j0p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3kn0"]
 bg_color = Color(0, 0, 0, 0.360784)
@@ -13,22 +14,6 @@ corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fcfr"]
 bg_color = Color(0.141176, 0.14902, 0.164706, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifary"]
-bg_color = Color(0.141176, 0.14902, 0.164706, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k506g"]
-bg_color = Color(0.223529, 0.360784, 0.603922, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -58,6 +43,22 @@ corner_detail = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik0xx"]
 content_margin_left = 10.0
 content_margin_right = 10.0
+bg_color = Color(0.223529, 0.360784, 0.603922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifary"]
+bg_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k506g"]
 bg_color = Color(0.223529, 0.360784, 0.603922, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -164,41 +165,6 @@ popup/item_2/id = 2
 [node name="Panel2" type="Panel" parent="Panel2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="StartBtn" type="Button" parent="Panel2/VBoxContainer/Panel2"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -40.5
-offset_top = -42.0
-offset_right = 40.5
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 0
-disabled = true
-text = "Start"
-
-[node name="ProgressBar" type="ProgressBar" parent="Panel2/VBoxContainer/Panel2"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = -36.0
-offset_right = -13.0
-offset_bottom = -12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_ifary")
-theme_override_styles/fill = SubResource("StyleBoxFlat_k506g")
-value = 50.0
 
 [node name="D&D" type="HBoxContainer" parent="Panel2/VBoxContainer/Panel2"]
 layout_mode = 1
@@ -362,6 +328,77 @@ popup/item_4/separator = true
 popup/item_5/text = "Search for Sources"
 popup/item_5/id = 5
 
+[node name="StartBtn" type="Button" parent="Panel2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.5
+offset_top = -52.0
+offset_right = 41.5
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+disabled = true
+text = "Start"
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -46.0
+offset_right = -20.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ifary")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k506g")
+value = 50.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Panel2/CenterContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+stream = ExtResource("9_g8j0p")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="Panel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -85.0
+offset_right = 215.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Waking Hamsters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NativeFileDialog" type="NativeFileDialog" parent="."]
 title = "Open a File"
 file_mode = 0
@@ -369,7 +406,6 @@ access = 2
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="text_changed" from="Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
-[connection signal="button_down" from="Panel2/VBoxContainer/Panel2/StartBtn" to="." method="_on_start_btn_button_down"]
-[connection signal="focus_exited" from="Panel2/VBoxContainer/Panel2/StartBtn" to="." method="_on_start_btn_focus_exited"]
 [connection signal="button_up" from="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_down" from="Panel2/StartBtn" to="." method="_on_start_btn_button_down"]
 [connection signal="file_selected" from="NativeFileDialog" to="." method="_on_native_file_dialog_file_selected"]

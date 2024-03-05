@@ -481,12 +481,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -393.0
+offset_left = -432.0
 offset_top = -242.0
-offset_right = 393.0
+offset_right = 432.0
 offset_bottom = 242.0
 
+[node name="NativeFileDialog" type="NativeFileDialog" parent="."]
+title = "Open a Directory"
+file_mode = 2
+access = 2
+
 [connection signal="button_down" from="VBoxContainer/Panel2/HBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="VBoxContainer/Panel2/HBoxContainer/Button2" to="." method="_on_Import_button_up"]
 [connection signal="button_down" from="VBoxContainer/Panel2/HBoxContainer/Button3" to="." method="_on_button_3_button_down"]
 [connection signal="text_changed" from="VBoxContainer/Panel2/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button" to="." method="_on_open_button_down"]
@@ -497,3 +503,4 @@ offset_bottom = 242.0
 [connection signal="button_down" from="RenamePanel/Panel/VBoxContainer/HBoxContainer/CenterContainer/Button" to="." method="_on_renamepanelclose_button_down"]
 [connection signal="button_down" from="RenamePanel/Panel/VBoxContainer/HBoxContainer/CenterContainer2/Button" to="." method="_on_renamepaneldone_button_down"]
 [connection signal="button_down" from="AccountOptions/Button" to="." method="_on_closeaccount_button_up"]
+[connection signal="dir_selected" from="NativeFileDialog" to="." method="_on_native_file_dialog_dir_selected"]

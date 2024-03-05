@@ -5,8 +5,6 @@ var selection
 
 @export_multiline var placeholder = ""
 
-var openai = load("res://Scripts/ProphetAI.py")
-
 func _ready():
 	$TextEdit.placeholder_text = placeholder
 
@@ -148,30 +146,30 @@ func _md_to_bb(mdText:String):
 	bbcText = temp
 	$TextEdit2.text = bbcText
 
-func _input(event):
-	if event.is_action_pressed("openai_gpt"):
-		var gptprompt:String
-		Global.noteSave = $TextEdit.text
-		_md_to_bb($TextEdit.text)
-		if $TextEdit2.text.length() > 500:
-			gptprompt = $TextEdit2.text.right(500)
-		else:
-			gptprompt = $TextEdit2.text
-		Global.gptTokenLimit = Global.gptTokenDefault
-		Global.openaiRequest = gptprompt
-		$TextEdit.text += Global.openaiResponse
+#func _input(event):
+	#if event.is_action_pressed("openai_gpt"):
+		#var gptprompt:String
+		#Global.noteSave = $TextEdit.text
+		#_md_to_bb($TextEdit.text)
+		#if $TextEdit2.text.length() > 500:
+			#gptprompt = $TextEdit2.text.right(500)
+		#else:
+			#gptprompt = $TextEdit2.text
+		#Global.gptTokenLimit = Global.gptTokenDefault
+		#Global.openaiRequest = gptprompt
+		#$TextEdit.text += Global.openaiResponse
 
 
-func _on_TextureButton5_button_up():
-	var gptprompt:String
-	Global.noteSave = $TextEdit.text
-	_md_to_bb($TextEdit.text)
-	if selection.length() > 0:
-		gptprompt = selection
-	elif $TextEdit2.text.length() > 1000:
-		gptprompt = $TextEdit2.text.right(1000)
-	else:
-		gptprompt = $TextEdit2.text
-	Global.gptTokenLimit = Global.gptTokenDefault
-	Global.openaiRequest = gptprompt
-	$TextEdit.text += Global.openaiResponse
+#func _on_TextureButton5_button_up():
+	#var gptprompt:String
+	#Global.noteSave = $TextEdit.text
+	#_md_to_bb($TextEdit.text)
+	#if selection.length() > 0:
+		#gptprompt = selection
+	#elif $TextEdit2.text.length() > 1000:
+		#gptprompt = $TextEdit2.text.right(1000)
+	#else:
+		#gptprompt = $TextEdit2.text
+	#Global.gptTokenLimit = Global.gptTokenDefault
+	#Global.openaiRequest = gptprompt
+	#$TextEdit.text += Global.openaiResponse

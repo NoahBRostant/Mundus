@@ -8,11 +8,35 @@ var CYellow:String = "#E6F385"
 
 var attempt = 0
 
-func _ready():
+func _ready() -> void:
 	get_window().borderless = true
 	get_window().size = Vector2i(1152,648)
 	await get_tree().create_timer(0.5).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Account Info[/color]")
+	await get_tree().create_timer(0.1).timeout
+	var r := await HttpRequest.async_request('https://www.google.com')
+	if r.success:
+		var check_auth = await Firebase.Auth.check_auth_file()
+		if check_auth != true:
+			await get_tree().create_timer(0.2).timeout
+			$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Not Logged In[/color]")
+			await get_tree().create_timer(0.5).timeout
+			$Panel2.show()
+		else:
+			auth_success()
+	else:
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Failed to Connect to Internet[/color]")
+		enterIntercheckLoop()
+
+
+func enterIntercheckLoop():
+	var success = false
+	while success == false:
+		await get_tree().create_timer(5).timeout
+		var r := await HttpRequest.async_request('https://www.google.com')
+		if r.success:
+			success = true
+			break
 	var check_auth = await Firebase.Auth.check_auth_file()
 	if check_auth != true:
 		await get_tree().create_timer(0.2).timeout
@@ -21,7 +45,6 @@ func _ready():
 		$Panel2.show()
 	else:
 		auth_success()
-
 
 func auth_success():
 	await get_tree().create_timer(0.2).timeout
