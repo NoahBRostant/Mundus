@@ -28,3 +28,6 @@ Your feedback makes Mundus better. Share your ideas and suggestions on our [Feed
 ---
 
 Create a World as Unique as Your Story!
+
+<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot_1.png?raw=true"></img>
+<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot_2.png?raw=true"></img>
