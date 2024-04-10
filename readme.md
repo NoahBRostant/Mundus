@@ -1,3 +1,5 @@
+![Mundus Banner](Assets/Splash Screen/Github Banner.png)
+
 # Mundus - World Building App
 
 Welcome to **Mundus**, the ultimate tool for creating and exploring immersive worlds. Whether you're a writer, game designer, or just someone who loves to dream up new universes, Mundus is designed to bring your visions to life.
