@@ -58,12 +58,12 @@ func _on_CMDLine_text_entered(_new_text):
 		write_to_debug.text += "[code][/code]  Debug Terminal\n"
 		write_to_debug.text += "Welcome to Mundus...\n"
 	elif cmd == "help":
-		write_to_debug.text += "[center][code][/code] Help (Commands)[/center]\n"
-		write_to_debug.text += "- [color="+CBlue+"]help[/color] : Bring up the command menu or for more information on other comands\n"
-		write_to_debug.text += "- [color="+CBlue+"]info[/color] : Information on Mundus\n"
-		write_to_debug.text += "- [color="+CBlue+"]cls[/color] : Clear the Debug Console\n"
-		write_to_debug.text += "- [color="+CBlue+"]print()[/color] : Write to the Terminal\n"
-		write_to_debug.text += "- [color="+CBlue+"]func[/color] : Toggle Functions within Mundus\n"
+		write_to_debug.text += "[color="+CBlue+"][code][/code]    Help: List of Commands[/color]\n"
+		write_to_debug.text += "[color="+CBlue+"]             help[/color] : Bring up the command menu or for more information on other comands\n"
+		write_to_debug.text += "[color="+CBlue+"]             info[/color] : Information on Mundus\n"
+		write_to_debug.text += "[color="+CBlue+"]             cls[/color] : Clear the Debug Console\n"
+		write_to_debug.text += '[color='+CBlue+']             console()[/color] : Access the Terminal\n'
+		write_to_debug.text += "[color="+CBlue+"]             func[/color] : Toggle Functions within Mundus\n"
 	elif cmd.begins_with("func.fps"):
 		if cmd.begins_with("func.fps("):
 			if cmd.ends_with(")"):
@@ -107,7 +107,9 @@ func _on_CMDLine_text_entered(_new_text):
 			consoleType = CGreen+"][code][/code] Success: "
 			tempcmd = tempcmd.trim_prefix(".success(")
 			error = false
-		if tempcmd.ends_with(")"):
+		#elif !tempcmd.begins_with(".success(") or !tempcmd.begins_with(".alert(") or tempcmd.begins_with(".error(") or tempcmd.begins_with(".log("):
+			#error = true
+		if tempcmd.ends_with(")") and error != true:
 			tempcmd = tempcmd.trim_suffix(")")
 			if tempcmd.begins_with("'"):
 				if tempcmd.ends_with("'"):
@@ -126,8 +128,10 @@ func _on_CMDLine_text_entered(_new_text):
 			else:
 				var variable = $"/root/Global".get(tempcmd)
 				write_to_debug.text += "[color="+consoleType+str(tempcmd)+"[/color]\n"
-		else:
+		elif !tempcmd.ends_with(")"):
 			ERROR("0003")
+		if error == true and tempcmd.ends_with(")"):
+			ERROR("0020")
 	elif cmd == "info":
 		write_to_debug.text += "[color="+CBlue+"][code][/code]    Info: Mundus is a program designed to help you genorate and build worlds from your imagination.[/color]\n"
 		write_to_debug.text += "[color="+CBlue+"]             Find out more at [url]www.mundusbuilder.co.uk[/url][/color]\n"
@@ -221,6 +225,9 @@ func ERROR(ECode):
 	elif ECode == "0008":
 		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
 		write_to_debug.text += '[color='+CRed+']             Expected integer in argument[/color]\n'
+	elif ECode == "0020":
+		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+		write_to_debug.text += '[color='+CRed+']             Console command not defined as a type ( ".log", ".success", ".alert", ".error" )\n'
 	elif ECode == "0050":
 		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: OpenAI - GPT ran into an issue[/color]\n'
 		write_to_debug.text += '[color='+CRed+']             Unknown Issue[/color]\n'
@@ -240,3 +247,9 @@ func ERROR(ECode):
 	elif ECode == "1002":
 		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: An error occurred when trying to access the path.[/color]\n'
 		write_to_debug.text += '[color='+CRed+']             '+Console.debug+'[/color]\n'
+	elif ECode == "2000":
+		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to run Notify[/color]\n'
+		write_to_debug.text += '[color='+CRed+']             Notify Encountered an Error on Attempted Push Notification[/color]\n'
+	elif ECode == "2001":
+		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to run Notify[/color]\n'
+		write_to_debug.text += '[color='+CRed+']             Notify Push Notification Unavalible on ( "'+OS.get_name()+'" )[/color]\n'
