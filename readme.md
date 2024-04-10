@@ -1,4 +1,4 @@
-![Mundus Banner](Assets/Splash Screen/Github Banner.png)
+<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Github%20Banner.png?raw=true"></img>
 
 # Mundus - World Building App
 
