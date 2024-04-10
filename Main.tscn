@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=36 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Main.gd" id="1_uxxeo"]
@@ -10,13 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c0lgwk60pwwdx" path="res://Assets/Basic Icons/Refresh.png" id="7_hmtfy"]
 [ext_resource type="Texture2D" uid="uid://ck2uu7o2kbglh" path="res://Assets/Ruleset Logos/DnD-Symbol.png" id="8_1nibx"]
 [ext_resource type="Texture2D" uid="uid://dsdke1duouxap" path="res://Assets/Splash Screen/Version.png" id="9_3dk5g"]
-[ext_resource type="Texture2D" uid="uid://dwxld143413vf" path="res://Assets/Basic Icons/d-and-d.svg" id="9_5ku5e"]
-[ext_resource type="Texture2D" uid="uid://bf0hs76ilw1st" path="res://Assets/Basic Icons/book-bookmark-solid.svg" id="9_7w1fw"]
 [ext_resource type="Texture2D" uid="uid://dg2spcde7cxgw" path="res://Assets/Ruleset Logos/PF2Logo1600.webp" id="9_w85mx"]
-[ext_resource type="Texture2D" uid="uid://cuk1q342axru" path="res://Assets/Basic Icons/xmark-solid.svg" id="10_1aiwj"]
+[ext_resource type="Texture2D" uid="uid://bx04mydishjy6" path="res://Assets/Ruleset Logos/DaggerHeartLong.png" id="10_cshn8"]
 [ext_resource type="Script" path="res://addons/ReorderableContainer/reorderable_hbox.gd" id="10_nglef"]
-[ext_resource type="FontFile" uid="uid://dvwe1n5qn2bo0" path="res://Assets/Fonts/Segoe UI Bold.ttf" id="13_tnq5r"]
-[ext_resource type="Texture2D" uid="uid://bpd4val7f847e" path="res://Assets/Basic Icons/house-solid.svg" id="14_lkwhl"]
+[ext_resource type="PackedScene" uid="uid://bw5ncliqiptkc" path="res://StartGuide.tscn" id="14_iinvv"]
 [ext_resource type="Script" path="res://Debug.gd" id="14_v20j8"]
 [ext_resource type="FontFile" uid="uid://cnk6bhvrw6w6a" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Regular.ttf" id="15_t4xn5"]
 [ext_resource type="FontFile" uid="uid://cgynyh2ls2jq" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Bold.ttf" id="16_5unro"]
@@ -39,34 +36,6 @@ resource_name = "Layout"
 script = ExtResource("5_ip3ue")
 root = SubResource("Resource_qqlnt")
 hidden_tabs = {}
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4rg5"]
-content_margin_left = 10.0
-content_margin_right = 28.0
-bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjb8x"]
-content_margin_left = 10.0
-content_margin_right = 28.0
-bg_color = Color(1, 1, 1, 0.223529)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1aso"]
-content_margin_left = 10.0
-content_margin_right = 10.0
-bg_color = Color(0.160784, 0.168627, 0.184314, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 10
-expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vtfq"]
 content_margin_left = 10.0
@@ -338,6 +307,14 @@ texture = ExtResource("9_w85mx")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="DaggerHeartLogo" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_cshn8")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
@@ -349,104 +326,13 @@ vertical_scroll_mode = 0
 
 [node name="ReorderableHBox" type="Container" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer" node_paths=PackedStringArray("scroll_container")]
 process_mode = 1
-custom_minimum_size = Vector2(470, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("10_nglef")
 scroll_container = NodePath("..")
 is_debugging = true
-
-[node name="Button2" type="Button" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_e4rg5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tjb8x")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b1aso")
-toggle_mode = true
-button_pressed = true
-text = " Start Guide"
-icon = ExtResource("9_7w1fw")
-alignment = 0
-text_overrun_behavior = 3
-
-[node name="TextureButton" type="TextureButton" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox/Button2"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -8.5
-offset_right = -7.0
-offset_bottom = 9.5
-grow_horizontal = 0
-grow_vertical = 2
-texture_normal = ExtResource("10_1aiwj")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Button3" type="Button" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_e4rg5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tjb8x")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b1aso")
-toggle_mode = true
-text = "Tab 1"
-icon = ExtResource("9_5ku5e")
-alignment = 0
-text_overrun_behavior = 3
-
-[node name="TextureButton" type="TextureButton" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox/Button3"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -8.5
-offset_right = -7.0
-offset_bottom = 9.5
-grow_horizontal = 0
-grow_vertical = 2
-texture_normal = ExtResource("10_1aiwj")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Button4" type="Button" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_e4rg5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tjb8x")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b1aso")
-toggle_mode = true
-text = "Tab 2"
-icon = ExtResource("14_lkwhl")
-alignment = 0
-text_overrun_behavior = 3
-
-[node name="TextureButton" type="TextureButton" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox/Button4"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -8.5
-offset_right = -7.0
-offset_bottom = 9.5
-grow_horizontal = 0
-grow_vertical = 2
-texture_normal = ExtResource("10_1aiwj")
-ignore_texture_size = true
-stretch_mode = 5
 
 [node name="Control2" type="Control" parent="Control2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -462,6 +348,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -488,8 +375,8 @@ bbcode_enabled = true
 text = "[center]No articles selected for viewing or editing. Please create a new article or select an already made article."
 scroll_active = false
 
-[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
-visible = false
+[node name="ContentPanel" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -501,111 +388,13 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer"]
+[node name="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/ContentPanel" instance=ExtResource("14_iinvv")]
 visible = false
 layout_mode = 2
-theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer"]
+[node name="Control" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/ContentPanel" instance=ExtResource("16_un1gh")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Start Guide to Mundus"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-size_flags_stretch_ratio = 0.5
-theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 0.5
-
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "Guide List"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CheckBox" type="CheckBox" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Create your first Generic Article"
-
-[node name="CheckBox2" type="CheckBox" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Fill the Article with info"
-
-[node name="CheckBox3" type="CheckBox" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Create your first Link Points"
-
-[node name="CheckBox4" type="CheckBox" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Create a Map"
-
-[node name="CheckBox5" type="CheckBox" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Create a Timeline"
-
-[node name="CheckBox6" type="CheckBox" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Keep on Building using Articles"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/bold_font = ExtResource("13_tnq5r")
-bbcode_enabled = true
-text = "Welcome to Mundus, a user-friendly platform designed for everyone, regardless of age or background. Whether you're setting up a Dungeons & Dragons campaign or crafting a novel, Mundus is here to help you create your own world with ease.
-
-[b]Getting Started:[/b]
-On the left side of this message, you'll find a checklist to guide you through the features of Mundus. Feel free to mark off items as you progress.
-
-[b]Articles:[/b]
-These are the building blocks of your world, like swords, spells, characters, and buildings. To create an article, click the plus icon in the files panel, select an article type, and start filling in the details.
-
-[b]Link Points:[/b]
-Think of these as tags or keywords. They create strong connections between articles with similar themes, helping Mundus highlight these relationships.
-
-[b]Maps:[/b]
-Creating a map is similar to creating an article. You have the option to upload an existing image or use the map creator tool to design your world.
-
-[b]Timelines:[/b]
-Timelines are essential for organizing your world chronologically. They aren't articles but act as the backbone of your world, linking articles and showing changes over time. Note: Maps created from images are less adjustable compared to those made with the map creation tool.
-
-There are two types of timelines:
-
-    [b]Fixed Timeline:[/b]
-        This is your world's main timeline, running from the beginning to the end. There can only be one fixed timeline, serving as the foundation for all articles.
-
-    [b]Generic Timeline:[/b]
-        These are flexible and can be adjusted to fit your needs. You can have as many as you want, and they're great for various purposes. For more advanced information, check out the \"Documentation\" section.
-
-[b]Conclusion:[/b]
-Keep creating articles, designing your world, and most importantly, enjoy the process of bringing your imagination to life!"
-
-[node name="Control" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/MarginContainer" instance=ExtResource("16_un1gh")]
-layout_mode = 2
+title = "Character"
 
 [node name="Control3" type="Control" parent="Control2/HBoxContainer/VBoxContainer"]
 layout_mode = 2

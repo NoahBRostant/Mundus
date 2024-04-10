@@ -3,8 +3,9 @@ extends Control
 var projectName = ""
 var projectType = ""
 
+var tab = preload("res://ContentTabButton.tscn")
 
-var tabdict = {"0": ["Start Guide","pos1"]}
+var tabdict = []
 
 
 func _ready():
@@ -12,7 +13,7 @@ func _ready():
 	get_window().title = "Mundus - World Builder"
 	await get_tree().create_timer(0.1).timeout
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
-	TabCalculate()
+	#TabCalculate()
 	if Console.hasGlobalMenu == true:
 		%MenuBar.hide()
 		var File = DisplayServer.global_menu_add_item("File","New Article",_on_file_id_pressed(0))
@@ -22,6 +23,21 @@ func _ready():
 		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/DnDLogo.show()
 	elif projectType == "Pathfinder":
 		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/PathfinderLogo.show()
+	var tablist = %ContentPanel.get_children()
+	for i in tablist:
+		var tempdict = {
+			"title":i.title,
+			"image":i.img,
+			"saved":i.saved
+		}
+		tabdict.append(tempdict)
+	print(tabdict)
+	for i in tabdict:
+		var instance = tab.instantiate()
+		instance.title = i["title"]
+		instance.img = i["image"]
+		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox.add_child(instance)
+	Notify.send("Yay","it Works!")
 
 
 func _on_file_id_pressed(id):
@@ -60,6 +76,4 @@ func _on_closeaccount_button_up():
 
 
 func TabCalculate():
-	for i in tabdict:
-		print(i[0][0])
 	pass
