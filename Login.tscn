@@ -138,8 +138,10 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_qan2r")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4hy5c")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_qan2r")
 tab_alignment = 1
+current_tab = 1
 
 [node name="Login" type="TabBar" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer"]
+visible = false
 layout_mode = 2
 tab_alignment = 1
 clip_tabs = false
@@ -294,7 +296,6 @@ layout_mode = 2
 text = "Login"
 
 [node name="Register" type="TabBar" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register"]
@@ -370,6 +371,23 @@ context_menu_enabled = false
 drag_and_drop_selection_enabled = false
 select_all_on_focus = true
 caret_blink = true
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+layout_mode = 2
+text = "Agree to the "
+
+[node name="LinkButton" type="LinkButton" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer/CheckBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 102.0
+offset_right = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.662745, 0.933333, 1)
+text = "Terms & Conditions"
+underline = 1
 
 [node name="Control2" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)

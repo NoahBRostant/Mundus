@@ -65,7 +65,7 @@ func _on_register_button_up():
 	var email = %REmail.text
 	var password = %RPassword.text
 	var confirmation = %RConfirm.text
-	if password == confirmation:
+	if password == confirmation and $ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer/CheckBox.button_pressed == true:
 		Firebase.Auth.signup_with_email_and_password(email,password)
 
 
