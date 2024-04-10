@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://codewh1n4a0fp"]
+[gd_scene load_steps=5 format=3 uid="uid://codewh1n4a0fp"]
 
 [ext_resource type="PackedScene" uid="uid://d0g1o5k4e4yat" path="res://MDNoteEditor.tscn" id="1_qyamw"]
+[ext_resource type="Script" path="res://Articles/DnD5e/character.gd" id="1_wbm8q"]
+[ext_resource type="Texture2D" uid="uid://c6j6khryuva0u" path="res://Assets/Basic Icons/beer-mug-empty-solid.svg" id="2_shh8b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdbne"]
 content_margin_left = 10.0
@@ -12,13 +14,17 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 10
 
-[node name="Control" type="Control"]
+[node name="Character" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wbm8q")
+img = ExtResource("2_shh8b")
+title = "Testing"
+saved = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -176,3 +182,5 @@ placeholder = "List your character’s key skills and abilities, linking them to
 [node name="Stats" type="TabBar" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
+
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
