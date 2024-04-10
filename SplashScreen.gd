@@ -8,6 +8,8 @@ var CYellow:String = "#E6F385"
 
 var attempt = 0
 
+var alreadytried = false
+
 func _ready() -> void:
 	get_window().borderless = true
 	get_window().size = Vector2i(1152,648)
@@ -47,20 +49,26 @@ func enterIntercheckLoop():
 		auth_success()
 
 func auth_success():
-	await get_tree().create_timer(0.2).timeout
-	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Logged In[/color]")
-	await get_tree().create_timer(0.2).timeout
-	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking for Updates[/color]")
-	await get_tree().create_timer(0.2).timeout
-	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]No Updates Found[/color]")
-	await get_tree().create_timer(0.2).timeout
-	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Server Data[/color]")
-	await startup_sequence()
-	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Loaded Server Data[/color]")
-	await get_tree().create_timer(0.2).timeout
-	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Projects[/color]")
-	await SearchProjects()
-	get_tree().change_scene_to_file("res://ProjectList.tscn")
+	if alreadytried == false:
+		alreadytried = true
+		await get_tree().create_timer(0.2).timeout
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Logged In[/color]")
+		await get_tree().create_timer(0.2).timeout
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking for Updates[/color]")
+		await get_tree().create_timer(0.2).timeout
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]No Updates Found[/color]")
+		await get_tree().create_timer(0.2).timeout
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Server Data[/color]")
+		await startup_sequence()
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CGreen+"]Loaded Server Data[/color]")
+		await get_tree().create_timer(0.2).timeout
+		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Loading Projects[/color]")
+		await SearchProjects()
+		get_tree().change_scene_to_file("res://ProjectList.tscn")
+	else:
+		Firebase.Auth.logout()
+		alreadytried = false
+		retry(0,0)
 
 func retry(error_code, message):
 	await get_tree().create_timer(0.2).timeout
