@@ -48,7 +48,7 @@ There is no schedule, as of now, for its open beta or feature release but I will
 
 ## Contribution
 
-Your feedback makes Mundus better. Share your ideas and suggestions on our [Feedback Page](https://www.mundusapp.com/feedback).
+Your feedback makes Mundus better. Share your ideas and suggestions on our Discussions Page.
 
 ---
 
