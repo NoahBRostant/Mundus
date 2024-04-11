@@ -16,6 +16,31 @@ Welcome to **Mundus**, the ultimate tool for creating immersive worlds. Whether 
 - **Collaboration**: Work with others in real-time to build worlds together. - Coming Soon
 - **Export and Share**: Easily export your creations and share them with the Mundus community. - Coming Soon
 
+## Roadmap
+
+### Current Features
+- **Creating & Modifing Projects**
+- **Account Creation & Authentication**
+- **Access to your Account and Subscriptions**
+- **Rulesets - D&D, Pathfinder,Daggerheart**
+- **Basic Articles/Pages - Start Guide, General**
+- **Project Tree/Files**
+- **Article Inspector**
+- **Dictionary**
+- **Terminal/Console**
+
+### Future Features for 2024
+- **Modular Article Format using XML**
+- **Character Article using new format**
+- **Plugin Manager/Store**
+- **All Default Articles**
+
+### Future Features for 2025
+- **WASM intergration for plugin support**
+- **Python Intergration for AI**
+- **AI for text and images**
+
+
 ## Installation
 
 Currently there is no release or pre-release. However, I plan on releasing Mundus on Windows, MacOS, and Linux.
