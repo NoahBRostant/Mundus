@@ -44,7 +44,7 @@ Welcome to **Mundus**, the ultimate tool for creating immersive worlds. Whether 
 ## Installation
 
 Currently there is no release or pre-release. However, I plan on releasing Mundus on Windows, MacOS, and Linux.
-There is no scedual, as of now, for its open beta or feature release but I will keep working on the project and keep you all informed on the progress.
+There is no schedule, as of now, for its open beta or feature release but I will keep working on the project and keep you all informed on the progress.
 
 ## Contribution
 
