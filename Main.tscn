@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=38 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Main.gd" id="1_uxxeo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b07vu36odc0rc" path="res://addons/godot-firebase/circle-user-regular(1).svg" id="3_ck3df"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout_panel.gd" id="4_7mtdk"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout.gd" id="5_ip3ue"]
+[ext_resource type="Script" path="res://Files.gd" id="6_n2k42"]
 [ext_resource type="Texture2D" uid="uid://dicls5h3u6ckf" path="res://Assets/Basic Icons/Add.png" id="6_r5gtn"]
 [ext_resource type="Texture2D" uid="uid://c0lgwk60pwwdx" path="res://Assets/Basic Icons/Refresh.png" id="7_hmtfy"]
 [ext_resource type="Texture2D" uid="uid://ck2uu7o2kbglh" path="res://Assets/Ruleset Logos/DnD-Symbol.png" id="8_1nibx"]
@@ -36,6 +37,16 @@ resource_name = "Layout"
 script = ExtResource("5_ip3ue")
 root = SubResource("Resource_qqlnt")
 hidden_tabs = {}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8fpc"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vtfq"]
 content_margin_left = 10.0
@@ -208,6 +219,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+script = ExtResource("6_n2k42")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files"]
 layout_mode = 2
@@ -263,8 +275,29 @@ texture = ExtResource("7_hmtfy")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Tree" type="Tree" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer"]
+[node name="Tree" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_k8fpc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Spaces" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer"]
@@ -631,7 +664,7 @@ editor_description = "
 			
 Give feedback at: https://github.com/ArshvirGoraya/Godot-Collapsible-Container"
 clip_contents = true
-custom_minimum_size = Vector2(200, 161)
+custom_minimum_size = Vector2(357, 62)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -639,8 +672,10 @@ script = ExtResource("21_av3o3")
 starts_opened = false
 folding_direction_preset = 10
 sizing_constraint = 1
+auto_update_size = 1
 sizing_node = NodePath("MarginContainer")
-tween_duration_sec = 0.1
+tween_in_physics_process = true
+tween_duration_sec = 0.3
 tween_transition_type = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer"]
@@ -773,6 +808,7 @@ offset_right = 432.0
 offset_bottom = 242.0
 
 [connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="button_down" from="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/HBoxContainer/Button3" to="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files" method="_on_button_3_button_down"]
 [connection signal="sort_children" from="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" to="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" method="_on_sort_children"]
 [connection signal="text_submitted" from="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal/MarginContainer/VBoxContainer/CMDLine" to="Control2/HBoxContainer/VBoxContainer/Control3/Panel" method="_on_CMDLine_text_entered"]
 [connection signal="button_up" from="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/Button" to="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase" method="_on_button_button_up"]
