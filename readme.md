@@ -56,7 +56,4 @@ Create a World as Unique as Your Story!
 
 <img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot_1.png?raw=true"></img>
 <img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot_2.png?raw=true"></img>
-<<<<<<< HEAD
-
-=======
->>>>>>> 0eec5cf9535a96ef0fd79f52f5acf3e932f3f5a7
+<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Frame.png?raw=true"></img>
