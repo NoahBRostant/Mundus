@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d0g1o5k4e4yat"]
+[gd_scene load_steps=31 format=3 uid="uid://d0g1o5k4e4yat"]
 
 [ext_resource type="Script" path="res://MDNoteEditor.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://bhydxkd7hoogf" path="res://Assets/Fonts/Segoe UI.ttf" id="3_y4dm7"]
@@ -91,22 +91,6 @@ content_margin_bottom = 5.0
 bg_color = Color(0.160784, 0.168627, 0.184314, 1)
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-
-[sub_resource type="FontFile" id="14"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/14/0 = Vector2(0, 0)
-cache/0/14/0/ascent = 0.0
-cache/0/14/0/descent = 0.0
-cache/0/14/0/underline_position = 0.0
-cache/0/14/0/underline_thickness = 0.0
-cache/0/14/0/scale = 1.0
-cache/0/14/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/14/0/kerning_overrides/14/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="20"]
 
@@ -259,7 +243,7 @@ color = Color(0.721569, 0.721569, 0.721569, 1)
 [node name="WordCount" type="MenuButton" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
-theme_override_fonts/font = SubResource("14")
+theme_override_font_sizes/font_size = 13
 text = "0 Words 0 Characters"
 
 [node name="Label" type="MenuButton" parent="ColorRect/HBoxContainer"]
@@ -269,13 +253,22 @@ theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
 theme_override_colors/font_pressed_color = Color(0.721569, 0.721569, 0.721569, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_colors/font_focus_color = Color(0.721569, 0.721569, 0.721569, 1)
-theme_override_fonts/font = SubResource("14")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("20")
 theme_override_styles/pressed = SubResource("17")
 theme_override_styles/hover = SubResource("16")
 theme_override_styles/disabled = SubResource("19")
 theme_override_styles/focus = SubResource("18")
 text = "MarkDown"
+item_count = 4
+popup/item_0/text = "MarkDown"
+popup/item_0/id = 0
+popup/item_1/text = "Plain Text"
+popup/item_1/id = 1
+popup/item_2/text = "HTML"
+popup/item_2/id = 2
+popup/item_3/text = "BBCode"
+popup/item_3/id = 3
 
 [connection signal="text_changed" from="TextEdit" to="TextEdit" method="_on_TextEdit_text_changed"]
 [connection signal="button_up" from="ColorRect/HBoxContainer/TextureButton5" to="." method="_on_TextureButton5_button_up"]

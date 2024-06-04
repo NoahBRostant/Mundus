@@ -15,6 +15,7 @@ func get_all_files(path: String, file_ext := "", files := [], parent_node = null
 		dir.list_dir_begin()
 
 		var file_name = dir.get_next()
+		var file_path
 
 		while file_name != "":
 			if dir.current_is_dir():
@@ -24,10 +25,12 @@ func get_all_files(path: String, file_ext := "", files := [], parent_node = null
 				files = get_all_files(dir.get_current_dir() +"/"+ file_name, file_ext, files, folderinst.get_node("CollapsibleContainer/MarginContainer/VBoxContainer"))
 			else:
 				if file_ext and file_name.get_extension() != file_ext:
+					file_path = dir.get_current_dir()
 					file_name = dir.get_next()
 					continue
 				var iteminst = treeitem.instantiate()
 				iteminst.title = file_name
+				iteminst.filepath = path+"/"+file_name
 				parent_node.add_child(iteminst)
 				files.append(dir.get_current_dir() +"/"+ file_name)
 
@@ -43,3 +46,7 @@ func _on_button_3_button_down():
 	for i in childeren:
 		$VBoxContainer/Tree/MarginContainer/ScrollContainer/VBoxContainer2.remove_child(i)
 	_ready()
+
+
+func _on_button_2_pressed():
+	get_node("/root/Control/AddFileTree").show()

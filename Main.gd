@@ -5,12 +5,15 @@ var projectType = ""
 
 var tab = preload("res://ContentTabButton.tscn")
 
+var startguide = preload("res://StartGuide.tscn")
+
 var tabdict = []
 
 
 func _ready():
 	get_window().borderless = false
 	get_window().title = "Mundus - World Builder"
+	get_window().min_size = Vector2i(1000,600)
 	await get_tree().create_timer(0.1).timeout
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	#TabCalculate()
@@ -25,10 +28,12 @@ func _ready():
 		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/PathfinderLogo.show()
 	var tablist = %ContentPanel.get_children()
 	for i in tablist:
+		printerr(i)
 		var tempdict = {
 			"title":i.title,
 			"image":i.img,
-			"saved":i.saved
+			"saved":i.saved,
+			"tabid":tablist.find(i)
 		}
 		tabdict.append(tempdict)
 	print(tabdict)
@@ -36,8 +41,8 @@ func _ready():
 		var instance = tab.instantiate()
 		instance.title = i["title"]
 		instance.img = i["image"]
+		instance.tabid = i["tabid"]
 		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox.add_child(instance)
-	Notify.send("Yay","it Works!")
 
 
 func _on_file_id_pressed(id):
@@ -66,6 +71,25 @@ func _on_file_id_pressed(id):
 	elif id == 11:
 		get_tree().quit()
 
+func _on_help_id_pressed(id):
+	if id == 0:
+		pass
+	elif id == 1:
+		pass
+	elif id == 2:
+		pass
+	elif id == 3:
+		pass
+	elif id == 4:
+		pass
+	elif id == 5:
+		var inst = startguide.instantiate()
+		Console.tabidint += 1
+		inst.tabid = Console.tabidint
+		%ContentPanel.add_child(inst)
+
+#func add_content_article()
+
 
 func _on_accountoptions_button_up():
 	$AccountOptions.show()
@@ -73,7 +97,8 @@ func _on_accountoptions_button_up():
 
 func _on_closeaccount_button_up():
 	$AccountOptions.hide()
+	$AddFileTree.hide()
 
-
-func TabCalculate():
-	pass
+func openfile():
+	var fileoopen = Console.filetoopen
+	

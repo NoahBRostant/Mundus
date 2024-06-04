@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw5ncliqiptkc"]
+[gd_scene load_steps=22 format=3 uid="uid://bw5ncliqiptkc"]
 
 [ext_resource type="FontFile" uid="uid://dvwe1n5qn2bo0" path="res://Assets/Fonts/Segoe UI Bold.ttf" id="1_b8k5r"]
 [ext_resource type="Script" path="res://StartGuide.gd" id="1_ig87h"]
 [ext_resource type="Texture2D" uid="uid://bf0hs76ilw1st" path="res://Assets/Basic Icons/book-bookmark-solid.svg" id="2_4cm2t"]
+[ext_resource type="Texture2D" uid="uid://c0alo6vfwalrc" path="res://Assets/Splash Screen/UniversalUpscaler_96cd49f2-e7bb-4764-a9b8-12d75e754bda.jpg" id="3_1t37d"]
+[ext_resource type="Texture2D" uid="uid://dsdke1duouxap" path="res://Assets/Splash Screen/Version.png" id="5_j8r14"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="6_51n02"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="7_s6r5a"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="8_gku21"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="9_5bc3v"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="10_a5waw"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="11_dpuje"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="12_rvp1c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vtfq"]
 content_margin_left = 10.0
@@ -14,32 +23,134 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 10
 
-[node name="VBoxContainer" type="VBoxContainer"]
-theme_override_constants/separation = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t78hf"]
+bg_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 10
+
+[sub_resource type="Resource" id="Resource_8d020"]
+resource_local_to_scene = true
+script = ExtResource("7_s6r5a")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_61l65"]
+resource_local_to_scene = true
+script = ExtResource("8_gku21")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_37t4o"]
+resource_local_to_scene = true
+script = ExtResource("9_5bc3v")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_vysdy"]
+resource_local_to_scene = true
+script = ExtResource("10_a5waw")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_iboi4"]
+resource_local_to_scene = true
+script = ExtResource("11_dpuje")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_t8gof"]
+resource_local_to_scene = true
+script = ExtResource("12_rvp1c")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvgy7"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0823529, 0.368627, 0.945098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ig87h")
 img = ExtResource("2_4cm2t")
 title = "Start Guide"
-saved = true
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.160784, 0.168627, 0.184314, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0.0235294)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1t37d")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Start Guide to Mundus"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Panel" type="Panel" parent="HBoxContainer"]
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_stretch_ratio = 0.5
 theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,42 +162,42 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.5
 
-[node name="Label" type="Label" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Guide List"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Create your first Generic Article"
 
-[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Fill the Article with info"
 
-[node name="CheckBox3" type="CheckBox" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Create your first Link Points"
 
-[node name="CheckBox4" type="CheckBox" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="CheckBox4" type="CheckBox" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Create a Map"
 
-[node name="CheckBox5" type="CheckBox" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="CheckBox5" type="CheckBox" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Create a Timeline"
 
-[node name="CheckBox6" type="CheckBox" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="CheckBox6" type="CheckBox" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Keep on Building using Articles"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/bold_font = ExtResource("1_b8k5r")
@@ -118,3 +229,120 @@ There are two types of timelines:
 
 [b]Conclusion:[/b]
 Keep creating articles, designing your world, and most importantly, enjoy the process of bringing your imagination to life!"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t78hf")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/PanelContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_j8r14")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 25
+
+[node name="Label" type="Label" parent="VBoxContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Start Guide"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="VBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Welcome to Mundus, a user-friendly platform designed for everyone, regardless of age or background. Whether you're setting up a Dungeons & Dragons campaign or crafting a novel, Mundus is here to help you create your own world with ease.
+
+[b]Getting Started:[/b]
+On the left side of this message, you'll find a checklist to guide you through the features of Mundus. Feel free to mark off items as you progress.
+
+[b]Articles:[/b]
+These are the building blocks of your world, like swords, spells, characters, and buildings. To create an article, click the plus icon in the files panel, select an article type, and start filling in the details.
+
+[b]Link Points:[/b]
+Think of these as tags or keywords. They create strong connections between articles with similar themes, helping Mundus highlight these relationships.
+
+[b]Maps:[/b]
+Creating a map is similar to creating an article. You have the option to upload an existing image or use the map creator tool to design your world.
+
+[b]Timelines:[/b]
+Timelines are essential for organizing your world chronologically. They aren't articles but act as the backbone of your world, linking articles and showing changes over time. Note: Maps created from images are less adjustable compared to those made with the map creation tool.
+
+There are two types of timelines:
+
+    [b]Fixed Timeline:[/b]
+        This is your world's main timeline, running from the beginning to the end. There can only be one fixed timeline, serving as the foundation for all articles.
+
+    [b]Generic Timeline:[/b]
+        These are flexible and can be adjusted to fit your needs. You can have as many as you want, and they're great for various purposes. For more advanced information, check out the \"Documentation\" section.
+
+[b]Conclusion:[/b]
+Keep creating articles, designing your world, and most importantly, enjoy the process of bringing your imagination to life!"
+script = ExtResource("6_51n02")
+markdown_text = "Welcome to Mundus, a user-friendly platform designed for everyone, regardless of age or background. Whether you're setting up a Dungeons & Dragons campaign or crafting a novel, Mundus is here to help you create your own world with ease.
+
+[b]Getting Started:[/b]
+On the left side of this message, you'll find a checklist to guide you through the features of Mundus. Feel free to mark off items as you progress.
+
+[b]Articles:[/b]
+These are the building blocks of your world, like swords, spells, characters, and buildings. To create an article, click the plus icon in the files panel, select an article type, and start filling in the details.
+
+[b]Link Points:[/b]
+Think of these as tags or keywords. They create strong connections between articles with similar themes, helping Mundus highlight these relationships.
+
+[b]Maps:[/b]
+Creating a map is similar to creating an article. You have the option to upload an existing image or use the map creator tool to design your world.
+
+[b]Timelines:[/b]
+Timelines are essential for organizing your world chronologically. They aren't articles but act as the backbone of your world, linking articles and showing changes over time. Note: Maps created from images are less adjustable compared to those made with the map creation tool.
+
+There are two types of timelines:
+
+    [b]Fixed Timeline:[/b]
+        This is your world's main timeline, running from the beginning to the end. There can only be one fixed timeline, serving as the foundation for all articles.
+
+    [b]Generic Timeline:[/b]
+        These are flexible and can be adjusted to fit your needs. You can have as many as you want, and they're great for various purposes. For more advanced information, check out the \"Documentation\" section.
+
+[b]Conclusion:[/b]
+Keep creating articles, designing your world, and most importantly, enjoy the process of bringing your imagination to life!"
+h1 = SubResource("Resource_8d020")
+h2 = SubResource("Resource_61l65")
+h3 = SubResource("Resource_37t4o")
+h4 = SubResource("Resource_vysdy")
+h5 = SubResource("Resource_iboi4")
+h6 = SubResource("Resource_t8gof")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xvgy7")
+metadata/_edit_lock_ = true

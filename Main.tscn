@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=47 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Main.gd" id="1_uxxeo"]
@@ -6,25 +6,32 @@
 [ext_resource type="Texture2D" uid="uid://b07vu36odc0rc" path="res://addons/godot-firebase/circle-user-regular(1).svg" id="3_ck3df"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout_panel.gd" id="4_7mtdk"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout.gd" id="5_ip3ue"]
+[ext_resource type="Script" path="res://addons/dockable_container/layout_split.gd" id="5_utaol"]
 [ext_resource type="Script" path="res://Files.gd" id="6_n2k42"]
 [ext_resource type="Texture2D" uid="uid://dicls5h3u6ckf" path="res://Assets/Basic Icons/Add.png" id="6_r5gtn"]
 [ext_resource type="Texture2D" uid="uid://c0lgwk60pwwdx" path="res://Assets/Basic Icons/Refresh.png" id="7_hmtfy"]
 [ext_resource type="Texture2D" uid="uid://ck2uu7o2kbglh" path="res://Assets/Ruleset Logos/DnD-Symbol.png" id="8_1nibx"]
-[ext_resource type="Texture2D" uid="uid://dsdke1duouxap" path="res://Assets/Splash Screen/Version.png" id="9_3dk5g"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="9_htq84"]
 [ext_resource type="Texture2D" uid="uid://dg2spcde7cxgw" path="res://Assets/Ruleset Logos/PF2Logo1600.webp" id="9_w85mx"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="10_a540y"]
 [ext_resource type="Texture2D" uid="uid://bx04mydishjy6" path="res://Assets/Ruleset Logos/DaggerHeartLong.png" id="10_cshn8"]
 [ext_resource type="Script" path="res://addons/ReorderableContainer/reorderable_hbox.gd" id="10_nglef"]
 [ext_resource type="PackedScene" uid="uid://bw5ncliqiptkc" path="res://StartGuide.tscn" id="14_iinvv"]
 [ext_resource type="Script" path="res://Debug.gd" id="14_v20j8"]
+[ext_resource type="Texture2D" uid="uid://cxtx6y7p7mbpn" path="res://Assets/Splash Screen/Rectangle.png" id="15_m0s8a"]
 [ext_resource type="FontFile" uid="uid://cnk6bhvrw6w6a" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Regular.ttf" id="15_t4xn5"]
 [ext_resource type="FontFile" uid="uid://cgynyh2ls2jq" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Bold.ttf" id="16_5unro"]
 [ext_resource type="PackedScene" uid="uid://codewh1n4a0fp" path="res://Articles/DnD5e/character.tscn" id="16_un1gh"]
+[ext_resource type="PackedScene" uid="uid://dfdvhal2kp4or" path="res://MapEditInterface.tscn" id="17_0j1hj"]
 [ext_resource type="FontFile" uid="uid://c73ut4ilicail" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Italic.ttf" id="17_fefu0"]
 [ext_resource type="FontFile" uid="uid://dw5f2f52iy41o" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf" id="18_4f747"]
+[ext_resource type="Texture2D" uid="uid://bpd4val7f847e" path="res://Assets/Basic Icons/house-solid.svg" id="18_7vdki"]
 [ext_resource type="Script" path="res://INSP_ArticleBase.gd" id="21_auidd"]
-[ext_resource type="Script" path="res://addons/collapsible_container/collapsible_elements/collapsible_container.gd" id="21_av3o3"]
-[ext_resource type="Texture2D" uid="uid://7bl700cicc6a" path="res://Assets/Basic Icons/chevron-right-solid.svg" id="21_awm0w"]
+[ext_resource type="Texture2D" uid="uid://d3ube1hf1xys2" path="res://Assets/Basic Icons/triangle-exclamation-solid.svg" id="24_16e2j"]
+[ext_resource type="Texture2D" uid="uid://bo61x22sej7hd" path="res://Assets/Basic Icons/up-right-from-square-solid.svg" id="26_6o6gu"]
 [ext_resource type="PackedScene" uid="uid://cdstvg1e5a7mn" path="res://AccountOptions.tscn" id="27_b43or"]
+[ext_resource type="Texture2D" uid="uid://q5gdbwtfdutf" path="res://Assets/Basic Icons/arrows-down-to-line-solid(1).svg" id="28_3p3rf"]
+[ext_resource type="PackedScene" uid="uid://lbkxpq3atm58" path="res://ArticleFinder.tscn" id="32_efsio"]
 
 [sub_resource type="Resource" id="Resource_qqlnt"]
 resource_name = "Tabs"
@@ -32,10 +39,24 @@ script = ExtResource("4_7mtdk")
 names = PackedStringArray("Files", "Spaces")
 current_tab = 0
 
+[sub_resource type="Resource" id="Resource_ty3ad"]
+resource_name = "Tabs"
+script = ExtResource("4_7mtdk")
+names = PackedStringArray("Inspector")
+current_tab = 0
+
+[sub_resource type="Resource" id="Resource_j314y"]
+resource_name = "Split"
+script = ExtResource("5_utaol")
+direction = 1
+percent = 0.492188
+first = SubResource("Resource_qqlnt")
+second = SubResource("Resource_ty3ad")
+
 [sub_resource type="Resource" id="Resource_52byb"]
 resource_name = "Layout"
 script = ExtResource("5_ip3ue")
-root = SubResource("Resource_qqlnt")
+root = SubResource("Resource_j314y")
 hidden_tabs = {}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8fpc"]
@@ -48,15 +69,37 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 10
 
+[sub_resource type="Resource" id="Resource_xcv1q"]
+script = ExtResource("10_a540y")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 50.0
+
+[sub_resource type="Resource" id="Resource_jwb8j"]
+script = ExtResource("10_a540y")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vtfq"]
-content_margin_left = 10.0
-content_margin_right = 10.0
 bg_color = Color(0.141176, 0.14902, 0.164706, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty5fx"]
+bg_color = Color(0.160784, 0.168627, 0.184314, 1)
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufbj8"]
+texture = ExtResource("15_m0s8a")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5621r"]
 
@@ -65,7 +108,7 @@ corner_detail = 10
 [sub_resource type="Resource" id="Resource_y456i"]
 resource_name = "Tabs"
 script = ExtResource("4_7mtdk")
-names = PackedStringArray("Inspector", "Dictionary")
+names = PackedStringArray("Dictionary")
 current_tab = 0
 
 [sub_resource type="Resource" id="Resource_aeven"]
@@ -73,19 +116,6 @@ resource_name = "Layout"
 script = ExtResource("5_ip3ue")
 root = SubResource("Resource_y456i")
 hidden_tabs = {}
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yxpf"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jcjd"]
-bg_color = Color(1, 1, 1, 0.101961)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwjw6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3wxn"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -104,7 +134,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.141176, 0.14902, 0.164706, 1)
+color = Color(0.12549, 0.133333, 0.145098, 1)
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 1
@@ -120,19 +150,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_right = -12.0
-offset_bottom = -13.0
+offset_left = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 8
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
-theme_override_constants/separation = 10
+theme_override_constants/separation = 8
 
 [node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -185,18 +215,20 @@ item_1/id = 1
 [node name="Terminal" type="PopupMenu" parent="Control2/HBoxContainer/VBoxContainer2/MenuBar"]
 
 [node name="Help" type="PopupMenu" parent="Control2/HBoxContainer/VBoxContainer2/MenuBar"]
-item_count = 5
+item_count = 6
 item_0/text = "About"
 item_0/id = 0
 item_1/text = "Documentation"
 item_1/id = 1
 item_2/text = "Website"
 item_2/id = 2
-item_3/text = ""
-item_3/id = 3
-item_3/separator = true
-item_4/text = "Check for Updates"
-item_4/id = 4
+item_3/text = "Start Guide"
+item_3/id = 5
+item_4/text = ""
+item_4/id = 3
+item_4/separator = true
+item_5/text = "Check for Updates"
+item_5/id = 4
 
 [node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -294,6 +326,13 @@ theme_override_constants/margin_bottom = 5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree/MarginContainer"]
 layout_mode = 2
+script = ExtResource("9_htq84")
+speed = 250.0
+wheel_scroll_damper = SubResource("Resource_xcv1q")
+dragging_scroll_damper = SubResource("Resource_jwb8j")
+drag_with_mouse = false
+allow_overdragging = false
+hide_scrollbar_over_time = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree/MarginContainer/ScrollContainer"]
 layout_mode = 2
@@ -304,10 +343,228 @@ size_flags_vertical = 3
 visible = false
 layout_mode = 2
 
+[node name="Inspector" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Article Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="PanelContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Article Name"
+
+[node name="LineEdit" type="LineEdit" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Name"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Article Tags"
+
+[node name="LineEdit" type="LineEdit" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Tags"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Article Description"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="TextEdit" type="TextEdit" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Description"
+
+[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/TextEdit"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_top = 7.0
+offset_right = -8.0
+offset_bottom = 24.0
+grow_horizontal = 0
+texture = ExtResource("26_6o6gu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ty5fx")
+
+[node name="HBoxContainer2" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="ColorRect" type="ColorRect" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(1, 1, 1, 0.180392)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
+
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/VBoxContainer3/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Timeline"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
+
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Map Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArticleBase" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+script = ExtResource("21_auidd")
+
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
+
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Article Base"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoSelection" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer"]
+visible = false
+modulate = Color(1, 1, 1, 0.560784)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/NoSelection"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/NoSelection/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "No Selection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Inspector/VBoxContainer/NoSelection/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center] Currently, there's nothing selected to modify in the Inspector Panel. To view settings in the Inspector Panel, please open a tab in the Content Panel. Alternatively, for guidance on getting started, you can open the Start Guide by going to Help > Start Guide."
+fit_content = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 8
 
 [node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -348,7 +605,17 @@ texture = ExtResource("10_cshn8")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2, 15)
+layout_mode = 2
+color = Color(1, 1, 1, 0.180392)
+
 [node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
@@ -364,8 +631,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("10_nglef")
+hold_duration = 0.2
 scroll_container = NodePath("..")
-is_debugging = true
 
 [node name="Control2" type="Control" parent="Control2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -381,7 +648,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -389,23 +655,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ufbj8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "No Articles Selected"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer/PanelContainer/VBoxContainer"]
 clip_contents = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 bbcode_enabled = true
-text = "[center]No articles selected for viewing or editing. Please create a new article or select an already made article."
+text = "[center]No articles selected for viewing or editing. Please create a new article or select an existing article."
 scroll_active = false
 
 [node name="ContentPanel" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
@@ -422,12 +692,21 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/ContentPanel" instance=ExtResource("14_iinvv")]
-visible = false
 layout_mode = 2
 
 [node name="Control" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/ContentPanel" instance=ExtResource("16_un1gh")]
+visible = false
 layout_mode = 2
 title = "Character"
+tabid = 1
+
+[node name="Control2" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/ContentPanel" instance=ExtResource("17_0j1hj")]
+visible = false
+layout_mode = 2
+img = ExtResource("18_7vdki")
+title = "Map"
+tabid = 2
+saved = true
 
 [node name="Control3" type="Control" parent="Control2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -526,11 +805,41 @@ theme_override_constants/margin_bottom = 10
 [node name="TextEdit" type="TextEdit" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Quick Notes/MarginContainer"]
 layout_mode = 2
 
+[node name="Button" type="Button" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 4.0
+offset_right = -10.0
+offset_bottom = 29.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/Button"]
+modulate = Color(1, 1, 1, 0.764706)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -9.5
+offset_right = 9.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_3p3rf")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="VBoxContainer3" type="VBoxContainer" parent="Control2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
-theme_override_constants/separation = 10
+theme_override_constants/separation = 8
 
 [node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -539,25 +848,55 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
 mouse_filter = 2
-alignment = 1
+theme_override_constants/separation = 10
+alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="Button2" type="Button" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-texture = ExtResource("9_3dk5g")
-expand_mode = 3
-stretch_mode = 5
+text = "Extentions"
 
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer/TextureRect"]
+[node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(29, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer/Control"]
+modulate = Color(1, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "v0.0.1"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("24_16e2j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(29, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ck3df")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -574,207 +913,8 @@ script = ExtResource("3_1uq5w")
 tab_alignment = 0
 layout = SubResource("Resource_aeven")
 
-[node name="Inspector" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/VBoxContainer3"]
-custom_minimum_size = Vector2(0, 29)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
-
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/VBoxContainer3/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Timeline"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 29)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
-
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/VBoxContainer2/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Map Options"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ArticleBase" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-script = ExtResource("21_auidd")
-
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase"]
-custom_minimum_size = Vector2(0, 29)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
-
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Article Base"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase"]
-custom_minimum_size = Vector2(0, 29)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5yxpf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6jcjd")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_cwjw6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_b3wxn")
-text = "Article Info"
-icon = ExtResource("21_awm0w")
-alignment = 0
-
-[node name="CollapsibleContainer" type="Control" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase"]
-process_mode = 3
-editor_description = "
-			A custom/plugin Control node capable of hiding and revealing its children by folding and unfolding.
-			
-Give feedback at: https://github.com/ArshvirGoraya/Godot-Collapsible-Container"
-clip_contents = true
-custom_minimum_size = Vector2(357, 62)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-script = ExtResource("21_av3o3")
-starts_opened = false
-folding_direction_preset = 10
-sizing_constraint = 1
-auto_update_size = 1
-sizing_node = NodePath("MarginContainer")
-tween_in_physics_process = true
-tween_duration_sec = 0.3
-tween_transition_type = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 29)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Article Name"
-
-[node name="LineEdit" type="LineEdit" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Name"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 29)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Article Tags"
-
-[node name="LineEdit" type="LineEdit" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/CollapsibleContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Name"
-
-[node name="NoSelection" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer"]
-visible = false
-modulate = Color(1, 1, 1, 0.560784)
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/NoSelection"]
-custom_minimum_size = Vector2(150, 200)
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/NoSelection/VBoxContainer"]
-custom_minimum_size = Vector2(0, 29)
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "No Selection"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/NoSelection/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[center] Currently, there's nothing selected to modify in the Inspector Panel. To view settings in the Inspector Panel, please open a tab in the Content Panel. Alternatively, for guidance on getting started, you can open the Start Guide by going to Help > Start Guide."
-fit_content = true
-
 [node name="Dictionary" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer"]
-visible = false
 layout_mode = 2
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -49.0
-offset_top = 9.0
-offset_right = -19.0
-offset_bottom = 39.0
-grow_horizontal = 0
-
-[node name="TextureRect" type="TextureRect" parent="Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_ck3df")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="AccountOptions" type="ColorRect" parent="."]
 visible = false
@@ -807,10 +947,34 @@ offset_top = -242.0
 offset_right = 432.0
 offset_bottom = 242.0
 
+[node name="AddFileTree" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="Button" type="Button" parent="AddFileTree"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="PanelContainer" parent="AddFileTree" instance=ExtResource("32_efsio")]
+layout_mode = 1
+
 [connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/Help" to="." method="_on_help_id_pressed"]
+[connection signal="pressed" from="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/HBoxContainer/Button2" to="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files" method="_on_button_2_pressed"]
 [connection signal="button_down" from="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/HBoxContainer/Button3" to="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files" method="_on_button_3_button_down"]
 [connection signal="sort_children" from="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" to="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" method="_on_sort_children"]
 [connection signal="text_submitted" from="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal/MarginContainer/VBoxContainer/CMDLine" to="Control2/HBoxContainer/VBoxContainer/Control3/Panel" method="_on_CMDLine_text_entered"]
-[connection signal="button_up" from="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase/Button" to="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer/Inspector/VBoxContainer/ArticleBase" method="_on_button_button_up"]
-[connection signal="button_up" from="Button" to="." method="_on_accountoptions_button_up"]
+[connection signal="button_up" from="Control2/HBoxContainer/VBoxContainer3/HBoxContainer/Button" to="." method="_on_accountoptions_button_up"]
 [connection signal="button_up" from="AccountOptions/Button" to="." method="_on_closeaccount_button_up"]
+[connection signal="button_up" from="AddFileTree/Button" to="." method="_on_closeaccount_button_up"]

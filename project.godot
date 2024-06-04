@@ -11,11 +11,13 @@ config_version=5
 [application]
 
 config/name="Mundus (World Builder)"
-config/version="v0.0.1-alpha.240502"
+config/version="v0.0.3"
 run/main_scene="res://SplashScreen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Mundus"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=60
+run/low_processor_mode=true
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Assets/Splash Screen/New Splash Screen notextbg title.png"
 config/icon="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png"
@@ -57,7 +59,11 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/QuickPluginManager/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/http-sse-client/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/rcalc_gd/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg", "res://addons/varedit/plugin.cfg")
+enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/AtlasPlayer/plugin.cfg", "res://addons/QuickPluginManager/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/http-sse-client/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/rcalc_gd/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg", "res://addons/varedit/plugin.cfg")
+
+[gui]
+
+common/snap_controls_to_pixels=false
 
 [input]
 

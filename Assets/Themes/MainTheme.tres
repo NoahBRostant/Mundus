@@ -15,7 +15,12 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqfmv"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7wum"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8gxo"]
+bg_color = Color(1, 1, 1, 0.223529)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwnsq"]
 content_margin_left = 10.0
@@ -97,10 +102,10 @@ corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pltn0"]
 bg_color = Color(0.160784, 0.168627, 0.184314, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j66c5"]
@@ -117,7 +122,13 @@ corner_detail = 10
 content_margin_left = 5.0
 content_margin_right = 5.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ae8w5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kopyp"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+draw_center = false
+border_width_bottom = 2
+border_color = Color(0.0823529, 0.368627, 0.945098, 1)
+corner_detail = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8l6o"]
 content_margin_left = 5.0
@@ -162,7 +173,7 @@ Button/styles/disabled = SubResource("StyleBoxEmpty_vob4h")
 Button/styles/focus = SubResource("StyleBoxEmpty_svhwm")
 Button/styles/hover = SubResource("StyleBoxFlat_t5lbq")
 Button/styles/normal = SubResource("StyleBoxEmpty_sqfmv")
-Button/styles/pressed = SubResource("StyleBoxEmpty_d7wum")
+Button/styles/pressed = SubResource("StyleBoxFlat_y8gxo")
 LineEdit/colors/font_color = Color(0.694118, 0.694118, 0.694118, 1)
 LineEdit/colors/font_placeholder_color = Color(0.466667, 0.466667, 0.466667, 1)
 LineEdit/styles/focus = SubResource("StyleBoxFlat_cwnsq")
@@ -176,7 +187,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_pltn0")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_j66c5")
 TabContainer/styles/panel = SubResource("StyleBoxEmpty_i3jqw")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxEmpty_b7q3a")
-TabContainer/styles/tab_selected = SubResource("StyleBoxEmpty_ae8w5")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_kopyp")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxEmpty_u8l6o")
 TextEdit/styles/focus = SubResource("StyleBoxFlat_kvks0")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_wks88")

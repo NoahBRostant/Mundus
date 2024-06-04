@@ -14,7 +14,17 @@ var subPriceArray = []
 
 var skiptologin = true
 
+var filetoopen:int
+
 # Global Telementory Data and System Specs
 
 var operatingSystem = OS.get_name()
 var hasGlobalMenu = DisplayServer.has_feature(DisplayServer.FEATURE_GLOBAL_MENU)
+
+var tabidint = 0
+
+# ------------------------- for artcle defenitions
+
+var articleDefinitions = {
+	"article":"path",
+}
