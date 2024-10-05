@@ -1,11 +1,12 @@
 <img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Github%20Banner.png?raw=true"></img>
 
 # Mundus - World Building App
-###### v0.0.2-alpha
+###### v0.1.0-alpha
 
-Welcome to **Mundus**, the ultimate tool for creating immersive worlds. Whether you're a writer, game designer, or just someone who loves to dream up new universes, Mundus is designed to bring your visions to life.
+Welcome to **Mundus**, the ultimate world-building tool for writers, game designers, and creators of all kinds. Whether you're designing for DnD, Pathfinder, or building your own universe, Mundus brings your vision to life. 🎨🌍
 
-## Features
+
+## Planned Features
 
 - Animated UI/UX design.
 - Modular and customizable through plugins and themes.
@@ -18,9 +19,19 @@ Welcome to **Mundus**, the ultimate tool for creating immersive worlds. Whether 
 Currently there is no release or pre-release. However, I plan on releasing Mundus on Windows, MacOS, and Linux.
 There is no schedule, as of now, for its open beta or feature release but I will keep working on the project and keep you all informed on the progress.
 
+## Roadmap
+
+Follow the development of Mundus: World Builder through the Roadmap.
+<a href="https://noahbrostant.github.io/Mundus-Roadmap">Roadmap</a>
+
 ## Contribution
 
 Your feedback makes Mundus better. Share your ideas and suggestions on our Discussions Page.
+
+## Licence
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**. You are free to view and study the code but are not permitted to redistribute or use it in your own projects without express permission.
+
+For more information, see the full [LICENSE](LICENSE.txt).
 
 ---
 
