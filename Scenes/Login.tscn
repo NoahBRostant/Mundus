@@ -1,0 +1,570 @@
+[gd_scene load_steps=16 format=3 uid="uid://bm0dt3qo0vag6"]
+
+[ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_um3dt"]
+[ext_resource type="Script" path="res://Scripts/Login.gd" id="2_2ih51"]
+[ext_resource type="Texture2D" uid="uid://b5s57r0foiqg3" path="res://Assets/Splash Screen/DALL·E 2024-01-13 21.07.12 - A subtle and artistic background image representing the themes of Dungeons and Dragons (DnD), world building, and storytelling. The image should evoke.png" id="3_orw5d"]
+[ext_resource type="Texture2D" uid="uid://ditj48ju3tx0g" path="res://addons/supabase/Supabase/google-brands-solid.svg" id="4_457mp"]
+[ext_resource type="Texture2D" uid="uid://dx0but8gervlw" path="res://addons/supabase/Supabase/github-brands-solid.svg" id="5_8hins"]
+[ext_resource type="Texture2D" uid="uid://b4bthglacwwm3" path="res://Assets/Splash Screen/alchemyrefiner_alchemymagic_0_50dc3539-d6ac-42d2-9b36-e3c38ddfef45_0.jpg" id="6_haj0a"]
+[ext_resource type="Texture2D" uid="uid://dbdcjrfbqshub" path="res://Assets/Splash Screen/New Splash Screen notext title.png" id="6_i5hvq"]
+[ext_resource type="Texture2D" uid="uid://37mwqmq7ncer" path="res://Assets/Splash Screen/Logo with text.png" id="7_h62eq"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Segoe UI.ttf" id="8_iqf8n"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Segoe UI Bold.ttf" id="9_jv8te"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Segoe UI Italic.ttf" id="10_q7hsq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qan2r"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hy5c"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r504r"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c2b4"]
+draw_center = false
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_um3dt")
+script = ExtResource("2_2ih51")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.14902, 0.164706, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Login"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Login to your Mundus Account"
+fit_content = true
+
+[node name="Panel" type="Panel" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel"]
+visible = false
+modulate = Color(1, 1, 1, 0.0352941)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_orw5d")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_qan2r")
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_qan2r")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_qan2r")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4hy5c")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Login" type="TabBar" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer"]
+layout_mode = 2
+tab_alignment = 1
+clip_tabs = false
+scrolling_enabled = false
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Control5" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Loginerrors" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Login to access your subscription"
+fit_content = true
+
+[node name="Control4" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+layout_mode = 2
+text = "Email"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LEmail" type="LineEdit" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+caret_blink = true
+
+[node name="Control" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+layout_mode = 2
+text = "Password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LPassword" type="LineEdit" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+context_menu_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+caret_blink = true
+secret = true
+
+[node name="Control2" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_457mp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_8hins")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+color = Color(0.141176, 0.14902, 0.164706, 1)
+
+[node name="Button3" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control3" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Login" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 29)
+layout_mode = 2
+text = "Login"
+
+[node name="Register" type="TabBar" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Control4" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Registererrors" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Fill your details to Register"
+fit_content = true
+
+[node name="Control3" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+layout_mode = 2
+text = "Email"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="REmail" type="LineEdit" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+layout_mode = 2
+text = "Password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RPassword" type="LineEdit" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+context_menu_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+caret_blink = true
+
+[node name="Label3" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+layout_mode = 2
+text = "Confirm Password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RConfirm" type="LineEdit" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+context_menu_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+caret_blink = true
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+layout_mode = 2
+text = "Agree to the "
+
+[node name="LinkButton" type="LinkButton" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer/CheckBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 104.0
+offset_right = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.662745, 0.933333, 1)
+text = "Terms & Conditions"
+underline = 1
+uri = "https://mundusworldbuilder.webflow.io/terms"
+
+[node name="Control2" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Register" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer"]
+custom_minimum_size = Vector2(150, 29)
+layout_mode = 2
+text = "Register"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r504r")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("6_haj0a")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1c2b4")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -39.0
+offset_right = 92.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_h62eq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Why Do I Need to Login"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("8_iqf8n")
+theme_override_fonts/italics_font = ExtResource("10_q7hsq")
+theme_override_fonts/bold_font = ExtResource("9_jv8te")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+bbcode_enabled = true
+text = "Logging in is a crucial part of your experience with our app, designed to provide you with a secure, personalized, and seamless journey. Here's why it matters:
+
+[b]Personalized Experience:[/b] Your login allows us to tailor the app according to your preferences and needs. This is especially important as our subscription plans, including the Tinkerer and Master plans, offer a range of features that are best enjoyed when customized to individual users.
+
+[b]Security:[/b] Your security is paramount. Logging in helps protect your personal information and ensures that your data and settings are kept private and secure.
+
+[b]Access to Features:[/b] Different subscription plans offer varying levels of features and capabilities. By logging in, you can access the features associated with your chosen plan – be it the Free plan with essential features or the more comprehensive Tinkerer and Master plans.
+
+[b]Seamless Synchronization:[/b] For users on multiple devices, logging in keeps your experience consistent and synchronized across all platforms, ensuring that your progress and settings are always up-to-date.
+
+[b]Support and Feedback:[/b] Logged-in users can easily access support and provide valuable feedback, which we use to continually improve your app experience.
+
+Remember, our Free plan offers a glimpse into the app's capabilities, while the Tinkerer and Master plans unlock a fuller range of features, as detailed on our website."
+
+[node name="LinkButton" type="LinkButton" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mundus Website"
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -283.0
+offset_right = 92.0
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_h62eq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.160784, 0.168627, 0.184314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 142.0
+offset_right = 607.0
+offset_bottom = 564.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_i5hvq")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[connection signal="text_submitted" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/LPassword" to="." method="_on_l_password_text_submitted"]
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button2" to="." method="_on_github_button_up"]
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/Login" to="." method="_on_login_button_up"]
+[connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register/VBoxContainer/Register" to="." method="_on_register_button_up"]

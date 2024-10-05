@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://r7hfkwxs1njl"]
+
+[ext_resource type="Script" path="res://Scripts/ContentTabButton.gd" id="1_50s4y"]
+[ext_resource type="Texture2D" uid="uid://b4d1hjgcl1e4t" path="res://Assets/Themes/Button.png" id="1_okm45"]
+[ext_resource type="Texture2D" uid="uid://dmcoq2hcx0vsj" path="res://Assets/Basic Icons/gear-solid(1).svg" id="2_eukom"]
+[ext_resource type="Texture2D" uid="uid://cuk1q342axru" path="res://Assets/Basic Icons/xmark-solid.svg" id="2_nhmg1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v86d8"]
+texture = ExtResource("1_okm45")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjb8x"]
+content_margin_left = 10.0
+content_margin_right = 28.0
+bg_color = Color(1, 1, 1, 0.223529)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4rg5"]
+content_margin_left = 10.0
+content_margin_right = 28.0
+bg_color = Color(0.160784, 0.168627, 0.184314, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="Image" id="Image_b77dy"]
+
+[node name="Button3" type="Button"]
+custom_minimum_size = Vector2(150, 0)
+offset_right = 150.0
+offset_bottom = 39.0
+mouse_filter = 1
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/disabled = SubResource("StyleBoxTexture_v86d8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjb8x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v86d8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e4rg5")
+toggle_mode = true
+action_mode = 0
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("1_50s4y")
+img = SubResource("Image_b77dy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(17, 17)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_eukom")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+bbcode_enabled = true
+text = "Tab"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(13, 0)
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("2_nhmg1")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

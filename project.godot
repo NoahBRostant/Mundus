@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Mundus (World Builder)"
 config/version="v0.0.3"
-run/main_scene="res://SplashScreen.tscn"
+run/main_scene="res://Scenes/SplashScreen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Mundus"
 config/features=PackedStringArray("4.3", "Forward Plus")
@@ -26,10 +26,10 @@ scenes/error_scene_path="res://addons/yet_another_scene_manager/Scenes/Error.tsc
 
 [autoload]
 
-Console="*res://Console.gd"
-Global="*res://Global.gd"
+Console="*res://Scripts/Console.gd"
+Global="*res://Scripts/Global.gd"
 InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
-HttpRequest="*res://AwaitableHTTPRequest.gd"
+HttpRequest="*res://Scripts/AwaitableHTTPRequest.gd"
 Notify="*res://addons/native_notifications/native_notifications.gd"
 Supabase="*res://addons/supabase/Supabase/supabase.gd"
 

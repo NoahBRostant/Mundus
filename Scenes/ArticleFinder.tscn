@@ -1,0 +1,268 @@
+[gd_scene load_steps=24 format=3 uid="uid://lbkxpq3atm58"]
+
+[ext_resource type="Script" path="res://Scripts/ArticleFinder.gd" id="1_4h4sf"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_7vua5"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_pbnan"]
+[ext_resource type="Texture2D" uid="uid://cna6dnpkk70g2" path="res://Assets/Splash Screen/logo_b&w_transparent.png" id="6_0ebde"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="7_dh4hf"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="8_u1udy"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="9_cuxpq"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="10_wfij5"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="11_lfb3t"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="12_60bdl"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="13_lvav4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmn24"]
+bg_color = Color(0.12549, 0.133333, 0.145098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u21xh"]
+bg_color = Color(0.160784, 0.168627, 0.184314, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 10
+
+[sub_resource type="Resource" id="Resource_twlg1"]
+script = ExtResource("2_pbnan")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 50.0
+
+[sub_resource type="Resource" id="Resource_ca2yh"]
+script = ExtResource("2_pbnan")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e08k"]
+bg_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o782o"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="Resource" id="Resource_guj7x"]
+resource_local_to_scene = true
+script = ExtResource("8_u1udy")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_u7wq3"]
+resource_local_to_scene = true
+script = ExtResource("9_cuxpq")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_c5gfp"]
+resource_local_to_scene = true
+script = ExtResource("10_wfij5")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_4onnv"]
+resource_local_to_scene = true
+script = ExtResource("11_lfb3t")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_evk83"]
+resource_local_to_scene = true
+script = ExtResource("12_60bdl")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_6xa1u"]
+resource_local_to_scene = true
+script = ExtResource("13_lvav4")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -361.0
+offset_right = 580.0
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pmn24")
+script = ExtResource("1_4h4sf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+placeholder_text = "Search Articles"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_u21xh")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("1_7vua5")
+speed = 250.0
+wheel_scroll_damper = SubResource("Resource_twlg1")
+dragging_scroll_damper = SubResource("Resource_ca2yh")
+drag_with_mouse = false
+allow_horizontal_scroll = false
+auto_allow_scroll = false
+allow_overdragging = false
+
+[node name="ArticleList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8e08k")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect"]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_0ebde")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Panel3" type="Panel" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o782o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(1, 1, 1, 0.180392)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Description"
+script = ExtResource("7_dh4hf")
+markdown_text = "Description"
+h1 = SubResource("Resource_guj7x")
+h2 = SubResource("Resource_u7wq3")
+h3 = SubResource("Resource_c5gfp")
+h4 = SubResource("Resource_4onnv")
+h5 = SubResource("Resource_evk83")
+h6 = SubResource("Resource_6xa1u")

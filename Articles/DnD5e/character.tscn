@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://codewh1n4a0fp"]
 
-[ext_resource type="PackedScene" uid="uid://d0g1o5k4e4yat" path="res://MDNoteEditor.tscn" id="1_qyamw"]
+[ext_resource type="PackedScene" uid="uid://d0g1o5k4e4yat" path="res://Scenes/MDNoteEditor.tscn" id="1_qyamw"]
 [ext_resource type="Script" path="res://Articles/DnD5e/character.gd" id="1_wbm8q"]
 [ext_resource type="Texture2D" uid="uid://c6j6khryuva0u" path="res://Assets/Basic Icons/beer-mug-empty-solid.svg" id="2_shh8b"]
 

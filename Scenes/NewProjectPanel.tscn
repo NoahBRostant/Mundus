@@ -1,0 +1,414 @@
+[gd_scene load_steps=15 format=3 uid="uid://1bm56qf4c7hc"]
+
+[ext_resource type="Script" path="res://Scripts/NewProjectPanel.gd" id="1_umbs1"]
+[ext_resource type="Script" path="res://addons/spin_button/src/controls/sb_spin_button.gd" id="1_y726x"]
+[ext_resource type="Texture2D" uid="uid://7bl700cicc6a" path="res://Assets/Basic Icons/chevron-right-solid.svg" id="2_wg4a8"]
+[ext_resource type="Texture2D" uid="uid://baholvlj43whh" path="res://Assets/Basic Icons/chevron-left-solid.svg" id="3_5b4aw"]
+[ext_resource type="Texture2D" uid="uid://c6j6khryuva0u" path="res://Assets/Basic Icons/beer-mug-empty-solid.svg" id="4_rnk2o"]
+[ext_resource type="Texture2D" uid="uid://dwxld143413vf" path="res://Assets/Basic Icons/d-and-d.svg" id="5_l4vc4"]
+[ext_resource type="VideoStream" path="res://Assets/Animated Icons/Animation-1707432535696_2_.ogv" id="9_g8j0p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3kn0"]
+bg_color = Color(0, 0, 0, 0.360784)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fcfr"]
+bg_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdqmg"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbj78"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik0xx"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.223529, 0.360784, 0.603922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifary"]
+bg_color = Color(0.141176, 0.14902, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k506g"]
+bg_color = Color(0.223529, 0.360784, 0.603922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[node name="Panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3kn0")
+script = ExtResource("1_umbs1")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.0
+offset_top = -227.0
+offset_right = 378.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fcfr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_right = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel2/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+text = "World Name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+placeholder_text = "Name"
+
+[node name="Label2" type="Label" parent="Panel2/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Ruleset"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel2/VBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "D&D 5e"
+popup/item_1/id = 1
+popup/item_2/text = "Pathfinder"
+popup/item_2/id = 2
+popup/item_3/text = "DaggerHeart"
+popup/item_3/id = 3
+popup/item_3/disabled = true
+
+[node name="Panel2" type="Panel" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="D&D" type="HBoxContainer" parent="Panel2/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = -11.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/VBoxContainer/Panel2/D&D"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+text = "World Thumbnail"
+
+[node name="Button" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_mdqmg")
+text = "Open File"
+icon_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "World Description"
+
+[node name="TextEdit" type="TextEdit" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+wrap_mode = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+toggle_mode = true
+text = "Medieval"
+
+[node name="Button2" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+toggle_mode = true
+text = "Futuristic"
+
+[node name="Button3" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+toggle_mode = true
+text = "Magic"
+
+[node name="Button4" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+toggle_mode = true
+text = "Sci-Fi"
+
+[node name="Button5" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+toggle_mode = true
+text = "One-Shot"
+
+[node name="Button6" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+toggle_mode = true
+text = "Long-Term"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel2/VBoxContainer/Panel2/D&D"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="SBSpinButton" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+script = ExtResource("1_y726x")
+items = Array[String](["Simple", "Intermidiate", "Complex", "Advanced"])
+selected = 0
+item_count = 4
+next_icon = ExtResource("2_wg4a8")
+prev_icon = ExtResource("3_5b4aw")
+title_block_visibility = 0
+
+[node name="CheckButton" type="CheckButton" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+text = "Homebrew Content"
+icon = ExtResource("4_rnk2o")
+flat = true
+
+[node name="CheckButton2" type="CheckButton" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+text = "Noncore D&D Content"
+icon = ExtResource("5_l4vc4")
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rule Sources"
+
+[node name="OptionButton" type="OptionButton" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 6
+selected = 0
+popup/item_0/text = "All Sources"
+popup/item_0/id = 0
+popup/item_1/text = "Basic Rules"
+popup/item_1/id = 1
+popup/item_2/text = "GameMasters Guide"
+popup/item_2/id = 2
+popup/item_3/text = "Players Handbook"
+popup/item_3/id = 3
+popup/item_4/text = ""
+popup/item_4/id = 4
+popup/item_4/separator = true
+popup/item_5/text = "Search for Sources"
+popup/item_5/id = 5
+
+[node name="StartBtn" type="Button" parent="Panel2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.5
+offset_top = -52.0
+offset_right = 41.5
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+disabled = true
+text = "Start"
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -46.0
+offset_right = -20.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ifary")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k506g")
+value = 50.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Panel2/CenterContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+stream = ExtResource("9_g8j0p")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="Panel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -85.0
+offset_right = 215.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Waking Hamsters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NativeFileDialog" type="NativeFileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="text_changed" from="Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="button_up" from="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_down" from="Panel2/StartBtn" to="." method="_on_start_btn_button_down"]
+[connection signal="file_selected" from="NativeFileDialog" to="." method="_on_native_file_dialog_file_selected"]

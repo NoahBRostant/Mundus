@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqmeabwr4kbra"]
+
+[ext_resource type="Script" path="res://Scripts/FolderController.gd" id="1_46qgd"]
+[ext_resource type="Texture2D" uid="uid://bjetj61ctj4n3" path="res://Assets/Basic Icons/folder-solid(1).svg" id="1_sa3ky"]
+[ext_resource type="Script" path="res://addons/collapsible_container/collapsible_elements/collapsible_container.gd" id="2_0yqfj"]
+[ext_resource type="Texture2D" uid="uid://beru8pj1ycvg" path="res://Assets/Basic Icons/caret-down-solid(1).svg" id="3_upstc"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2104.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_46qgd")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Button/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="Button/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_sa3ky")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Button/HBoxContainer"]
+layout_mode = 2
+text = "Folder 1"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Button/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Control" type="Control" parent="Button/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Button/HBoxContainer/MarginContainer2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(7.5, 7.5)
+mouse_filter = 2
+texture = ExtResource("3_upstc")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CollapsibleContainer" type="Control" parent="."]
+process_mode = 3
+editor_description = "
+			A custom/plugin Control node capable of hiding and revealing its children by folding and unfolding.
+			
+Give feedback at: https://github.com/ArshvirGoraya/Godot-Collapsible-Container"
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("2_0yqfj")
+starts_opened = false
+folding_direction_preset = 10
+sizing_constraint = 1
+sizing_node = NodePath("MarginContainer")
+tween_in_physics_process = true
+tween_duration_sec = 0.3
+_preview_auto_update_size = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CollapsibleContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CollapsibleContainer/MarginContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

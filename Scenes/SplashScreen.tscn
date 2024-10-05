@@ -1,0 +1,147 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8qf6q4gkukyv"]
+
+[ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_sta8y"]
+[ext_resource type="FontFile" uid="uid://b1dbh3paojv4h" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNLNerdFont-Regular.ttf" id="2_msvfs"]
+[ext_resource type="Texture2D" uid="uid://dbdcjrfbqshub" path="res://Assets/Splash Screen/New Splash Screen notext title.png" id="3_h7nws"]
+[ext_resource type="PackedScene" uid="uid://bm0dt3qo0vag6" path="res://Scenes/Login.tscn" id="4_ii7bc"]
+[ext_resource type="Texture2D" uid="uid://dsdke1duouxap" path="res://Assets/Splash Screen/Version.png" id="5_n25l8"]
+[ext_resource type="FontFile" uid="uid://c05emydobpwj4" path="res://Assets/Fonts/NotoSans/NotoSans-Regular.ttf" id="5_q2gge"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvosb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7wf5v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxxpd"]
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0rny"]
+bg_color = Color(0, 0, 0, 0.584314)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sta8y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 44.0
+offset_right = -502.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 100.0
+offset_right = 610.0
+offset_bottom = 564.0
+mouse_filter = 0
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.85098, 0.85098, 1)
+theme_override_fonts/normal_font = ExtResource("2_msvfs")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lvosb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7wf5v")
+bbcode_enabled = true
+text = "Starting Mundus : v0.0.1
+--------------------------"
+fit_content = true
+scroll_following = true
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 102.0
+offset_right = 441.0
+offset_bottom = 170.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yxxpd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_h7nws")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Version" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.234
+anchor_top = 0.925
+anchor_right = 0.351
+anchor_bottom = 0.983
+offset_left = -1.13605
+offset_top = 0.199951
+offset_right = -0.704041
+offset_bottom = 0.0319824
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_n25l8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Version"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_q2gge")
+theme_override_font_sizes/font_size = 24
+text = "v0.0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h0rny")
+
+[node name="Control" parent="Panel2" instance=ExtResource("4_ii7bc")]
+custom_minimum_size = Vector2(0, 576)
+layout_mode = 1
+offset_left = 322.0
+offset_right = -334.0
