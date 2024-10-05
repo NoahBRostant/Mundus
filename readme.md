@@ -31,7 +31,7 @@ Your feedback makes Mundus better. Share your ideas and suggestions on our Discu
 ## Licence
 This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**. You are free to view and study the code but are not permitted to redistribute or use it in your own projects without express permission.
 
-For more information, see the full [LICENSE](LICENSE.txt).
+For more information, see the full [LICENSE](licence.txt).
 
 ---
 
