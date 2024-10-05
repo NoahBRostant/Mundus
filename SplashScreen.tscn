@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8qf6q4gkukyv"]
+[gd_scene load_steps=11 format=3 uid="uid://c8qf6q4gkukyv"]
 
 [ext_resource type="Script" path="res://SplashScreen.gd" id="1_sta8y"]
 [ext_resource type="FontFile" uid="uid://cnk6bhvrw6w6a" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Regular.ttf" id="2_hktve"]
 [ext_resource type="Texture2D" uid="uid://dbdcjrfbqshub" path="res://Assets/Splash Screen/New Splash Screen notext title.png" id="3_h7nws"]
 [ext_resource type="PackedScene" uid="uid://bm0dt3qo0vag6" path="res://Login.tscn" id="4_ii7bc"]
+[ext_resource type="FontFile" uid="uid://bhydxkd7hoogf" path="res://Assets/Fonts/Segoe UI.ttf" id="5_jq71m"]
+[ext_resource type="Texture2D" uid="uid://dsdke1duouxap" path="res://Assets/Splash Screen/Version.png" id="5_n25l8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvosb"]
 
@@ -97,6 +99,36 @@ mouse_filter = 2
 texture = ExtResource("3_h7nws")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Version" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.234
+anchor_top = 0.925
+anchor_right = 0.351
+anchor_bottom = 0.983
+offset_left = -1.13605
+offset_top = 0.199951
+offset_right = -0.704041
+offset_bottom = 0.0319824
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_n25l8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Version"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_jq71m")
+theme_override_font_sizes/font_size = 24
+text = "v0.0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel2" type="Panel" parent="."]
 visible = false

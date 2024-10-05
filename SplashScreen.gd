@@ -13,13 +13,14 @@ var alreadytried = false
 func _ready() -> void:
 	get_window().borderless = true
 	get_window().size = Vector2i(1152,648)
+	$ScrollContainer/VBoxContainer/RichTextLabel.text = "Starting Mundus : v"+Console.version+"\n--------------------------"
+	$Version/Label.text = "v"+Console.version
 	await get_tree().create_timer(0.5).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Account Info[/color]")
 	await get_tree().create_timer(0.1).timeout
 	var r := await HttpRequest.async_request('https://www.google.com')
 	if r.success:
-		var check_auth = await Firebase.Auth.check_auth_file()
-		if check_auth != true:
+		if Supabase.auth.client == null:
 			await get_tree().create_timer(0.2).timeout
 			$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Not Logged In[/color]")
 			await get_tree().create_timer(0.5).timeout
@@ -39,8 +40,8 @@ func enterIntercheckLoop():
 		if r.success:
 			success = true
 			break
-	var check_auth = await Firebase.Auth.check_auth_file()
-	if check_auth != true:
+	var check_auth = Supabase.auth.client
+	if check_auth == null:
 		await get_tree().create_timer(0.2).timeout
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Not Logged In[/color]")
 		await get_tree().create_timer(0.5).timeout
@@ -66,15 +67,16 @@ func auth_success():
 		await SearchProjects()
 		get_tree().change_scene_to_file("res://ProjectList.tscn")
 	else:
-		Firebase.Auth.logout()
+		Supabase.auth.sign_out()
 		alreadytried = false
 		retry(0,0)
 
 func retry(error_code, message):
 	await get_tree().create_timer(0.2).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Authentication[/color]")
-	var check_auth = Firebase.Auth.check_auth_file()
-	if check_auth != true:
+	await get_tree().create_timer(1).timeout
+	var check_auth = Supabase.auth.client
+	if check_auth == null:
 		await get_tree().create_timer(0.2).timeout
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Failed to Login: "+str(error_code)+" "+str(message)+"[/color]")
 		await get_tree().create_timer(0.5).timeout
@@ -132,9 +134,12 @@ func _add_dir_contents(dir: DirAccess, files: Array, directories: Array):
 	dir.list_dir_end()
 
 func verifyFolders():
+	$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CBlue+']Verifying Folder Integrity[/color]')
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CBlue+']Creating "saves" Folder[/color]')
 	var d = DirAccess.open("user://")
 	d.make_dir_recursive("saves")
+	d.make_dir_recursive("core")
+	d.make_dir_recursive("recursive_plugins")
 	d.open("user:///saves")
 	if d:
 		$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CGreen+']Successfuly Created "saves" Folder[/color]')
@@ -148,11 +153,12 @@ func failedSavesFolder():
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text('\n[color='+CRed+']Aborting...[/color]')
 	await get_tree().create_timer(999999999999999999).timeout
 
-
-
 func startup_sequence():
-	var collection: FirestoreCollection = Firebase.Firestore.collection("UserData")
-	var document_task: FirestoreTask = collection.get_doc(Firebase.Auth.auth.localid)
-	var document: FirestoreDocument = await document_task.get_document
-	Global.userEmail = document.doc_fields.email
+	#var collection: FirestoreCollection = Firebase.Firestore.collection("UserData")
+	#var document_task: FirestoreTask = await collection.get_doc(Firebase.Auth.auth.localid)
+	#var document: FirestoreDocument = await document_task.get_document
+	#Global.userEmail = document.doc_fields.email
 	return
+
+func _admin():
+	auth_success()

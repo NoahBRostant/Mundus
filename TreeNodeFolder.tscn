@@ -82,7 +82,7 @@ editor_description = "
 			
 Give feedback at: https://github.com/ArshvirGoraya/Godot-Collapsible-Container"
 clip_contents = true
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -92,7 +92,7 @@ folding_direction_preset = 10
 sizing_constraint = 1
 sizing_node = NodePath("MarginContainer")
 tween_in_physics_process = true
-tween_duration_sec = 0.3
+tween_duration_sec = 0.2
 
 [node name="MarginContainer" type="MarginContainer" parent="CollapsibleContainer"]
 layout_mode = 1

@@ -7,7 +7,7 @@ extends Control
 @export var filepath:String
 @export var core:bool
 
-func _process(delta):
+func _ready() -> void:
 	if core != true and $HBoxContainer/MarginContainer2:
 		$HBoxContainer/MarginContainer2.hide()
 	$HBoxContainer/Label.text = title

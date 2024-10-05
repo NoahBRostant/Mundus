@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bm0dt3qo0vag6"]
+[gd_scene load_steps=16 format=3 uid="uid://bm0dt3qo0vag6"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_um3dt"]
 [ext_resource type="Script" path="res://Login.gd" id="2_2ih51"]
 [ext_resource type="Texture2D" uid="uid://b5s57r0foiqg3" path="res://Assets/Splash Screen/DALL·E 2024-01-13 21.07.12 - A subtle and artistic background image representing the themes of Dungeons and Dragons (DnD), world building, and storytelling. The image should evoke.png" id="3_orw5d"]
-[ext_resource type="Texture2D" uid="uid://cncq02g3g26hg" path="res://addons/godot-firebase/google.svg" id="4_2ilm5"]
-[ext_resource type="Texture2D" uid="uid://y23suwmo27c7" path="res://addons/godot-firebase/github(1).svg" id="5_ppiid"]
-[ext_resource type="Texture2D" uid="uid://b07vu36odc0rc" path="res://addons/godot-firebase/circle-user-regular(1).svg" id="5_xh5b8"]
+[ext_resource type="Texture2D" uid="uid://ditj48ju3tx0g" path="res://addons/supabase/Supabase/google-brands-solid.svg" id="4_457mp"]
+[ext_resource type="Texture2D" uid="uid://dx0but8gervlw" path="res://addons/supabase/Supabase/github-brands-solid.svg" id="5_8hins"]
 [ext_resource type="Texture2D" uid="uid://b4bthglacwwm3" path="res://Assets/Splash Screen/alchemyrefiner_alchemymagic_0_50dc3539-d6ac-42d2-9b36-e3c38ddfef45_0.jpg" id="6_haj0a"]
 [ext_resource type="Texture2D" uid="uid://dbdcjrfbqshub" path="res://Assets/Splash Screen/New Splash Screen notext title.png" id="6_i5hvq"]
 [ext_resource type="Texture2D" uid="uid://37mwqmq7ncer" path="res://Assets/Splash Screen/Logo with text.png" id="7_h62eq"]
@@ -133,17 +132,19 @@ theme_override_constants/margin_bottom = 50
 
 [node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2"]
 layout_mode = 2
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_qan2r")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_qan2r")
 theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_qan2r")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4hy5c")
-theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_qan2r")
 tab_alignment = 1
+current_tab = 0
 
 [node name="Login" type="TabBar" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer"]
 layout_mode = 2
 tab_alignment = 1
 clip_tabs = false
 scrolling_enabled = false
+metadata/_tab_index = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login"]
 custom_minimum_size = Vector2(250, 0)
@@ -233,7 +234,7 @@ offset_right = -9.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_2ilm5")
+texture = ExtResource("4_457mp")
 expand_mode = 1
 stretch_mode = 5
 
@@ -252,7 +253,7 @@ offset_right = -9.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_ppiid")
+texture = ExtResource("5_8hins")
 expand_mode = 1
 stretch_mode = 5
 
@@ -278,7 +279,6 @@ offset_right = -9.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_xh5b8")
 expand_mode = 1
 stretch_mode = 5
 
@@ -296,6 +296,7 @@ text = "Login"
 [node name="Register" type="TabBar" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Register"]
 custom_minimum_size = Vector2(250, 0)
@@ -488,8 +489,8 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("8_iqf8n")
-theme_override_fonts/bold_font = ExtResource("9_jv8te")
 theme_override_fonts/italics_font = ExtResource("10_q7hsq")
+theme_override_fonts/bold_font = ExtResource("9_jv8te")
 theme_override_font_sizes/normal_font_size = 14
 theme_override_font_sizes/bold_font_size = 14
 bbcode_enabled = true
@@ -562,6 +563,7 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
+[connection signal="text_submitted" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/LPassword" to="." method="_on_l_password_text_submitted"]
 [connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/HBoxContainer/Button2" to="." method="_on_github_button_up"]
 [connection signal="button_up" from="ColorRect/MarginContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/TabContainer/Login/VBoxContainer/Login" to="." method="_on_login_button_up"]

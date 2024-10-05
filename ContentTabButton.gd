@@ -48,4 +48,9 @@ func _on_texture_button_pressed():
 	for i in childeren:
 		if i.tabid == tabid:
 			i.get_parent().remove_child(i)
+	var tween = get_tree().create_tween().set_parallel(true)
+	tween.tween_property($MarginContainer, "modulate", Color8(255,255,255,0), 0.15)
+	tween.tween_property(self, "modulate", Color8(255,255,255,0), 0.2)
+	tween.tween_property(self, "custom_minimum_size", Vector2(0,size.y), 0.2)
+	await get_tree().create_timer(0.3).timeout
 	self.get_parent().remove_child(self)

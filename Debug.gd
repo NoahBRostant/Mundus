@@ -61,9 +61,12 @@ func _on_CMDLine_text_entered(_new_text):
 		write_to_debug.text += "[color="+CBlue+"][code][/code]    Help: List of Commands[/color]\n"
 		write_to_debug.text += "[color="+CBlue+"]             help[/color] : Bring up the command menu or for more information on other comands\n"
 		write_to_debug.text += "[color="+CBlue+"]             info[/color] : Information on Mundus\n"
-		write_to_debug.text += "[color="+CBlue+"]             cls[/color] : Clear the Debug Console\n"
-		write_to_debug.text += '[color='+CBlue+']             console()[/color] : Access the Terminal\n'
+		write_to_debug.text += "[color="+CBlue+"]             cls[/color] : Clear the Console\n"
+		write_to_debug.text += '[color='+CBlue+']             console()[/color] : Print to the Console\n'
 		write_to_debug.text += "[color="+CBlue+"]             func[/color] : Toggle Functions within Mundus\n"
+	elif cmd.begins_with("help "):
+		if cmd.trim_prefix("help ") == "-v" or cmd.trim_prefix("help ") == "-version":
+			write_to_debug.text += "[color="+CBlue+"][code][/code]   Help:[/color] Mundus_"+Console.verState+"_v"+Console.version+"\n"
 	elif cmd.begins_with("func.fps"):
 		if cmd.begins_with("func.fps("):
 			if cmd.ends_with(")"):
@@ -84,7 +87,7 @@ func _on_CMDLine_text_entered(_new_text):
 				fps = true
 	elif cmd.begins_with("godot"):
 		if cmd == "godot -v":
-			write_to_debug.text += "[code][/code]   Godot: Godot_v4.2.1.stable\n"
+			write_to_debug.text += "[code][/code]   Godot: Godot_v4.3.stable\n"
 		else:
 			pass
 	elif cmd.begins_with("console"):
@@ -139,63 +142,6 @@ func _on_CMDLine_text_entered(_new_text):
 	elif cmd.begins_with("map."):
 		if cmd == "map.loadimage":
 			get_node("/root/Node3D/VBoxContainer/Control/FileDialog").show()
-	# GPT-3 Options ---------------------------------------------------
-	#elif cmd.begins_with("gpt("): # Detect correct command
-		#if cmd.ends_with(")"): # Ensure its a closed command
-			#var tempcmd = cmd.trim_prefix("gpt(") # Gets raw data from command "PROMPT",MAX_TOKENS
-			#tempcmd = tempcmd.trim_suffix(")")
-			#var cmdsplit = tempcmd.split(",",true,1)
-			#if str(cmdsplit[0]).begins_with("'"):
-				#if cmdsplit[0].ends_with("'"):
-					#cmdsplit[0] = cmdsplit[0].trim_prefix("'")
-					#cmdsplit[0] = cmdsplit[0].trim_suffix("'")
-					#Global.openaiRequest = cmdsplit[0]
-					#if cmdsplit.size() == 1:
-						#Global.gptTokenLimit = Global.gptTokenDefault
-					#else:
-						#Global.gptTokenLimit = int(cmdsplit[1])
-					#OpenAi.run_gpt()
-					#write_to_debug.text += Global.openaiResponse
-				#else:
-					#ERROR("0004")
-			#elif str(cmdsplit[0]).begins_with('"'):
-				#if cmdsplit[0].ends_with('"'):
-					#cmdsplit[0] = cmdsplit[0].trim_prefix('"')
-					#cmdsplit[0] = cmdsplit[0].trim_suffix('"')
-					#Global.openaiRequest = cmdsplit[0]
-					#if cmdsplit.size() == 1:
-						#Global.gptTokenLimit = Global.gptTokenDefault
-#						ThreadPoolManager.submit_task_unparameterized(self, "RUNGPT3","executegpt3",10000)
-						#OpenAi.run_gpt()
-						#write_to_debug.text += "GPT3: "+str(cmdsplit[0])
-						#write_to_debug.text += Global.openaiResponse
-					#elif cmdsplit[1].is_valid_int():
-						#Global.gptTokenLimit = int(cmdsplit[1])
-#						ThreadPoolManager.submit_task_unparameterized(self, "RUNGPT3","executegpt3",10000)
-						#OpenAi.run_gpt()
-						#write_to_debug.text += Global.openaiResponse
-					#else:
-						#ERROR("0008")
-				#else:
-					#ERROR("0004")
-			#else:
-				#ERROR("0007")
-		#else:
-			#ERROR("0003")
-#	elif cmd.begins_with("dalle("):
-#		if cmd.ends_with(")"):
-#			cmd.trim_prefix("dalle(")
-#			cmd.trim_suffix(")")
-#			var cmdsplit = cmd.split(",",false,1)
-#			Global.openaiRequest = cmdsplit[0]
-#			if cmdsplit.size() == 1:
-#				Global.gptTokenLimit = Global.gptTokenDefault
-#			else:
-#				Global.gptTokenLimit = int(cmdsplit[1])
-#			$"/root/Spatial/VBoxContainer/Control/HBoxContainer/VBoxContainer2/Panel6/TabContainer/ProphetAI".run_dalle()
-#			write_to_debug.bbcode_text += Global.openaiResponse
-#		else:
-#			ERROR("0003")
 	elif cmd == "exit":
 		get_tree().quit()
 	else:
@@ -203,53 +149,56 @@ func _on_CMDLine_text_entered(_new_text):
 	%CMDLine.editable = true
 
 
+## ---------------------------------- Error Handling
+
 func ERROR(ECode):
-	if ECode == "0002":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Not a valid Command[/color]\n'
-	elif ECode == "0003":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Expected ")"[/color]\n'
-	elif ECode == "0004":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Expected " or '+"'"+'[/color]\n'
-	elif ECode == "0005":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Expected boolian in argument[/color]\n'
-	elif ECode == "0006":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Expected variable in argument[/color]\n'
-	elif ECode == "0007":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Expected string in argument[/color]\n'
-	elif ECode == "0008":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Expected integer in argument[/color]\n'
-	elif ECode == "0020":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Console command not defined as a type ( ".log", ".success", ".alert", ".error" )\n'
-	elif ECode == "0050":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: OpenAI - GPT ran into an issue[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Unknown Issue[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Check API Key, Check OpenAI Account, and Check Billing Preferences[/color]\n'
-	elif ECode == "0051":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: OpenAI - GPT ran into an issue[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             API Key not Recognised[/color]\n'
-	elif ECode == "0060":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: OpenAI - DALL-E ran into an issue[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Unknown Issue[/color]\n'
-	elif ECode == "1000":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to Load "'+cmd+'" as a Texture2D[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Internal Failure[/color]\n'
-	elif ECode == "1001":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to Load "'+cmd+'" as a Texture2D[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Not a valid file format ( ".PNG", ".JPG", ".JPEG" )[/color]\n'
-	elif ECode == "1002":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: An error occurred when trying to access the path.[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             '+Console.debug+'[/color]\n'
-	elif ECode == "2000":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to run Notify[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Notify Encountered an Error on Attempted Push Notification[/color]\n'
-	elif ECode == "2001":
-		write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to run Notify[/color]\n'
-		write_to_debug.text += '[color='+CRed+']             Notify Push Notification Unavalible on ( "'+OS.get_name()+'" )[/color]\n'
+	match ECode:
+		"0002":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Not a valid Command[/color]\n'
+		"0003":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Expected ")"[/color]\n'
+		"0004":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Expected " or '+"'"+'[/color]\n'
+		"0005":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Expected boolean in argument[/color]\n'
+		"0006":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Expected variable in argument[/color]\n'
+		"0007":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Expected string in argument[/color]\n'
+		"0008":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Expected integer in argument[/color]\n'
+		"0020":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to execute "'+cmd+'"[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Console command not defined as a type ( ".log", ".success", ".alert", ".error" )[/color]\n'
+		"0050":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: OpenAI - GPT ran into an issue[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Unknown Issue[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Check API Key, Check OpenAI Account, and Check Billing Preferences[/color]\n'
+		"0051":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: OpenAI - GPT ran into an issue[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             API Key not Recognised[/color]\n'
+		"0060":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: OpenAI - DALL-E ran into an issue[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Unknown Issue[/color]\n'
+		"1000":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to Load "'+cmd+'" as a Texture2D[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Internal Failure[/color]\n'
+		"1001":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to Load "'+cmd+'" as a Texture2D[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Not a valid file format ( ".PNG", ".JPG", ".JPEG" )[/color]\n'
+		"1002":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: An error occurred when trying to access the path.[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             '+Console.debug+'[/color]\n'
+		"2000":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to run Notify[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Notify Encountered an Error on Attempted Push Notification[/color]\n'
+		"2001":
+			write_to_debug.text += '[color='+CRed+'][code]󰅙[/code]   Error: Failed to run Notify[/color]\n'
+			write_to_debug.text += '[color='+CRed+']             Notify Push Notification Unavailable on ( "'+OS.get_name()+'" )[/color]\n'

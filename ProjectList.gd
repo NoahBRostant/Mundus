@@ -16,7 +16,7 @@ func _ready():
 	oldProject = Console.projectSelected
 
 
-func _process(delta):
+func _process(_delta):
 	if Console.projectSelected == null:
 		$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button.disabled = true
 		$VBoxContainer/HBoxContainer/Panel4/VBoxContainer/Panel/VBoxContainer/Button2.disabled = true

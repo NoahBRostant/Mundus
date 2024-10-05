@@ -5,15 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dmcoq2hcx0vsj" path="res://Assets/Basic Icons/gear-solid(1).svg" id="2_eukom"]
 [ext_resource type="Texture2D" uid="uid://cuk1q342axru" path="res://Assets/Basic Icons/xmark-solid.svg" id="2_nhmg1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4rg5"]
-content_margin_left = 10.0
-content_margin_right = 28.0
-bg_color = Color(0.160784, 0.168627, 0.184314, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 10
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v86d8"]
+texture = ExtResource("1_okm45")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjb8x"]
 content_margin_left = 10.0
@@ -24,8 +17,15 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v86d8"]
-texture = ExtResource("1_okm45")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4rg5"]
+content_margin_left = 10.0
+content_margin_right = 28.0
+bg_color = Color(0.160784, 0.168627, 0.184314, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
 
 [sub_resource type="Image" id="Image_b77dy"]
 
@@ -35,10 +35,10 @@ offset_right = 150.0
 offset_bottom = 39.0
 mouse_filter = 1
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_e4rg5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_v86d8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tjb8x")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_v86d8")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_v86d8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e4rg5")
 toggle_mode = true
 action_mode = 0
 alignment = 0

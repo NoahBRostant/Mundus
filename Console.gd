@@ -1,5 +1,12 @@
 extends Node
 
+# ------------------------------------------------------- Changable Variables
+
+@export var verState := "Alpha"
+@export var version := "0.2.0"
+
+# --------------------------------------------
+
 var debug:String = ""
 var ECode:String = ""
 

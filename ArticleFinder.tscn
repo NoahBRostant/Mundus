@@ -1,12 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://lbkxpq3atm58"]
+[gd_scene load_steps=24 format=3 uid="uid://lbkxpq3atm58"]
 
 [ext_resource type="Script" path="res://ArticleFinder.gd" id="1_4h4sf"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_7vua5"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_pbnan"]
-[ext_resource type="PackedScene" uid="uid://dyr7iyi3qny57" path="res://ArticleNodeItem.tscn" id="3_gqvdg"]
-[ext_resource type="Texture2D" uid="uid://b67ucimswbhya" path="res://Assets/Basic Icons/language-solid.svg" id="4_svjgw"]
-[ext_resource type="Texture2D" uid="uid://dpoocdowqk6nk" path="res://Assets/Basic Icons/circle-user-regular(3).svg" id="5_5b6l1"]
-[ext_resource type="Texture2D" uid="uid://bmviust61jxd0" path="res://Assets/Basic Icons/gem-solid.svg" id="5_qfqo2"]
 [ext_resource type="Texture2D" uid="uid://cna6dnpkk70g2" path="res://Assets/Splash Screen/logo_b&w_transparent.png" id="6_0ebde"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="7_dh4hf"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="8_u1udy"]
@@ -178,37 +174,11 @@ allow_horizontal_scroll = false
 auto_allow_scroll = false
 allow_overdragging = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+[node name="ArticleList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer/VBoxContainer" instance=ExtResource("3_gqvdg")]
-layout_mode = 2
-mouse_filter = 1
-title = "Map"
-core = true
-
-[node name="VBoxContainer2" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer/VBoxContainer" instance=ExtResource("3_gqvdg")]
-layout_mode = 2
-mouse_filter = 1
-title = "Character"
-shorthand_img = ExtResource("5_5b6l1")
-core = true
-
-[node name="VBoxContainer3" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer/VBoxContainer" instance=ExtResource("3_gqvdg")]
-layout_mode = 2
-mouse_filter = 1
-title = "Language"
-shorthand_img = ExtResource("4_svjgw")
-core = true
-
-[node name="VBoxContainer4" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer/VBoxContainer" instance=ExtResource("3_gqvdg")]
-layout_mode = 2
-mouse_filter = 1
-title = "Mineral"
-shorthand_img = ExtResource("5_qfqo2")
-core = true
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
@@ -229,6 +199,18 @@ theme_override_constants/separation = 10
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect"]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("6_0ebde")
 expand_mode = 1
 stretch_mode = 6

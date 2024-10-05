@@ -36,6 +36,7 @@ func _on_start_btn_button_down():
 	%ProgressBar.show()
 	await get_tree().create_timer(1).timeout
 	$Panel2/Label.show()
+	await get_tree().create_timer(3).timeout
 	createSave()
 	Global.projectName = projectName
 	Console.debug = 'Successfuly Created "'+projectName+'"'

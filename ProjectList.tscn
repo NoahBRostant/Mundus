@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cm4pwow6cnpyp" path="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png" id="5_tvpou"]
 [ext_resource type="Texture2D" uid="uid://b0etbfocqvbsq" path="res://Assets/Splash Screen/LogoTitle.png" id="6_i4gdu"]
 [ext_resource type="Texture2D" uid="uid://bo61x22sej7hd" path="res://Assets/Basic Icons/up-right-from-square-solid.svg" id="6_liieb"]
-[ext_resource type="Texture2D" uid="uid://b07vu36odc0rc" path="res://addons/godot-firebase/circle-user-regular(1).svg" id="8_boox6"]
+[ext_resource type="Texture2D" uid="uid://dpoocdowqk6nk" path="res://Assets/Basic Icons/circle-user-regular(3).svg" id="8_boox6"]
 [ext_resource type="FontFile" uid="uid://cnk6bhvrw6w6a" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Regular.ttf" id="9_torc2"]
 [ext_resource type="PackedScene" uid="uid://cdstvg1e5a7mn" path="res://AccountOptions.tscn" id="10_xqe5k"]
 
@@ -121,10 +121,9 @@ text = "Sort"
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/Panel2/HBoxContainer"]
 custom_minimum_size = Vector2(150, 29)
 layout_mode = 2
-item_count = 4
 selected = 0
+item_count = 4
 popup/item_0/text = "Last Modified"
-popup/item_0/id = 0
 popup/item_1/text = "Name"
 popup/item_1/id = 1
 popup/item_2/text = "Ruleset"

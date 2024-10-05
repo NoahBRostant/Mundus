@@ -3,7 +3,6 @@
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Main.gd" id="1_uxxeo"]
 [ext_resource type="Script" path="res://addons/dockable_container/dockable_container.gd" id="3_1uq5w"]
-[ext_resource type="Texture2D" uid="uid://b07vu36odc0rc" path="res://addons/godot-firebase/circle-user-regular(1).svg" id="3_ck3df"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout_panel.gd" id="4_7mtdk"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout.gd" id="5_ip3ue"]
 [ext_resource type="Script" path="res://addons/dockable_container/layout_split.gd" id="5_utaol"]
@@ -31,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bo61x22sej7hd" path="res://Assets/Basic Icons/up-right-from-square-solid.svg" id="26_6o6gu"]
 [ext_resource type="PackedScene" uid="uid://cdstvg1e5a7mn" path="res://AccountOptions.tscn" id="27_b43or"]
 [ext_resource type="Texture2D" uid="uid://q5gdbwtfdutf" path="res://Assets/Basic Icons/arrows-down-to-line-solid(1).svg" id="28_3p3rf"]
+[ext_resource type="Texture2D" uid="uid://dpoocdowqk6nk" path="res://Assets/Basic Icons/circle-user-regular(3).svg" id="30_obbrd"]
 [ext_resource type="PackedScene" uid="uid://lbkxpq3atm58" path="res://ArticleFinder.tscn" id="32_efsio"]
 
 [sub_resource type="Resource" id="Resource_qqlnt"]
@@ -176,10 +176,8 @@ flat = true
 [node name="File" type="PopupMenu" parent="Control2/HBoxContainer/VBoxContainer2/MenuBar"]
 item_count = 12
 item_0/text = "New Article"
-item_0/id = 0
 item_1/text = "New Timeline"
 item_1/id = 1
-item_2/text = ""
 item_2/id = 2
 item_2/separator = true
 item_3/text = "Open File"
@@ -188,14 +186,12 @@ item_4/text = "Open Folder"
 item_4/id = 4
 item_5/text = "Open Recents"
 item_5/id = 5
-item_6/text = ""
 item_6/id = 6
 item_6/separator = true
 item_7/text = "Save"
 item_7/id = 7
 item_8/text = "Save As"
 item_8/id = 8
-item_9/text = ""
 item_9/id = 9
 item_9/separator = true
 item_10/text = "Exit to Project List"
@@ -206,7 +202,6 @@ item_11/id = 11
 [node name="Edit" type="PopupMenu" parent="Control2/HBoxContainer/VBoxContainer2/MenuBar"]
 item_count = 2
 item_0/text = "Undo"
-item_0/id = 0
 item_1/text = "Redo"
 item_1/id = 1
 
@@ -217,14 +212,12 @@ item_1/id = 1
 [node name="Help" type="PopupMenu" parent="Control2/HBoxContainer/VBoxContainer2/MenuBar"]
 item_count = 6
 item_0/text = "About"
-item_0/id = 0
 item_1/text = "Documentation"
 item_1/id = 1
 item_2/text = "Website"
 item_2/id = 2
 item_3/text = "Start Guide"
 item_3/id = 5
-item_4/text = ""
 item_4/id = 3
 item_4/separator = true
 item_5/text = "Check for Updates"
@@ -730,12 +723,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 0
 tabs_rearrange_group = 0
 
-[node name="Termainal" type="TabBar" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer"]
+[node name="Console" type="TabBar" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal"]
+[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -747,16 +742,16 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal/MarginContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
 
-[node name="DebugText" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal/MarginContainer/VBoxContainer/Panel"]
+[node name="DebugText" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -770,10 +765,10 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
 theme_override_fonts/normal_font = ExtResource("15_t4xn5")
-theme_override_fonts/bold_font = ExtResource("16_5unro")
+theme_override_fonts/mono_font = ExtResource("15_t4xn5")
 theme_override_fonts/italics_font = ExtResource("17_fefu0")
 theme_override_fonts/bold_italics_font = ExtResource("18_4f747")
-theme_override_fonts/mono_font = ExtResource("15_t4xn5")
+theme_override_fonts/bold_font = ExtResource("16_5unro")
 theme_override_font_sizes/mono_font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5621r")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ndc35")
@@ -781,14 +776,16 @@ bbcode_enabled = true
 scroll_following = true
 selection_enabled = true
 
-[node name="CMDLine" type="LineEdit" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal/MarginContainer/VBoxContainer"]
+[node name="CMDLine" type="LineEdit" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 
 [node name="Quick Notes" type="TabBar" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Quick Notes"]
 layout_mode = 1
@@ -854,7 +851,7 @@ alignment = 2
 [node name="Button2" type="Button" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "Extentions"
+text = "AssetLib"
 
 [node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
 visible = false
@@ -894,7 +891,7 @@ offset_right = 12.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_ck3df")
+texture = ExtResource("30_obbrd")
 expand_mode = 1
 stretch_mode = 5
 
@@ -974,7 +971,7 @@ layout_mode = 1
 [connection signal="pressed" from="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/HBoxContainer/Button2" to="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files" method="_on_button_2_pressed"]
 [connection signal="button_down" from="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/HBoxContainer/Button3" to="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files" method="_on_button_3_button_down"]
 [connection signal="sort_children" from="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" to="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" method="_on_sort_children"]
-[connection signal="text_submitted" from="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Termainal/MarginContainer/VBoxContainer/CMDLine" to="Control2/HBoxContainer/VBoxContainer/Control3/Panel" method="_on_CMDLine_text_entered"]
+[connection signal="text_submitted" from="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/CMDLine" to="Control2/HBoxContainer/VBoxContainer/Control3/Panel" method="_on_CMDLine_text_entered"]
 [connection signal="button_up" from="Control2/HBoxContainer/VBoxContainer3/HBoxContainer/Button" to="." method="_on_accountoptions_button_up"]
 [connection signal="button_up" from="AccountOptions/Button" to="." method="_on_closeaccount_button_up"]
 [connection signal="button_up" from="AddFileTree/Button" to="." method="_on_closeaccount_button_up"]
