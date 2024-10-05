@@ -44,6 +44,6 @@ A full list of third-party materials and their respective licenses can be found 
 
 ## Create a World as Unique as Your Story!
 
-<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot_1.png?raw=true"></img>
-<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot_2.png?raw=true"></img>
-<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Frame.png?raw=true"></img>
+<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot from 2024-10-05 16-39-07.png?raw=true"></img>
+<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot from 2024-10-05 16-39-40.png?raw=true"></img>
+<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Screenshot from 2024-10-05 16-40-00.png?raw=true"></img>

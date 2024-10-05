@@ -1044,6 +1044,7 @@ offset_right = 432.0
 offset_bottom = 242.0
 
 [node name="AddFileTree" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
