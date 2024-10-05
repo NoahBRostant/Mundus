@@ -1,3 +1,7 @@
+This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. You are free to view and study the code but are not permitted to redistribute or use it in your own projects without express permission.
+
+The full licence can be found bellow or at http://creativecommons.org/licenses/by-nc/4.0/
+
 Attribution-NonCommercial-NoDerivatives 4.0 International
 
 =======================================================================

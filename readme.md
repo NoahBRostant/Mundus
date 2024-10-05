@@ -29,7 +29,7 @@ Follow the development of Mundus: World Builder through the Roadmap.
 Your feedback makes Mundus better. Share your ideas and suggestions on our Discussions Page.
 
 ## Licence
-This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**. You are free to view and study the code but are not permitted to redistribute or use it in your own projects without express permission.
+This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**. You are free to view and study the code but are not permitted to redistribute or use it in your own projects without express permission.
 
 For more information, see the full [LICENSE](LICENSE.txt).
 
