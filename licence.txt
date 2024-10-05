@@ -1,6 +1,19 @@
-This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. You are free to view and study the code but are not permitted to redistribute or use it in your own projects without express permission.
+Mundus is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. You are free to view and study the code but are not permitted to redistribute or use it in your own projects without express permission.
 
 The full licence can be found bellow or at http://creativecommons.org/licenses/by-nc/4.0/
+
+
+Third Party Exceptions
+
+=======================================================================
+
+Mundus, while licensed under the CC BY-NC-ND 4.0 International License, includes certain open-source or licensed materials. All such materials are subject to their own licenses and are not governed by the terms of this project’s license.
+
+FontAwesome               - https://fontawesome.com/license/free
+Noto Sans                 - https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+JetBrainsMono Nerd Font   - https://github.com/ryanoasis/nerd-fonts
+
+=======================================================================
 
 Attribution-NonCommercial-NoDerivatives 4.0 International
 
