@@ -13,7 +13,7 @@ var alreadytried = false
 func _ready() -> void:
 	get_window().borderless = true
 	get_window().size = Vector2i(1152,648)
-	$ScrollContainer/VBoxContainer/RichTextLabel.text = "Starting Mundus : v"+Console.version+"\n--------------------------"
+	$ScrollContainer/VBoxContainer/RichTextLabel.text = "Starting Mundus : v"+Console.version+"\n──────────────────────────"
 	$Version/Label.text = "v"+Console.version
 	await get_tree().create_timer(0.5).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Account Info[/color]")

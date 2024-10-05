@@ -18,17 +18,17 @@
 [ext_resource type="PackedScene" uid="uid://bw5ncliqiptkc" path="res://StartGuide.tscn" id="14_iinvv"]
 [ext_resource type="Script" path="res://Debug.gd" id="14_v20j8"]
 [ext_resource type="Texture2D" uid="uid://cxtx6y7p7mbpn" path="res://Assets/Splash Screen/Rectangle.png" id="15_m0s8a"]
-[ext_resource type="FontFile" uid="uid://cnk6bhvrw6w6a" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Regular.ttf" id="15_t4xn5"]
-[ext_resource type="FontFile" uid="uid://cgynyh2ls2jq" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Bold.ttf" id="16_5unro"]
 [ext_resource type="PackedScene" uid="uid://codewh1n4a0fp" path="res://Articles/DnD5e/character.tscn" id="16_un1gh"]
 [ext_resource type="PackedScene" uid="uid://dfdvhal2kp4or" path="res://MapEditInterface.tscn" id="17_0j1hj"]
-[ext_resource type="FontFile" uid="uid://c73ut4ilicail" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-Italic.ttf" id="17_fefu0"]
-[ext_resource type="FontFile" uid="uid://dw5f2f52iy41o" path="res://Assets/Fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf" id="18_4f747"]
 [ext_resource type="Texture2D" uid="uid://bpd4val7f847e" path="res://Assets/Basic Icons/house-solid.svg" id="18_7vdki"]
 [ext_resource type="Script" path="res://INSP_ArticleBase.gd" id="21_auidd"]
+[ext_resource type="FontFile" uid="uid://br8cs0av0svnk" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNerdFont-Regular.ttf" id="24_1siyw"]
 [ext_resource type="Texture2D" uid="uid://d3ube1hf1xys2" path="res://Assets/Basic Icons/triangle-exclamation-solid.svg" id="24_16e2j"]
+[ext_resource type="FontFile" uid="uid://bu7kjksabsvlk" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNerdFont-Italic.ttf" id="25_3wjqc"]
 [ext_resource type="Texture2D" uid="uid://bo61x22sej7hd" path="res://Assets/Basic Icons/up-right-from-square-solid.svg" id="26_6o6gu"]
+[ext_resource type="FontFile" uid="uid://cf3rai3vl6kwv" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNerdFont-BoldItalic.ttf" id="26_rvqy4"]
 [ext_resource type="PackedScene" uid="uid://cdstvg1e5a7mn" path="res://AccountOptions.tscn" id="27_b43or"]
+[ext_resource type="FontFile" uid="uid://617lqgpbpsdp" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNerdFont-Bold.ttf" id="27_bd7ei"]
 [ext_resource type="Texture2D" uid="uid://q5gdbwtfdutf" path="res://Assets/Basic Icons/arrows-down-to-line-solid(1).svg" id="28_3p3rf"]
 [ext_resource type="Texture2D" uid="uid://dpoocdowqk6nk" path="res://Assets/Basic Icons/circle-user-regular(3).svg" id="30_obbrd"]
 [ext_resource type="PackedScene" uid="uid://lbkxpq3atm58" path="res://ArticleFinder.tscn" id="32_efsio"]
@@ -764,12 +764,11 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
-theme_override_fonts/normal_font = ExtResource("15_t4xn5")
-theme_override_fonts/mono_font = ExtResource("15_t4xn5")
-theme_override_fonts/italics_font = ExtResource("17_fefu0")
-theme_override_fonts/bold_italics_font = ExtResource("18_4f747")
-theme_override_fonts/bold_font = ExtResource("16_5unro")
-theme_override_font_sizes/mono_font_size = 24
+theme_override_fonts/normal_font = ExtResource("24_1siyw")
+theme_override_fonts/mono_font = ExtResource("24_1siyw")
+theme_override_fonts/italics_font = ExtResource("25_3wjqc")
+theme_override_fonts/bold_italics_font = ExtResource("26_rvqy4")
+theme_override_fonts/bold_font = ExtResource("27_bd7ei")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5621r")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ndc35")
 bbcode_enabled = true

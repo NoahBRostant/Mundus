@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://b4bthglacwwm3" path="res://Assets/Splash Screen/alchemyrefiner_alchemymagic_0_50dc3539-d6ac-42d2-9b36-e3c38ddfef45_0.jpg" id="6_haj0a"]
 [ext_resource type="Texture2D" uid="uid://dbdcjrfbqshub" path="res://Assets/Splash Screen/New Splash Screen notext title.png" id="6_i5hvq"]
 [ext_resource type="Texture2D" uid="uid://37mwqmq7ncer" path="res://Assets/Splash Screen/Logo with text.png" id="7_h62eq"]
-[ext_resource type="FontFile" uid="uid://bhydxkd7hoogf" path="res://Assets/Fonts/Segoe UI.ttf" id="8_iqf8n"]
-[ext_resource type="FontFile" uid="uid://dvwe1n5qn2bo0" path="res://Assets/Fonts/Segoe UI Bold.ttf" id="9_jv8te"]
-[ext_resource type="FontFile" uid="uid://xp6lihlypppg" path="res://Assets/Fonts/Segoe UI Italic.ttf" id="10_q7hsq"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Segoe UI.ttf" id="8_iqf8n"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Segoe UI Bold.ttf" id="9_jv8te"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Segoe UI Italic.ttf" id="10_q7hsq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qan2r"]
 content_margin_left = 20.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bw5ncliqiptkc"]
 
-[ext_resource type="FontFile" uid="uid://dvwe1n5qn2bo0" path="res://Assets/Fonts/Segoe UI Bold.ttf" id="1_b8k5r"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Segoe UI Bold.ttf" id="1_b8k5r"]
 [ext_resource type="Script" path="res://StartGuide.gd" id="1_ig87h"]
 [ext_resource type="Texture2D" uid="uid://bf0hs76ilw1st" path="res://Assets/Basic Icons/book-bookmark-solid.svg" id="2_4cm2t"]
 [ext_resource type="Texture2D" uid="uid://c0alo6vfwalrc" path="res://Assets/Splash Screen/UniversalUpscaler_96cd49f2-e7bb-4764-a9b8-12d75e754bda.jpg" id="3_1t37d"]

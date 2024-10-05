@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=22 format=3 uid="uid://bqjx1o53xo1v6"]
 
-[ext_resource type="FontFile" uid="uid://bhydxkd7hoogf" path="res://Assets/Fonts/Segoe UI.ttf" id="1_vehbo"]
+[ext_resource type="FontFile" uid="uid://c05emydobpwj4" path="res://Assets/Fonts/NotoSans/NotoSans-Regular.ttf" id="1_puw4j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vob4h"]
 
@@ -167,7 +167,7 @@ corner_radius_bottom_left = 8
 corner_detail = 10
 
 [resource]
-default_font = ExtResource("1_vehbo")
+default_font = ExtResource("1_puw4j")
 default_font_size = 14
 Button/styles/disabled = SubResource("StyleBoxEmpty_vob4h")
 Button/styles/focus = SubResource("StyleBoxEmpty_svhwm")
