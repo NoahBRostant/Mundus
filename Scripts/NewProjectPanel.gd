@@ -1,5 +1,7 @@
 extends Panel
 
+@onready var _progress_bar = %ProgressBar
+
 var projectFileName = ""
 var projectName = ""
 var projectType = ""
@@ -11,6 +13,8 @@ var projectThumbnail = ""
 var randomFactor = randi_range(0,20)*Time.get_datetime_dict_from_system().second
 
 func _ready():
+	assert(InteractiveSceneChanger.progress_changed.connect(_on_progress_changed) == OK)
+	assert(InteractiveSceneChanger.load_done.connect(_load_done) == OK)
 	var date = Time.get_date_dict_from_system()
 	var day = date.day
 	var month = date.month
@@ -34,15 +38,9 @@ func _on_start_btn_button_down():
 	$Panel2/CenterContainer.show()
 	%StartBtn.hide()
 	%ProgressBar.show()
-	await get_tree().create_timer(1).timeout
-	$Panel2/Label.show()
-	await get_tree().create_timer(3).timeout
 	createSave()
-	Global.projectName = projectName
-	Console.debug = 'Successfuly Created "'+projectName+'"'
-	Console.ECode = "0000"
-	#YASM.load_scene("res://Main.tscn")
-	get_tree().change_scene_to_file("res://Main.tscn")
+	InteractiveSceneChanger.load_scene("res://Scenes/Main.tscn")
+	InteractiveSceneChanger.start_load()
 
 
 func _on_line_edit_text_changed(new_text):
@@ -90,3 +88,12 @@ func _on_native_file_dialog_file_selected(path):
 
 func _on_button_button_up():
 	$NativeFileDialog.show()
+
+
+func _on_progress_changed(progress):
+	_progress_bar.value = progress
+
+func _load_done():
+	Global.projectName = projectName
+	Console.debug = 'Successfuly Created "'+projectName+'"'
+	Console.ECode = "0000"

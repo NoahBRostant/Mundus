@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=49 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_uxxeo"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://q5gdbwtfdutf" path="res://Assets/Basic Icons/arrows-down-to-line-solid(1).svg" id="28_3p3rf"]
 [ext_resource type="Texture2D" uid="uid://dpoocdowqk6nk" path="res://Assets/Basic Icons/circle-user-regular(3).svg" id="30_obbrd"]
 [ext_resource type="PackedScene" uid="uid://lbkxpq3atm58" path="res://Scenes/ArticleFinder.tscn" id="32_efsio"]
+[ext_resource type="Texture2D" uid="uid://bf8kwebkedh0t" path="res://Screenshot from 2024-09-08 18-07-05.png" id="33_yxu2k"]
 
 [sub_resource type="Resource" id="Resource_qqlnt"]
 resource_name = "Tabs"
@@ -817,7 +818,8 @@ theme_override_font_sizes/font_size = 20
 text = ""
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+[node name="SuccessValue" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
@@ -837,7 +839,8 @@ theme_override_font_sizes/font_size = 20
 text = ""
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+[node name="AlertValue" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
@@ -857,7 +860,8 @@ theme_override_font_sizes/font_size = 20
 text = ""
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer3/HBoxContainer"]
+[node name="ErrorValue" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer3/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
@@ -877,7 +881,8 @@ theme_override_font_sizes/font_size = 20
 text = ""
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer4/HBoxContainer"]
+[node name="UserValue" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer4/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
@@ -1064,6 +1069,12 @@ flat = true
 
 [node name="PanelContainer" parent="AddFileTree" instance=ExtResource("32_efsio")]
 layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 48607.0
+offset_bottom = 27495.0
+texture = ExtResource("33_yxu2k")
 
 [connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/Help" to="." method="_on_help_id_pressed"]

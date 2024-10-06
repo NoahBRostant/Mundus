@@ -30,20 +30,20 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbj78"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik0xx"]
 content_margin_left = 10.0
 content_margin_right = 10.0
-bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+bg_color = Color(0.223529, 0.360784, 0.603922, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik0xx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbj78"]
 content_margin_left = 10.0
 content_margin_right = 10.0
-bg_color = Color(0.223529, 0.360784, 0.603922, 1)
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -153,10 +153,9 @@ alignment = 1
 [node name="OptionButton" type="OptionButton" parent="Panel2/VBoxContainer/Panel/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
-item_count = 4
 selected = 0
+item_count = 4
 popup/item_0/text = "None"
-popup/item_0/id = 0
 popup/item_1/text = "D&D 5e"
 popup/item_1/id = 1
 popup/item_2/text = "Pathfinder"
@@ -225,8 +224,8 @@ alignment = 1
 custom_minimum_size = Vector2(55, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 toggle_mode = true
 text = "Medieval"
 
@@ -234,8 +233,8 @@ text = "Medieval"
 custom_minimum_size = Vector2(55, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 toggle_mode = true
 text = "Futuristic"
 
@@ -243,8 +242,8 @@ text = "Futuristic"
 custom_minimum_size = Vector2(55, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 toggle_mode = true
 text = "Magic"
 
@@ -252,24 +251,24 @@ text = "Magic"
 custom_minimum_size = Vector2(55, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 toggle_mode = true
 text = "Sci-Fi"
 
 [node name="Button5" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HFlowContainer"]
 custom_minimum_size = Vector2(55, 25)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 toggle_mode = true
 text = "One-Shot"
 
 [node name="Button6" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer/HFlowContainer"]
 custom_minimum_size = Vector2(55, 25)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ik0xx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbj78")
 toggle_mode = true
 text = "Long-Term"
 
@@ -315,17 +314,15 @@ text = "Rule Sources"
 [node name="OptionButton" type="OptionButton" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 6
 selected = 0
+item_count = 6
 popup/item_0/text = "All Sources"
-popup/item_0/id = 0
 popup/item_1/text = "Basic Rules"
 popup/item_1/id = 1
 popup/item_2/text = "GameMasters Guide"
 popup/item_2/id = 2
 popup/item_3/text = "Players Handbook"
 popup/item_3/id = 3
-popup/item_4/text = ""
 popup/item_4/id = 4
 popup/item_4/separator = true
 popup/item_5/text = "Search for Sources"
@@ -364,7 +361,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_ifary")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k506g")
-value = 50.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel2"]
 visible = false

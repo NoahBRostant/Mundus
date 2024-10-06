@@ -16,7 +16,7 @@ run/main_scene="res://Scenes/SplashScreen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Mundus"
 config/features=PackedStringArray("4.3", "Forward Plus")
-run/max_fps=60
+run/max_fps=45
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Assets/Splash Screen/New Splash Screen notextbg title.png"
@@ -28,10 +28,10 @@ scenes/error_scene_path="res://addons/yet_another_scene_manager/Scenes/Error.tsc
 
 Console="*res://Scripts/Console.gd"
 Global="*res://Scripts/Global.gd"
-InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
 HttpRequest="*res://Scripts/AwaitableHTTPRequest.gd"
 Notify="*res://addons/native_notifications/native_notifications.gd"
 Supabase="*res://addons/supabase/Supabase/supabase.gd"
+InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
 
 [display]
 
