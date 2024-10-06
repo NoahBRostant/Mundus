@@ -16,6 +16,11 @@ var CYellow:String = "#E6F385"
 
 var Consoledebug:String = Console.debug
 
+var TotalSuccess = 0
+var TotalError = 0
+var TotalAlert = 0
+var TotalUser = 0
+
 func _ready():
 	#write_to_debug.text += "[code][/code]  Debug Terminal\n"
 	#write_to_debug.text += "	Welcome to Mundus...\n"
@@ -28,6 +33,7 @@ func _process(_delta):
 	if Console.debug != "":
 		if Console.ECode == "0000":
 			write_to_debug.text += "[color="+CGreen+"][code][/code] Success ─ "+Console.debug+"[/color]\n"
+			TotalSuccess += 1
 		elif Console.ECode == "0001":
 			write_to_debug.text += "[color="+CBlue+"][code][/code] Execute ─ "+Console.debug+"[/color]\n"
 		else:
@@ -37,6 +43,10 @@ func _process(_delta):
 		Console.debug = ""
 	else:
 		Consoledebug = Console.debug
+	%SuccessValue.text = str(TotalSuccess)
+	%AlertValue.text = str(TotalAlert)
+	%ErrorValue.text = str(TotalError)
+	%UserValue.text = str(TotalUser)
 
 
 func _on_CMDLine_text_entered(_new_text):
@@ -53,6 +63,10 @@ func _on_CMDLine_text_entered(_new_text):
 	# Custom Terminal Options ---------------------------------------
 	if cmd == "cls":
 		write_to_debug.text = ""
+		TotalAlert = 0
+		TotalError = 0
+		TotalSuccess = 0
+		TotalUser = 0
 	elif cmd == "help":
 		write_to_debug.text += "[color="+CBlue+"][code][/code]    Help ┬ List of Commands[/color]\n"
 		write_to_debug.text += "[color="+CBlue+"]          ├ help[/color] : Bring up the command menu or for more information on other comands\n"
@@ -94,14 +108,17 @@ func _on_CMDLine_text_entered(_new_text):
 			consoleType = CWhite+"][code][/code] Console ─ "
 			tempcmd = tempcmd.trim_prefix(".log(")
 			error = false
+			TotalUser += 1
 		elif tempcmd.begins_with(".error("):
 			consoleType = CRed+"][code][/code]   Error ─ "
 			tempcmd = tempcmd.trim_prefix(".error(")
 			error = false
+			TotalError += 1
 		elif tempcmd.begins_with(".alert("):
 			consoleType = CYellow+"][code][/code]   Alert ─ "
 			tempcmd = tempcmd.trim_prefix(".alert(")
 			error = false
+			TotalAlert += 1
 		elif tempcmd.begins_with(".info("):
 			consoleType = CBlue+"][code][/code]    Info ─ "
 			tempcmd = tempcmd.trim_prefix(".info(")
@@ -110,6 +127,7 @@ func _on_CMDLine_text_entered(_new_text):
 			consoleType = CGreen+"][code][/code] Success ─ "
 			tempcmd = tempcmd.trim_prefix(".success(")
 			error = false
+			TotalSuccess += 1
 		#elif !tempcmd.begins_with(".success(") or !tempcmd.begins_with(".alert(") or tempcmd.begins_with(".error(") or tempcmd.begins_with(".log("):
 			#error = true
 		if tempcmd.ends_with(")") and error != true:
@@ -160,6 +178,7 @@ func console():
 ## ---------------------------------- Error Handling
 
 func ERROR(ECode):
+	TotalError += 1
 	match ECode:
 		"0002":
 			write_to_debug.text += '[color='+CRed+'][code][/code]   Error ┬ Failed to execute "'+cmd+'"[/color]\n'
