@@ -1,16 +1,16 @@
 [gd_scene load_steps=24 format=3 uid="uid://lbkxpq3atm58"]
 
 [ext_resource type="Script" path="res://Scripts/ArticleFinder.gd" id="1_4h4sf"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_7vua5"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_pbnan"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_py6h4"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_wo5tr"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="5_vqndy"]
 [ext_resource type="Texture2D" uid="uid://cna6dnpkk70g2" path="res://Assets/Splash Screen/logo_b&w_transparent.png" id="6_0ebde"]
-[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="7_dh4hf"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="8_u1udy"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="9_cuxpq"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="10_wfij5"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="11_lfb3t"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="12_60bdl"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="13_lvav4"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="6_jrv24"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="7_88ynq"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="8_7fbtr"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="9_y3hx5"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="10_dcx3o"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="11_24suk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmn24"]
 bg_color = Color(0.12549, 0.133333, 0.145098, 1)
@@ -28,14 +28,14 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 corner_detail = 10
 
-[sub_resource type="Resource" id="Resource_twlg1"]
-script = ExtResource("2_pbnan")
+[sub_resource type="Resource" id="Resource_monqp"]
+script = ExtResource("3_wo5tr")
 friction = 4.0
 minimum_velocity = 0.4
-rebound_strength = 50.0
+rebound_strength = 7.0
 
-[sub_resource type="Resource" id="Resource_ca2yh"]
-script = ExtResource("2_pbnan")
+[sub_resource type="Resource" id="Resource_rqs4o"]
+script = ExtResource("3_wo5tr")
 friction = 4.0
 minimum_velocity = 0.4
 rebound_strength = 7.0
@@ -65,53 +65,65 @@ expand_margin_top = 8.0
 expand_margin_right = 8.0
 expand_margin_bottom = 8.0
 
-[sub_resource type="Resource" id="Resource_guj7x"]
+[sub_resource type="Resource" id="Resource_d7rp3"]
 resource_local_to_scene = true
-script = ExtResource("8_u1udy")
+script = ExtResource("6_jrv24")
 font_size = 2.285
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_u7wq3"]
+[sub_resource type="Resource" id="Resource_aprol"]
 resource_local_to_scene = true
-script = ExtResource("9_cuxpq")
+script = ExtResource("7_88ynq")
 font_size = 1.714
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_c5gfp"]
+[sub_resource type="Resource" id="Resource_tmpam"]
 resource_local_to_scene = true
-script = ExtResource("10_wfij5")
+script = ExtResource("8_7fbtr")
 font_size = 1.428
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_4onnv"]
+[sub_resource type="Resource" id="Resource_676fq"]
 resource_local_to_scene = true
-script = ExtResource("11_lfb3t")
+script = ExtResource("9_y3hx5")
 font_size = 1.142
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_evk83"]
+[sub_resource type="Resource" id="Resource_lfbp7"]
 resource_local_to_scene = true
-script = ExtResource("12_60bdl")
+script = ExtResource("10_dcx3o")
 font_size = 1.0
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_6xa1u"]
+[sub_resource type="Resource" id="Resource_gdv4j"]
 resource_local_to_scene = true
-script = ExtResource("13_lvav4")
+script = ExtResource("11_24suk")
 font_size = 0.857
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [node name="PanelContainer" type="PanelContainer"]
 anchors_preset = 8
@@ -164,15 +176,9 @@ theme_override_constants/separation = 10
 [node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-horizontal_scroll_mode = 0
-script = ExtResource("1_7vua5")
-speed = 250.0
-wheel_scroll_damper = SubResource("Resource_twlg1")
-dragging_scroll_damper = SubResource("Resource_ca2yh")
-drag_with_mouse = false
-allow_horizontal_scroll = false
-auto_allow_scroll = false
-allow_overdragging = false
+script = ExtResource("2_py6h4")
+wheel_scroll_damper = SubResource("Resource_monqp")
+dragging_scroll_damper = SubResource("Resource_rqs4o")
 
 [node name="ArticleList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
 unique_name_in_owner = true
@@ -255,14 +261,16 @@ theme_override_constants/margin_right = 30
 
 [node name="MarkdownLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 bbcode_enabled = true
 text = "Description"
-script = ExtResource("7_dh4hf")
+script = ExtResource("5_vqndy")
 markdown_text = "Description"
-h1 = SubResource("Resource_guj7x")
-h2 = SubResource("Resource_u7wq3")
-h3 = SubResource("Resource_c5gfp")
-h4 = SubResource("Resource_4onnv")
-h5 = SubResource("Resource_evk83")
-h6 = SubResource("Resource_6xa1u")
+h1 = SubResource("Resource_d7rp3")
+h2 = SubResource("Resource_aprol")
+h3 = SubResource("Resource_tmpam")
+h4 = SubResource("Resource_676fq")
+h5 = SubResource("Resource_lfbp7")
+h6 = SubResource("Resource_gdv4j")
+enable_checkbox_clicks = false
+
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
