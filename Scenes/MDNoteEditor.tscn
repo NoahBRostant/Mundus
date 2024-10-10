@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" path="res://Scripts/MDNoteEditor.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://c05emydobpwj4" path="res://Assets/Fonts/NotoSans/NotoSans-Regular.ttf" id="3_y4dm7"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="4_2x2l5"]
 [ext_resource type="FontFile" uid="uid://br8cs0av0svnk" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNerdFont-Regular.ttf" id="4_8dxua"]
 [ext_resource type="FontFile" uid="uid://db1t00cas353d" path="res://Assets/Fonts/NotoSans/NotoSans-Bold.ttf" id="4_ga2yw"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="5_pgw8e"]
 [ext_resource type="FontFile" uid="uid://dispqpjqygfkw" path="res://Assets/Fonts/NotoSans/NotoSans-Italic.ttf" id="5_vf6f5"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="6_0tmjw"]
 [ext_resource type="FontFile" uid="uid://bnlt7wgv4tf0j" path="res://Assets/Fonts/NotoSans/NotoSans-BoldItalic.ttf" id="6_l38lg"]
-[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="8_oiu3m"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="7_sjlwk"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="8_y42fx"]
 [ext_resource type="Script" path="res://Scripts/MDBottomBar.gd" id="9"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="9_vkky6"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="10_asggf"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="11_wrbg1"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="12_s3tnk"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="13_s6qon"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="14_2xoa5"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="9_o3q0a"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="10_r2qss"]
 [ext_resource type="Texture2D" uid="uid://b83cvn46305r2" path="res://Assets/Basic Icons/eye-solid.svg" id="15_r6o73"]
 [ext_resource type="Texture2D" uid="uid://c4rvnwrbhdqop" path="res://Assets/Basic Icons/eye-slash-solid.svg" id="16_k2ume"]
 
@@ -36,53 +36,65 @@ cache/0/14/0/scale = 1.0
 cache/0/14/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/14/0/kerning_overrides/14/0 = Vector2(0, 0)
 
-[sub_resource type="Resource" id="Resource_3r0qh"]
+[sub_resource type="Resource" id="Resource_i2tk3"]
 resource_local_to_scene = true
-script = ExtResource("9_vkky6")
+script = ExtResource("5_pgw8e")
 font_size = 2.285
-is_bold = true
+is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_if3r5"]
+[sub_resource type="Resource" id="Resource_tacql"]
 resource_local_to_scene = true
-script = ExtResource("10_asggf")
+script = ExtResource("6_0tmjw")
 font_size = 1.714
-is_bold = true
+is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_htb25"]
+[sub_resource type="Resource" id="Resource_xlt4v"]
 resource_local_to_scene = true
-script = ExtResource("11_wrbg1")
+script = ExtResource("7_sjlwk")
 font_size = 1.428
-is_bold = true
+is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_82dbl"]
+[sub_resource type="Resource" id="Resource_lquj8"]
 resource_local_to_scene = true
-script = ExtResource("12_s3tnk")
+script = ExtResource("8_y42fx")
 font_size = 1.142
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_u8og1"]
+[sub_resource type="Resource" id="Resource_i8ec7"]
 resource_local_to_scene = true
-script = ExtResource("13_s6qon")
+script = ExtResource("9_o3q0a")
 font_size = 1.0
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Resource" id="Resource_k4jcf"]
+[sub_resource type="Resource" id="Resource_ss207"]
 resource_local_to_scene = true
-script = ExtResource("14_2xoa5")
+script = ExtResource("10_r2qss")
 font_size = 0.857
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="13"]
 content_margin_left = 5.0
@@ -158,24 +170,14 @@ theme_override_constants/margin_bottom = 10
 
 [node name="MarkdownLabel" type="RichTextLabel" parent="Background/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_y4dm7")
-theme_override_fonts/mono_font = ExtResource("4_8dxua")
-theme_override_fonts/italics_font = ExtResource("5_vf6f5")
-theme_override_fonts/bold_italics_font = ExtResource("6_l38lg")
-theme_override_fonts/bold_font = ExtResource("4_ga2yw")
-theme_override_font_sizes/bold_italics_font_size = 14
-theme_override_font_sizes/italics_font_size = 14
-theme_override_font_sizes/mono_font_size = 14
-theme_override_font_sizes/normal_font_size = 14
-theme_override_font_sizes/bold_font_size = 14
 bbcode_enabled = true
-script = ExtResource("8_oiu3m")
-h1 = SubResource("Resource_3r0qh")
-h2 = SubResource("Resource_if3r5")
-h3 = SubResource("Resource_htb25")
-h4 = SubResource("Resource_82dbl")
-h5 = SubResource("Resource_u8og1")
-h6 = SubResource("Resource_k4jcf")
+script = ExtResource("4_2x2l5")
+h1 = SubResource("Resource_i2tk3")
+h2 = SubResource("Resource_tacql")
+h3 = SubResource("Resource_xlt4v")
+h4 = SubResource("Resource_lquj8")
+h5 = SubResource("Resource_i8ec7")
+h6 = SubResource("Resource_ss207")
 
 [node name="TextEdit2" type="RichTextLabel" parent="."]
 visible = false
@@ -246,6 +248,7 @@ color = Color(0.721569, 0.721569, 0.721569, 1)
 [node name="WordCount" type="MenuButton" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("3_y4dm7")
 theme_override_font_sizes/font_size = 13
 text = "0 Words 0 Characters"
 
@@ -256,6 +259,7 @@ theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_colors/font_pressed_color = Color(0.721569, 0.721569, 0.721569, 1)
 theme_override_colors/font_focus_color = Color(0.721569, 0.721569, 0.721569, 1)
 theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("3_y4dm7")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/focus = SubResource("18")
 theme_override_styles/disabled = SubResource("19")
@@ -263,14 +267,12 @@ theme_override_styles/hover = SubResource("16")
 theme_override_styles/pressed = SubResource("17")
 theme_override_styles/normal = SubResource("20")
 text = "MarkDown"
-item_count = 4
+item_count = 3
 popup/item_0/text = "MarkDown"
 popup/item_1/text = "Plain Text"
 popup/item_1/id = 1
-popup/item_2/text = "HTML"
-popup/item_2/id = 2
-popup/item_3/text = "BBCode"
-popup/item_3/id = 3
+popup/item_2/text = "BBCode"
+popup/item_2/id = 3
 
 [connection signal="text_changed" from="TextEdit" to="TextEdit" method="_on_TextEdit_text_changed"]
 [connection signal="button_up" from="ColorRect/HBoxContainer/TextureButton5" to="." method="_on_TextureButton5_button_up"]
