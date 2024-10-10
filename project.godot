@@ -8,6 +8,10 @@
 
 config_version=5
 
+[addons]
+
+markdown_book/docs_folder="res://Documentation/"
+
 [application]
 
 config/name="Mundus (World Builder)"
@@ -16,7 +20,7 @@ run/main_scene="res://Scenes/SplashScreen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Mundus"
 config/features=PackedStringArray("4.3", "Forward Plus")
-run/max_fps=45
+run/max_fps=120
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Assets/Splash Screen/New Splash Screen notextbg title.png"
@@ -28,7 +32,7 @@ scenes/error_scene_path="res://addons/yet_another_scene_manager/Scenes/Error.tsc
 
 Console="*res://Scripts/Console.gd"
 Global="*res://Scripts/Global.gd"
-HttpRequest="*res://Scripts/AwaitableHTTPRequest.gd"
+HttpRequest="res://Scripts/AwaitableHTTPRequest.gd"
 Notify="*res://addons/native_notifications/native_notifications.gd"
 Supabase="*res://addons/supabase/Supabase/supabase.gd"
 InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
@@ -57,7 +61,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AtlasPlayer/plugin.cfg", "res://addons/QuickPluginManager/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/nv.file_system/plugin.cfg", "res://addons/rcalc_gd/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/supabase/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg", "res://addons/varedit/plugin.cfg")
+enabled=PackedStringArray("res://addons/AtlasPlayer/plugin.cfg", "res://addons/QuickPluginManager/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg", "res://addons/awaitable_http_request/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/dockable_container/plugin.cfg", "res://addons/dotenv/plugin.cfg", "res://addons/godot-flexbox/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/native_dialogs/plugin.cfg", "res://addons/nv.file_system/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/supabase/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg", "res://addons/varedit/plugin.cfg")
 
 [gui]
 
