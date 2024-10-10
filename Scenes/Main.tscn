@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=52 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_uxxeo"]
@@ -10,11 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dicls5h3u6ckf" path="res://Assets/Basic Icons/Add.png" id="6_r5gtn"]
 [ext_resource type="Texture2D" uid="uid://c0lgwk60pwwdx" path="res://Assets/Basic Icons/Refresh.png" id="7_hmtfy"]
 [ext_resource type="Texture2D" uid="uid://ck2uu7o2kbglh" path="res://Assets/Ruleset Logos/DnD-Symbol.png" id="8_1nibx"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="9_htq84"]
 [ext_resource type="Texture2D" uid="uid://dg2spcde7cxgw" path="res://Assets/Ruleset Logos/PF2Logo1600.webp" id="9_w85mx"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="10_a540y"]
 [ext_resource type="Texture2D" uid="uid://bx04mydishjy6" path="res://Assets/Ruleset Logos/DaggerHeartLong.png" id="10_cshn8"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_hjtli"]
 [ext_resource type="Script" path="res://addons/ReorderableContainer/reorderable_hbox.gd" id="10_nglef"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_4nk26"]
 [ext_resource type="PackedScene" uid="uid://bw5ncliqiptkc" path="res://Scenes/StartGuide.tscn" id="14_iinvv"]
 [ext_resource type="Script" path="res://Scripts/Debug.gd" id="14_v20j8"]
 [ext_resource type="Texture2D" uid="uid://cxtx6y7p7mbpn" path="res://Assets/Splash Screen/Rectangle.png" id="15_m0s8a"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://q5gdbwtfdutf" path="res://Assets/Basic Icons/arrows-down-to-line-solid(1).svg" id="28_3p3rf"]
 [ext_resource type="Texture2D" uid="uid://dpoocdowqk6nk" path="res://Assets/Basic Icons/circle-user-regular(3).svg" id="30_obbrd"]
 [ext_resource type="PackedScene" uid="uid://lbkxpq3atm58" path="res://Scenes/ArticleFinder.tscn" id="32_efsio"]
+[ext_resource type="Texture2D" uid="uid://cm4pwow6cnpyp" path="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png" id="33_udhjt"]
 
 [sub_resource type="Resource" id="Resource_qqlnt"]
 resource_name = "Tabs"
@@ -69,17 +70,37 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 10
 
-[sub_resource type="Resource" id="Resource_xcv1q"]
-script = ExtResource("10_a540y")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 50.0
-
-[sub_resource type="Resource" id="Resource_jwb8j"]
-script = ExtResource("10_a540y")
+[sub_resource type="Resource" id="Resource_ge3ei"]
+script = ExtResource("11_4nk26")
 friction = 4.0
 minimum_velocity = 0.4
 rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_llgy4"]
+script = ExtResource("11_4nk26")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycyn0"]
+bg_color = Color(1, 1, 1, 0.25098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+shadow_color = Color(1, 1, 1, 0.25098)
+shadow_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmefa"]
+draw_center = false
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+shadow_color = Color(0.160784, 0.168627, 0.184314, 1)
+shadow_size = 1000
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vtfq"]
 bg_color = Color(0.141176, 0.14902, 0.164706, 1)
@@ -126,6 +147,14 @@ script = ExtResource("5_ip3ue")
 root = SubResource("Resource_y456i")
 hidden_tabs = {}
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad68f"]
+bg_color = Color(0.160784, 0.168627, 0.184314, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 10
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -154,7 +183,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2"]
+[node name="HBoxContainer" type="HSplitContainer" parent="Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,7 +194,7 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 8
+theme_override_constants/separation = 10
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control2/HBoxContainer"]
 layout_mode = 2
@@ -183,6 +212,7 @@ layout_mode = 2
 flat = true
 
 [node name="File" type="PopupMenu" parent="Control2/HBoxContainer/VBoxContainer2/MenuBar"]
+allow_search = false
 item_count = 12
 item_0/text = "New Article"
 item_1/text = "New Timeline"
@@ -310,6 +340,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Tree" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_k8fpc")
@@ -326,20 +357,39 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree/MarginContainer"]
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree/MarginContainer"]
 layout_mode = 2
-script = ExtResource("9_htq84")
-speed = 250.0
-wheel_scroll_damper = SubResource("Resource_xcv1q")
-dragging_scroll_damper = SubResource("Resource_jwb8j")
-drag_with_mouse = false
-allow_overdragging = false
-hide_scrollbar_over_time = true
+script = ExtResource("10_hjtli")
+wheel_scroll_damper = SubResource("Resource_ge3ei")
+dragging_scroll_damper = SubResource("Resource_llgy4")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree/MarginContainer/ScrollContainer"]
+[node name="FilesContent" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree/MarginContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -64.0
+offset_bottom = -61.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ycyn0")
+
+[node name="Panel2" type="Panel" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/Tree"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmefa")
+metadata/_edit_lock_ = true
 
 [node name="Spaces" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer"]
 visible = false
@@ -563,27 +613,33 @@ bbcode_enabled = true
 text = "[center] Currently, there's nothing selected to modify in the Inspector Panel. To view settings in the Inspector Panel, please open a tab in the Content Panel. Alternatively, for guidance on getting started, you can open the Start Guide by going to Help > Start Guide."
 fit_content = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="Control2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.25
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ProjectName" type="Label" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="ProjectName" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Untitled"
 vertical_alignment = 1
 
-[node name="DnDLogo" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="DnDLogo" type="TextureRect" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(29, 0)
 layout_mode = 2
@@ -591,7 +647,7 @@ texture = ExtResource("8_1nibx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PathfinderLogo" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="PathfinderLogo" type="TextureRect" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
@@ -599,7 +655,7 @@ texture = ExtResource("9_w85mx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DaggerHeartLogo" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="DaggerHeartLogo" type="TextureRect" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -607,26 +663,26 @@ texture = ExtResource("10_cshn8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2, 15)
 layout_mode = 2
 color = Color(1, 1, 1, 0.180392)
 
-[node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
-[node name="ReorderableHBox" type="Container" parent="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer" node_paths=PackedStringArray("scroll_container")]
+[node name="ReorderableHBox" type="Container" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer/ScrollContainer" node_paths=PackedStringArray("scroll_container")]
 process_mode = 1
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -636,12 +692,18 @@ script = ExtResource("10_nglef")
 hold_duration = 0.2
 scroll_container = NodePath("..")
 
-[node name="Control2" type="Control" parent="Control2/HBoxContainer/VBoxContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Control2" type="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer"]
+custom_minimum_size = Vector2(500, 250)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer/Control2"]
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -649,7 +711,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
+[node name="CenterContainer" type="CenterContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -657,22 +719,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/CenterContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ufbj8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "No Articles Selected"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/CenterContainer/PanelContainer/VBoxContainer"]
 clip_contents = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
@@ -680,7 +742,7 @@ bbcode_enabled = true
 text = "[center]No articles selected for viewing or editing. Please create a new article or select an existing article."
 scroll_active = false
 
-[node name="ContentPanel" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel"]
+[node name="ContentPanel" type="MarginContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -693,16 +755,16 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/ContentPanel" instance=ExtResource("14_iinvv")]
+[node name="VBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/ContentPanel" instance=ExtResource("14_iinvv")]
 layout_mode = 2
 
-[node name="Control" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/ContentPanel" instance=ExtResource("16_un1gh")]
+[node name="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/ContentPanel" instance=ExtResource("16_un1gh")]
 visible = false
 layout_mode = 2
 title = "Character"
 tabid = 1
 
-[node name="Control2" parent="Control2/HBoxContainer/VBoxContainer/Control2/Panel/ContentPanel" instance=ExtResource("17_0j1hj")]
+[node name="Control2" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/ContentPanel" instance=ExtResource("17_0j1hj")]
 visible = false
 layout_mode = 2
 img = ExtResource("18_7vdki")
@@ -710,13 +772,14 @@ title = "Map"
 tabid = 2
 saved = true
 
-[node name="Control3" type="Control" parent="Control2/HBoxContainer/VBoxContainer"]
+[node name="Control3" type="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer/Control3"]
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -725,7 +788,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("14_v20j8")
 
-[node name="TabContainer" type="TabContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel"]
+[node name="TabContainer" type="TabContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -735,11 +798,11 @@ grow_vertical = 2
 current_tab = 0
 tabs_rearrange_group = 0
 
-[node name="Console" type="TabBar" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer"]
+[node name="Console" type="TabBar" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console"]
+[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -751,16 +814,16 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_3vtfq")
 
-[node name="DebugText" type="RichTextLabel" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/Panel"]
+[node name="DebugText" type="RichTextLabel" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -784,11 +847,11 @@ bbcode_enabled = true
 scroll_following = true
 selection_enabled = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="CMDLine" type="LineEdit" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CMDLine" type="LineEdit" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
@@ -796,19 +859,19 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("24_1siyw")
 theme_override_font_sizes/font_size = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(182, 0)
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="PanelContainer" type="PanelContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_upe3e")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.462745, 0.772549, 0.470588, 1)
@@ -817,19 +880,19 @@ theme_override_font_sizes/font_size = 20
 text = ""
 vertical_alignment = 1
 
-[node name="SuccessValue" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+[node name="SuccessValue" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="PanelContainer2" type="PanelContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_upe3e")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.901961, 0.952941, 0.521569, 1)
@@ -838,19 +901,19 @@ theme_override_font_sizes/font_size = 20
 text = ""
 vertical_alignment = 1
 
-[node name="AlertValue" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+[node name="AlertValue" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="PanelContainer3" type="PanelContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_upe3e")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer3"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.996078, 0.545098, 0.407843, 1)
@@ -859,19 +922,19 @@ theme_override_font_sizes/font_size = 20
 text = ""
 vertical_alignment = 1
 
-[node name="ErrorValue" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer3/HBoxContainer"]
+[node name="ErrorValue" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer3/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="PanelContainer4" type="PanelContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="PanelContainer4" type="PanelContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_upe3e")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer4"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer4"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer4/HBoxContainer"]
+[node name="Label" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer4/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85098, 0.85098, 0.85098, 1)
@@ -880,17 +943,17 @@ theme_override_font_sizes/font_size = 20
 text = ""
 vertical_alignment = 1
 
-[node name="UserValue" type="Label" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer4/HBoxContainer"]
+[node name="UserValue" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/PanelContainer4/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="Quick Notes" type="TabBar" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer"]
+[node name="Quick Notes" type="TabBar" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Quick Notes"]
+[node name="MarginContainer" type="MarginContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Quick Notes"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -902,10 +965,10 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextEdit" type="TextEdit" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Quick Notes/MarginContainer"]
+[node name="TextEdit" type="TextEdit" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Quick Notes/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel"]
+[node name="Button" type="Button" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel"]
 visible = false
 layout_mode = 1
 anchors_preset = 1
@@ -917,7 +980,7 @@ offset_right = -10.0
 offset_bottom = 29.0
 grow_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer/Control3/Panel/Button"]
+[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/Button"]
 modulate = Color(1, 1, 1, 0.764706)
 layout_mode = 1
 anchors_preset = -1
@@ -935,33 +998,40 @@ texture = ExtResource("28_3p3rf")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control2/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control2/HBoxContainer/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 theme_override_constants/separation = 8
 
-[node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer3"]
+[node name="Control" type="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="Button2" type="Button" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "AssetLib"
 
-[node name="Control" type="Control" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
+[node name="Control" type="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(29, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer/Control"]
 modulate = Color(1, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -977,11 +1047,11 @@ texture = ExtResource("24_16e2j")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer"]
+[node name="Button" type="Button" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(29, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/VBoxContainer3/HBoxContainer/Button"]
+[node name="TextureRect" type="TextureRect" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer/Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -998,11 +1068,11 @@ texture = ExtResource("30_obbrd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Panel" type="Panel" parent="Control2/HBoxContainer/VBoxContainer3"]
+[node name="Panel" type="Panel" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DockableContainer" type="Container" parent="Control2/HBoxContainer/VBoxContainer3/Panel"]
+[node name="DockableContainer" type="Container" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1013,7 +1083,7 @@ script = ExtResource("3_1uq5w")
 tab_alignment = 0
 layout = SubResource("Resource_aeven")
 
-[node name="Dictionary" type="VBoxContainer" parent="Control2/HBoxContainer/VBoxContainer3/Panel/DockableContainer"]
+[node name="Dictionary" type="VBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/Panel/DockableContainer"]
 layout_mode = 2
 
 [node name="AccountOptions" type="ColorRect" parent="."]
@@ -1069,12 +1139,151 @@ flat = true
 [node name="PanelContainer" parent="AddFileTree" instance=ExtResource("32_efsio")]
 layout_mode = 1
 
+[node name="About" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="Button" type="Button" parent="About"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="About"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.5
+offset_top = -292.5
+offset_right = 506.5
+offset_bottom = 292.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ad68f")
+
+[node name="MarginContainer" type="MarginContainer" parent="About/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="About/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="About/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "About"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="About/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+theme_override_constants/separation = 10
+
+[node name="Panel" type="TextEdit" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="TextureRect" type="TextureRect" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("33_udhjt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AppName" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Name: Mundus"
+
+[node name="AppBuild" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Build:"
+
+[node name="AppVer" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Application Ver: v0.2.0-Alpha"
+
+[node name="GodotVer" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Godot Ver: Godot Engine v4.3.stable.official"
+
+[node name="Graphics" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Graphics: OpenGL ES 3.0 Renderer"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Mundus is a world Genoration and creation tool creating your own world has never been easier. With a simple integrated editor, you can easily position objects, plot out locations, and design the look and feel of your environment however you please. Moreover, you can use powerful algorithms to create lifelike worlds that already feel like they’ve been lived in for years.
+
+With Mundus, you can design unique new civilizations and languages that you can bring to life with a revolutionary AI system. You can create your own characters with backstories, their own cultures and experiences, that bring your world and stories to life."
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="About/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Close"
+
 [connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="Control2/HBoxContainer/VBoxContainer2/MenuBar/Help" to="." method="_on_help_id_pressed"]
 [connection signal="pressed" from="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/HBoxContainer/Button2" to="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files" method="_on_button_2_pressed"]
 [connection signal="button_down" from="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files/VBoxContainer/HBoxContainer/Button3" to="Control2/HBoxContainer/VBoxContainer2/Panel/DockableContainer/Files" method="_on_button_3_button_down"]
-[connection signal="sort_children" from="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" to="Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" method="_on_sort_children"]
-[connection signal="text_submitted" from="Control2/HBoxContainer/VBoxContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/CMDLine" to="Control2/HBoxContainer/VBoxContainer/Control3/Panel" method="_on_CMDLine_text_entered"]
-[connection signal="button_up" from="Control2/HBoxContainer/VBoxContainer3/HBoxContainer/Button" to="." method="_on_accountoptions_button_up"]
+[connection signal="sort_children" from="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" to="Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox" method="_on_sort_children"]
+[connection signal="text_submitted" from="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel/TabContainer/Console/MarginContainer/VBoxContainer/HBoxContainer/CMDLine" to="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control3/Panel" method="_on_CMDLine_text_entered"]
+[connection signal="button_up" from="Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer/Button" to="." method="_on_accountoptions_button_up"]
 [connection signal="button_up" from="AccountOptions/Button" to="." method="_on_closeaccount_button_up"]
 [connection signal="button_up" from="AddFileTree/Button" to="." method="_on_closeaccount_button_up"]
+[connection signal="button_down" from="About/Button" to="." method="_on_aboutclose_button_down"]
