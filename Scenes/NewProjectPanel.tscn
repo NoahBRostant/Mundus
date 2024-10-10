@@ -1,9 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://1bm56qf4c7hc"]
+[gd_scene load_steps=12 format=3 uid="uid://1bm56qf4c7hc"]
 
 [ext_resource type="Script" path="res://Scripts/NewProjectPanel.gd" id="1_umbs1"]
-[ext_resource type="Script" path="res://addons/spin_button/src/controls/sb_spin_button.gd" id="1_y726x"]
-[ext_resource type="Texture2D" uid="uid://7bl700cicc6a" path="res://Assets/Basic Icons/chevron-right-solid.svg" id="2_wg4a8"]
-[ext_resource type="Texture2D" uid="uid://baholvlj43whh" path="res://Assets/Basic Icons/chevron-left-solid.svg" id="3_5b4aw"]
 [ext_resource type="Texture2D" uid="uid://c6j6khryuva0u" path="res://Assets/Basic Icons/beer-mug-empty-solid.svg" id="4_rnk2o"]
 [ext_resource type="Texture2D" uid="uid://dwxld143413vf" path="res://Assets/Basic Icons/d-and-d.svg" id="5_l4vc4"]
 [ext_resource type="VideoStream" path="res://Assets/Animated Icons/Animation-1707432535696_2_.ogv" id="9_g8j0p"]
@@ -276,17 +273,6 @@ text = "Long-Term"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
-
-[node name="SBSpinButton" type="Button" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 39)
-layout_mode = 2
-script = ExtResource("1_y726x")
-items = Array[String](["Simple", "Intermidiate", "Complex", "Advanced"])
-selected = 0
-item_count = 4
-next_icon = ExtResource("2_wg4a8")
-prev_icon = ExtResource("3_5b4aw")
-title_block_visibility = 0
 
 [node name="CheckButton" type="CheckButton" parent="Panel2/VBoxContainer/Panel2/D&D/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 29)
