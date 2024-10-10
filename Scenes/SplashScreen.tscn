@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8qf6q4gkukyv"]
+[gd_scene load_steps=12 format=3 uid="uid://c8qf6q4gkukyv"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_sta8y"]
 [ext_resource type="FontFile" uid="uid://b1dbh3paojv4h" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNLNerdFont-Regular.ttf" id="2_msvfs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bm0dt3qo0vag6" path="res://Scenes/Login.tscn" id="4_ii7bc"]
 [ext_resource type="Texture2D" uid="uid://dsdke1duouxap" path="res://Assets/Splash Screen/Version.png" id="5_n25l8"]
 [ext_resource type="FontFile" uid="uid://c05emydobpwj4" path="res://Assets/Fonts/NotoSans/NotoSans-Regular.ttf" id="5_q2gge"]
+[ext_resource type="Script" path="res://addons/awaitable_http_request/awaitable_http_request.gd" id="7_gmybg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvosb"]
 
@@ -25,7 +26,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 corner_detail = 10
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("HttpRequest")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sta8y")
+HttpRequest = NodePath("AwaitableHTTPRequest")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -145,3 +147,6 @@ custom_minimum_size = Vector2(0, 576)
 layout_mode = 1
 offset_left = 322.0
 offset_right = -334.0
+
+[node name="AwaitableHTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("7_gmybg")

@@ -1,5 +1,7 @@
 extends Control
 
+@export var HttpRequest: AwaitableHTTPRequest
+
 var CWhite:String = "#D9D9D9"
 var CBlue:String = "#77B3FE"
 var CRed:String = "#FE8B68"
@@ -18,18 +20,30 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
 	$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CBlue+"]Checking Account Info[/color]")
 	await get_tree().create_timer(0.1).timeout
-	var r := await HttpRequest.async_request('https://www.google.com')
-	if r.success:
-		if Supabase.auth.client == null:
-			await get_tree().create_timer(0.2).timeout
-			$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Not Logged In[/color]")
-			await get_tree().create_timer(0.5).timeout
-			$Panel2.show()
+	await Dotenv.load_("res://addons/supabase/example.env")
+	var counter = Console.logincounter
+	logincountercheck(counter)
+
+func logincountercheck(counter):
+	if counter < 1:
+		var r := await HttpRequest.async_request('https://www.google.com')
+		if r.success:
+			if Supabase.auth.client == null:
+				await get_tree().create_timer(0.2).timeout
+				$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Not Logged In[/color]")
+				await get_tree().create_timer(0.5).timeout
+				$Panel2.show()
+			else:
+				auth_success()
 		else:
-			auth_success()
+			$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Failed to Connect to Internet[/color]")
+			enterIntercheckLoop()
 	else:
-		$ScrollContainer/VBoxContainer/RichTextLabel.append_text("\n[color="+CRed+"]Failed to Connect to Internet[/color]")
-		enterIntercheckLoop()
+		var loginfile = ConfigFile.new()
+		loginfile.load("res://addons/supabase/counter.ini")
+		loginfile.set_value("counter", "value", counter-1)
+		loginfile.save("res://addons/supabase/counter.ini")
+		auth_success()
 
 
 func enterIntercheckLoop():

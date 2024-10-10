@@ -61,6 +61,10 @@ func _on_register_button_up():
 
 func _on_Supabase_auth_signed_in(user : SupabaseUser):
 	var empty = ""
+	var loginfile = ConfigFile.new()
+	loginfile.load("res://addons/supabase/counter.ini")
+	loginfile.set_value("counter", "value", 10)
+	loginfile.save("res://addons/supabase/counter.ini")
 	print("Success!")
 	get_parent().hide()
 	get_parent().get_parent().retry(user, empty)
