@@ -4,7 +4,7 @@ var treefolder = preload("res://Scenes/TreeNodeFolder.tscn")
 var treeitem = preload("res://Scenes/TreeNodeItem.tscn")
 
 func _ready():
-	var root_tree_inst = $VBoxContainer/Tree/MarginContainer/ScrollContainer/VBoxContainer2
+	var root_tree_inst = %FilesContent
 	get_all_files("user://saves/"+Global.projectName+"/data", "", [], root_tree_inst)
 
 
@@ -42,9 +42,12 @@ func get_all_files(path: String, file_ext := "", files := [], parent_node = null
 
 
 func _on_button_3_button_down():
-	var childeren = $VBoxContainer/Tree/MarginContainer/ScrollContainer/VBoxContainer2.get_children()
+	var tween = get_tree().create_tween()
+	tween.tween_property($VBoxContainer/Tree/Panel, "position", Vector2(0,get_parent().size.y+32), 1.5)
+	var childeren = %FilesContent.get_children()
 	for i in childeren:
-		$VBoxContainer/Tree/MarginContainer/ScrollContainer/VBoxContainer2.remove_child(i)
+		%FilesContent.remove_child(i)
+	$VBoxContainer/Tree/Panel.position = Vector2(0,-64)
 	_ready()
 
 

@@ -14,6 +14,7 @@ func _ready():
 	get_window().borderless = false
 	get_window().title = "Mundus - World Builder"
 	get_window().min_size = Vector2i(1000,600)
+	$Control2/HBoxContainer/HSplitContainer/VBoxContainer3/HBoxContainer/Label.text = "Mundus_"+Console.verState+"_v"+Console.version
 	await get_tree().create_timer(0.1).timeout
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	#TabCalculate()
@@ -23,9 +24,9 @@ func _ready():
 	%ProjectName.text = Global.projectName
 	projectType = Global.projectType
 	if projectType == "DnD5e":
-		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/DnDLogo.show()
+		$Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer/DnDLogo.show()
 	elif projectType == "Pathfinder":
-		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/PathfinderLogo.show()
+		$Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer/PathfinderLogo.show()
 	var tablist = %ContentPanel.get_children()
 	for i in tablist:
 		printerr(i)
@@ -42,7 +43,7 @@ func _ready():
 		instance.title = i["title"]
 		instance.img = i["image"]
 		instance.tabid = i["tabid"]
-		$Control2/HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox.add_child(instance)
+		$Control2/HBoxContainer/HSplitContainer/VBoxContainer/HBoxContainer/ScrollContainer/ReorderableHBox.add_child(instance)
 
 
 func _on_file_id_pressed(id):
@@ -73,7 +74,7 @@ func _on_file_id_pressed(id):
 
 func _on_help_id_pressed(id):
 	if id == 0:
-		pass
+		$About.show()
 	elif id == 1:
 		pass
 	elif id == 2:
@@ -102,3 +103,6 @@ func _on_closeaccount_button_up():
 func openfile():
 	var fileoopen = Console.filetoopen
 	
+
+func _on_aboutclose_button_down() -> void:
+	$About.hide()

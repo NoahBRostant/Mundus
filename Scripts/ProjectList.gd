@@ -10,6 +10,7 @@ func _ready():
 	get_window().size = Vector2i(1152,648)
 	get_window().title = "Mundus - Project List"
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	$VBoxContainer/HBoxContainer/Panel4/Label2.text = "Mundus_"+Console.verState+"_v"+Console.version
 	await ClearList()
 	await PopulateList()
 	items = %ProjectGrid.get_children()
@@ -70,9 +71,12 @@ func _on_line_edit_text_changed(new_text):
 
 
 func _on_button_3_button_down():
+	var tween = get_tree().create_tween()
+	tween.tween_property($VBoxContainer/HBoxContainer/Panel3/Panel, "position", Vector2(0,get_parent().size.y+32), 0.5).set_trans(Tween.TRANS_LINEAR)
+	Console.projectSelected = null
 	await ClearList()
 	await PopulateList()
-	
+	$VBoxContainer/HBoxContainer/Panel3/Panel.position = Vector2(0,-64)
 
 
 func _on_open_button_down():
@@ -80,7 +84,8 @@ func _on_open_button_down():
 
 
 func _on_delete_button_down():
-	Console.projectSelected.DeleteProject()
+	$DeletePanel/Panel/VBoxContainer/LineEdit.placeholder_text = 'Write "'+Console.projectSelected.projectName+'" to confirm deletion'
+	$DeletePanel.show()
 
 func _on_rename_button_down():
 	$RenamePanel.show()
@@ -182,3 +187,20 @@ func copy_folder(source_path: String, dest_path: String) -> void:
 				print("Failed to copy file: " + filename)
 		filename = source_dir.get_next()
 	source_dir.list_dir_end()
+
+
+func _on_deleteconfirm_button_down() -> void:
+	if $DeletePanel/Panel/VBoxContainer/LineEdit.text == Console.projectSelected.projectName:
+		Console.projectSelected.DeleteProject()
+		$DeletePanel.hide()
+		
+
+
+func _on_deleteconfirm_text_submitted(new_text: String) -> void:
+	if $DeletePanel/Panel/VBoxContainer/LineEdit.text == Console.projectSelected.projectName:
+		Console.projectSelected.DeleteProject()
+		$DeletePanel.hide()
+
+
+func _on_deletecancel_button_down() -> void:
+	$DeletePanel.hide()
