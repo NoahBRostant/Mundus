@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=3 uid="uid://bqjx1o53xo1v6"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://bqjx1o53xo1v6"]
 
 [ext_resource type="FontFile" uid="uid://c05emydobpwj4" path="res://Assets/Fonts/NotoSans/NotoSans-Regular.ttf" id="1_puw4j"]
 
@@ -118,6 +118,8 @@ corner_detail = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3jqw"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wiauw"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7q3a"]
 content_margin_left = 5.0
 content_margin_right = 5.0
@@ -136,7 +138,9 @@ content_margin_right = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvks0"]
 content_margin_left = 10.0
+content_margin_top = 10.0
 content_margin_right = 10.0
+content_margin_bottom = 10.0
 bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
 border_width_left = 2
 border_width_top = 2
@@ -150,7 +154,9 @@ corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wks88"]
 content_margin_left = 10.0
+content_margin_top = 10.0
 content_margin_right = 10.0
+content_margin_bottom = 10.0
 bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -186,6 +192,7 @@ OptionButton/styles/pressed = SubResource("StyleBoxFlat_oxbg1")
 Panel/styles/panel = SubResource("StyleBoxFlat_pltn0")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_j66c5")
 TabContainer/styles/panel = SubResource("StyleBoxEmpty_i3jqw")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_wiauw")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxEmpty_b7q3a")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_kopyp")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxEmpty_u8l6o")
