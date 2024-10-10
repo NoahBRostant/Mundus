@@ -1,10 +1,12 @@
-<img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Assets/Splash%20Screen/Github%20Banner.png?raw=true"></img>
+<p align="center">
+    <img align="center" src="https://github.com/NoahBRostant/Mundus/blob/master/Logo%20with%20text.png?raw=true"></img>
+</p>
 
-# Mundus - World Building App
-###### v0.1.0-alpha
+<h6 align="center">Mundus_Alpha_v0.1.0</h6>
 
 Welcome to **Mundus**, the ultimate world-building tool for writers, game designers, and creators of all kinds. Whether you're designing for DnD, Pathfinder, or building your own universe, Mundus brings your vision to life. 🎨🌍
 
+##### Notes: Still in early alpha; all features/graphics are subject to change.
 
 ## Planned Features
 
