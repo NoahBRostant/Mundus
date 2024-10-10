@@ -56,10 +56,10 @@ custom_minimum_size = Vector2(150, 205)
 offset_right = 150.0
 offset_bottom = 200.0
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_bk1fu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bk1fu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bk1fu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bk1fu")
-theme_override_styles/focus = SubResource("StyleBoxFlat_bk1fu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bk1fu")
 script = ExtResource("1_07wqs")
 metadata/flex_metas = {
 "grow": 0.0
