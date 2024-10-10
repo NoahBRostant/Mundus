@@ -7,6 +7,12 @@ extends Node
 
 # --------------------------------------------
 
+var logincounter
+func _ready() -> void:
+	var loginfile = ConfigFile.new()
+	loginfile.load("res://addons/supabase/counter.ini")
+	logincounter = loginfile.get_value("counter", "value")
+
 var debug:String = ""
 var ECode:String = ""
 
