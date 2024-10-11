@@ -12,6 +12,7 @@ var projectThumbnail = ""
 var toggle = false
 
 func _ready():
+	assert(InteractiveSceneChanger.load_done.connect(_load_done) == OK)
 	print(projectThumbnail)
 	var image_path = "user:///saves/"+projectFileName+"/Thumbnail.jpg"
 	var image = Image.new()
@@ -49,9 +50,10 @@ func OpenProject():
 	Global.projectName = Console.projectSelected.projectName
 	Global.projectType = Console.projectSelected.projectType
 	Global.projectFileName = Console.projectSelected.projectFileName
-	Console.debug = 'Successfuly Loaded "'+Global.projectName+'"'
-	Console.ECode = "0000"
-	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+	get_parent().get_parent().get_parent().hide()
+	get_parent().get_parent().get_parent().get_parent().get_node("CenterContainer").show()
+	InteractiveSceneChanger.load_scene("res://Scenes/Main.tscn")
+	InteractiveSceneChanger.start_load()
 
 func DeleteProject():
 	Console.projectSelected = null
@@ -119,3 +121,7 @@ func _on_gui_input(event):
 				$Panel4.hide()
 				toggle = false
 				Console.projectSelected = null
+
+func _load_done():
+	Console.debug = 'Successfuly Loaded "'+Global.projectName+'"'
+	Console.ECode = "0000"
