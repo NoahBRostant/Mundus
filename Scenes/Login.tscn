@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bm0dt3qo0vag6"]
+[gd_scene load_steps=17 format=3 uid="uid://bm0dt3qo0vag6"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_um3dt"]
 [ext_resource type="Script" path="res://Scripts/Login.gd" id="2_2ih51"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://c05emydobpwj4" path="res://Assets/Fonts/NotoSans/NotoSans-Regular.ttf" id="8_iqf8n"]
 [ext_resource type="FontFile" uid="uid://db1t00cas353d" path="res://Assets/Fonts/NotoSans/NotoSans-Bold.ttf" id="9_jv8te"]
 [ext_resource type="FontFile" uid="uid://dispqpjqygfkw" path="res://Assets/Fonts/NotoSans/NotoSans-Italic.ttf" id="10_q7hsq"]
+[ext_resource type="Texture2D" uid="uid://camimwo2jtrtx" path="res://Assets/Enber Studios/8_objects.png" id="11_80aym"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qan2r"]
 content_margin_left = 20.0
@@ -525,7 +526,7 @@ offset_right = 92.0
 offset_bottom = -141.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_h62eq")
+texture = ExtResource("11_80aym")
 expand_mode = 1
 stretch_mode = 5
 
