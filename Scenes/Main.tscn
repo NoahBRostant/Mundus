@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=54 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_uxxeo"]
@@ -32,7 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://q5gdbwtfdutf" path="res://Assets/Basic Icons/arrows-down-to-line-solid(1).svg" id="28_3p3rf"]
 [ext_resource type="Texture2D" uid="uid://dpoocdowqk6nk" path="res://Assets/Basic Icons/circle-user-regular(3).svg" id="30_obbrd"]
 [ext_resource type="PackedScene" uid="uid://lbkxpq3atm58" path="res://Scenes/ArticleFinder.tscn" id="32_efsio"]
-[ext_resource type="Texture2D" uid="uid://cm4pwow6cnpyp" path="res://Assets/Splash Screen/Default_logo_for_a_DD_world_building_app_0_a8c7ff09-1ff9-4d30-9db9-1eaac59c2815_0.png" id="33_udhjt"]
+[ext_resource type="Texture2D" uid="uid://dahf7dlxmb0qw" path="res://Logo with text.png" id="33_17o72"]
+[ext_resource type="Texture2D" uid="uid://civ0cfc2v5vyg" path="res://Assets/Enber Studios/8_objects@2x.png" id="34_q5hs0"]
 
 [sub_resource type="Resource" id="Resource_qqlnt"]
 resource_name = "Tabs"
@@ -153,6 +154,14 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhvf2"]
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 corner_detail = 10
 
 [node name="Control" type="Control"]
@@ -1196,26 +1205,18 @@ custom_minimum_size = Vector2(0, 230)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 
-[node name="Panel" type="TextEdit" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Panel" type="PanelContainer" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
-editable = false
-context_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhvf2")
 
 [node name="TextureRect" type="TextureRect" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Panel"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource("33_udhjt")
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 2
+texture = ExtResource("33_17o72")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1231,35 +1232,48 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Name: Mundus"
+text = "[color=#77B3FE]Name:[/color] Mundus"
 
 [node name="AppBuild" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Build:"
+text = "[color=#77B3FE]Build:[/color]"
 
 [node name="AppVer" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Application Ver: v0.2.0-Alpha"
+text = "[color=#77B3FE]Application Ver:[/color] v0.2.0-Alpha"
 
 [node name="GodotVer" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Godot Ver: Godot Engine v4.3.stable.official"
+text = "[color=#77B3FE]Godot Ver:[/color] Godot Engine v4.3.stable.official"
 
 [node name="Graphics" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Graphics: OpenGL ES 3.0 Renderer"
+text = "[color=#77B3FE]Graphics:[/color] OpenGL ES 3.0 Renderer"
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Panel2" type="PanelContainer" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhvf2")
+
+[node name="TextureRect" type="TextureRect" parent="About/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Panel2"]
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 2
+texture = ExtResource("34_q5hs0")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="About/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
