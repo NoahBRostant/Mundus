@@ -40,6 +40,7 @@ func _on_start_btn_button_down():
 	%ProgressBar.show()
 	createSave()
 	InteractiveSceneChanger.load_scene("res://Scenes/Main.tscn")
+	InteractiveSceneChanger.change_scene_immediately = false
 	InteractiveSceneChanger.start_load()
 
 
@@ -94,6 +95,9 @@ func _on_progress_changed(progress):
 	_progress_bar.value = progress
 
 func _load_done():
+	_progress_bar.value = 100
+	await get_tree().create_timer(0.01).timeout
 	Global.projectName = projectName
 	Console.debug = 'Successfuly Created "'+projectName+'"'
 	Console.ECode = "0000"
+	InteractiveSceneChanger.change_scene()

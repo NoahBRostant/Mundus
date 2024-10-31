@@ -347,6 +347,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_ifary")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k506g")
+step = 1.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel2"]
 visible = false

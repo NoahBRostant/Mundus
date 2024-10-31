@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bvaiadwlna0ip"]
+[gd_scene load_steps=51 format=3 uid="uid://bvaiadwlna0ip"]
 
 [ext_resource type="Theme" uid="uid://bqjx1o53xo1v6" path="res://Assets/Themes/MainTheme.tres" id="1_hnyxl"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_uxxeo"]
@@ -18,9 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://bw5ncliqiptkc" path="res://Scenes/StartGuide.tscn" id="14_iinvv"]
 [ext_resource type="Script" path="res://Scripts/Debug.gd" id="14_v20j8"]
 [ext_resource type="Texture2D" uid="uid://cxtx6y7p7mbpn" path="res://Assets/Splash Screen/Rectangle.png" id="15_m0s8a"]
-[ext_resource type="PackedScene" uid="uid://codewh1n4a0fp" path="res://Articles/DnD5e/character.tscn" id="16_un1gh"]
-[ext_resource type="PackedScene" uid="uid://dfdvhal2kp4or" path="res://Scenes/MapEditInterface.tscn" id="17_0j1hj"]
-[ext_resource type="Texture2D" uid="uid://bpd4val7f847e" path="res://Assets/Basic Icons/house-solid.svg" id="18_7vdki"]
 [ext_resource type="Script" path="res://Scripts/INSP_ArticleBase.gd" id="21_auidd"]
 [ext_resource type="FontFile" uid="uid://br8cs0av0svnk" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNerdFont-Regular.ttf" id="24_1siyw"]
 [ext_resource type="Texture2D" uid="uid://d3ube1hf1xys2" path="res://Assets/Basic Icons/triangle-exclamation-solid.svg" id="24_16e2j"]
@@ -766,20 +763,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/ContentPanel" instance=ExtResource("14_iinvv")]
 layout_mode = 2
-
-[node name="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/ContentPanel" instance=ExtResource("16_un1gh")]
-visible = false
-layout_mode = 2
-title = "Character"
-tabid = 1
-
-[node name="Control2" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer/Control2/Panel/ContentPanel" instance=ExtResource("17_0j1hj")]
-visible = false
-layout_mode = 2
-img = ExtResource("18_7vdki")
-title = "Map"
-tabid = 2
-saved = true
 
 [node name="Control3" type="Control" parent="Control2/HBoxContainer/HSplitContainer/VBoxContainer/VSplitContainer"]
 custom_minimum_size = Vector2(0, 200)

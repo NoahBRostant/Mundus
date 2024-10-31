@@ -18,6 +18,7 @@ script = ExtResource("1_gicv2")
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+action_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Button"]
 layout_mode = 1

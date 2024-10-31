@@ -1,0 +1,31 @@
+Welcome to Mundus: World Builder, a user-friendly platform designed to help you build design and distrobute your worlds. Regardless of age or background, whether you're setting up a Dungeons & Dragons campaign or crafting a novel, Mundus is here to help you create your unique worlds with ease.
+
+Mundus works on the core concepts of Article based building. Each component of your world can be created with an article which can be linked with other articles. This approch allows you to create a web of interconnected themes, items, places and more without having to do too much "mental gymnastics".
+
+[b]Getting Started:[/b]
+The basics of the screen before you go like this. Upon starting Mundus for the first time there will be this Start Guide front and center; around it will be utility panels. These utility panels house things such as your projects File Tree, the Inspector, and the Terminal.
+
+[b]Articles:[/b]
+In the File Tree you will notice its blank. This is because we haven't created any files or folders for your project yet.
+
+You can select one of the starting project folder templates by clicking on a button bellow, or you can create your first file by clicking the " + " button at the top of the panel.
+
+[b]Link Points:[/b]
+Think of these as tags or keywords. They create strong connections between articles with similar themes, helping Mundus highlight these relationships.
+
+[b]Maps:[/b]
+Creating a map is similar to creating an article. You have the option to upload an existing image or use the map creator tool to design your world.
+
+[b]Timelines:[/b]
+Timelines are essential for organizing your world chronologically. They aren't articles but act as the backbone of your world, linking articles and showing changes over time. Note: Maps created from images are less adjustable compared to those made with the map creation tool.
+
+There are two types of timelines:
+
+    [b]Fixed Timeline:[/b]
+        This is your world's main timeline, running from the beginning to the end. There can only be one fixed timeline, serving as the foundation for all articles.
+
+    [b]Generic Timeline:[/b]
+        These are flexible and can be adjusted to fit your needs. You can have as many as you want, and they're great for various purposes. For more advanced information, check out the "Documentation" section.
+
+[b]Conclusion:[/b]
+Keep creating articles, designing your world, and most importantly, enjoy the process of bringing your imagination to life!

@@ -12,14 +12,14 @@ func _process(delta):
 
 func _on_button_pressed():
 	if toggle == true:
+		$CollapsibleContainer.open_tween()
 		var tween = get_tree().create_tween()
 		tween.tween_property($Button/HBoxContainer/MarginContainer2/Control/TextureRect, "rotation_degrees", -90, 0.15)
-		$CollapsibleContainer.open_tween()
 		toggle = false
 	else:
+		$CollapsibleContainer.close_tween()
 		var tween = get_tree().create_tween()
 		tween.tween_property($Button/HBoxContainer/MarginContainer2/Control/TextureRect, "rotation_degrees", 0, 0.15)
-		$CollapsibleContainer.close_tween()
 		await get_tree().create_timer(0.3).timeout
 		if self.get_parent().get_parent().get_parent() is CollapsibleContainer:
 			#$CollapsibleContainer.set_auto_update_size(WITH_TWEEN)

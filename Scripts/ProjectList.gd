@@ -4,6 +4,7 @@ var newProject = preload("res://Scenes/NewProjectPanel.tscn")
 var projectItem = preload("res://Scenes/ProjectItem.tscn")
 var items
 var oldProject
+var dellength = -1
 
 func _ready():
 	get_window().borderless = false
@@ -85,6 +86,8 @@ func _on_open_button_down():
 
 func _on_delete_button_down():
 	$DeletePanel/Panel/VBoxContainer/LineEdit.placeholder_text = 'Write "'+Console.projectSelected.projectName+'" to confirm deletion'
+	$DeletePanel/Panel/VBoxContainer/LineEdit/Label.text = Console.projectSelected.projectName
+	$DeletePanel/Panel/VBoxContainer/LineEdit.text = ""
 	$DeletePanel.show()
 
 func _on_rename_button_down():
@@ -201,6 +204,16 @@ func _on_deleteconfirm_text_submitted(new_text: String) -> void:
 		Console.projectSelected.DeleteProject()
 		$DeletePanel.hide()
 
+func _on_deleteconfirm_text_changed(new_text: String) -> void:
+	if new_text.length() == Console.projectSelected.projectName.length():
+		$DeletePanel/Panel/VBoxContainer/LineEdit/Label.visible_characters = 0
+		$DeletePanel/Panel/VBoxContainer/LineEdit.add_theme_color_override("font_color",Color8(230,230,230))
+	elif new_text.length() != 0 and new_text.length() < Console.projectSelected.projectName.length():
+		$DeletePanel/Panel/VBoxContainer/LineEdit/Label.visible_characters = Console.projectSelected.projectName.length()-new_text.length()
+		$DeletePanel/Panel/VBoxContainer/LineEdit.add_theme_color_override("font_color",Color8(230,230,230))
+	elif new_text.length() == 0 or new_text.length() > Console.projectSelected.projectName.length():
+		$DeletePanel/Panel/VBoxContainer/LineEdit/Label.visible_characters = 0
+		$DeletePanel/Panel/VBoxContainer/LineEdit.add_theme_color_override("font_color",Color8(207,59,58))
 
 func _on_deletecancel_button_down() -> void:
 	$DeletePanel.hide()

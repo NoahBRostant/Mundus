@@ -1,11 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://bw5ncliqiptkc"]
+[gd_scene load_steps=24 format=3 uid="uid://bw5ncliqiptkc"]
 
 [ext_resource type="Script" path="res://Scripts/StartGuide.gd" id="1_ig87h"]
 [ext_resource type="Texture2D" uid="uid://bf0hs76ilw1st" path="res://Assets/Basic Icons/book-bookmark-solid.svg" id="2_4cm2t"]
 [ext_resource type="Texture2D" uid="uid://c0alo6vfwalrc" path="res://Assets/Splash Screen/UniversalUpscaler_96cd49f2-e7bb-4764-a9b8-12d75e754bda.jpg" id="3_1t37d"]
+[ext_resource type="FontFile" uid="uid://c05emydobpwj4" path="res://Assets/Fonts/NotoSans/NotoSans-Regular.ttf" id="4_q1bdc"]
+[ext_resource type="FontFile" uid="uid://br8cs0av0svnk" path="res://Assets/Fonts/JetBrainsNF/JetBrainsMonoNerdFont-Regular.ttf" id="5_crc6r"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="6_51n02"]
+[ext_resource type="FontFile" uid="uid://dispqpjqygfkw" path="res://Assets/Fonts/NotoSans/NotoSans-Italic.ttf" id="6_haq7a"]
+[ext_resource type="FontFile" uid="uid://bnlt7wgv4tf0j" path="res://Assets/Fonts/NotoSans/NotoSans-BoldItalic.ttf" id="7_q24vp"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="7_s6r5a"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="8_gku21"]
+[ext_resource type="FontFile" uid="uid://db1t00cas353d" path="res://Assets/Fonts/NotoSans/NotoSans-Bold.ttf" id="8_k2ths"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="9_5bc3v"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="10_a5waw"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="11_dpuje"]
@@ -26,6 +31,8 @@ font_size = 2.285
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_61l65"]
 resource_local_to_scene = true
@@ -34,6 +41,8 @@ font_size = 1.714
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_37t4o"]
 resource_local_to_scene = true
@@ -42,6 +51,8 @@ font_size = 1.428
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_vysdy"]
 resource_local_to_scene = true
@@ -50,6 +61,8 @@ font_size = 1.142
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_iboi4"]
 resource_local_to_scene = true
@@ -58,6 +71,8 @@ font_size = 1.0
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_t8gof"]
 resource_local_to_scene = true
@@ -66,6 +81,8 @@ font_size = 0.857
 is_bold = false
 is_italic = false
 is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvgy7"]
 draw_center = false
@@ -148,61 +165,96 @@ theme_override_constants/margin_bottom = 25
 [node name="MarkdownLabel" type="RichTextLabel" parent="VBoxContainer2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_q1bdc")
+theme_override_fonts/mono_font = ExtResource("5_crc6r")
+theme_override_fonts/italics_font = ExtResource("6_haq7a")
+theme_override_fonts/bold_italics_font = ExtResource("7_q24vp")
+theme_override_fonts/bold_font = ExtResource("8_k2ths")
 bbcode_enabled = true
-text = "Welcome to Mundus, a user-friendly platform designed for everyone, regardless of age or background. Whether you're setting up a Dungeons & Dragons campaign or crafting a novel, Mundus is here to help you create your own world with ease.
+text = "[font_size=27]An Introduction[/font_size]
+Welcome to Mundus: World Builder, a user-friendly platform designed to help you build design and distribute your worlds. Regardless of age or background, whether you're setting up a Dungeons & Dragons campaign or crafting a novel, Mundus is here to help you create your unique worlds with ease.
 
-[b]Getting Started:[/b]
-On the left side of this message, you'll find a checklist to guide you through the features of Mundus. Feel free to mark off items as you progress.
+Mundus works on the core concepts of Article based building. Each component of your world can be created with an article: said articles can be linked with other articles forming a web of articles and eventually a story. This approach allows you to create a web of interconnected themes, items, places and more without having to do too much \"mental gymnastics\". However, and this is important, Mundus is fluid and modular meaning you can design your world in what ever way is easiest.
 
-[b]Articles:[/b]
-These are the building blocks of your world, like swords, spells, characters, and buildings. To create an article, click the plus icon in the files panel, select an article type, and start filling in the details.
 
-[b]Link Points:[/b]
-Think of these as tags or keywords. They create strong connections between articles with similar themes, helping Mundus highlight these relationships.
+[font_size=22]1. Getting Started:[/font_size]
+The basics of the screen before you; go like this. Upon starting Mundus for the first time there will be this Start Guide front and centre \"THAT'S ME! HELLO!\"; this is where the content of your world will be shown. That includes Maps, Characters, Cities, and Lore. Around the content panel are the utility panels. These utility panels house things such as your projects File Tree, the Inspector, and the Terminal.
 
-[b]Maps:[/b]
+
+[font_size=22]2. Articles:[/font_size]
+In the File Tree you will notice its blank. This is because we haven't created any files or folders for your project yet.
+
+You can select one of the starting project folder templates by clicking on a button bellow, or you can create your first file or folder by clicking the \" + \" button at the top of the panel.
+
+[font_size=18]2a. Folders:[/font_size]
+In the File Panel you can create Folders, I know amazing right. These folders are there to contain the different elements of your project. By default there are two created that you cant see right now. These are the Assets Folder and the Trash Folder. These Folders are hidden as you don't really need to interact with them. You can create a viewable folder by clicking the + at the top of the Files Panel and selecting Folder. 
+
+[font_size=18]2b. Files:[/font_size]
+You can create and view the different files that make up your project from the File Panel. These files are the individual articles that be modified within the editor. You can create files by selecting the + button at the top of the Files Panel and selecting the files option.
+
+
+[font_size=22]3. Linking Articles:[/font_size]
+You can link articles by mentioning the article in question. to create a proper link that can be clicked on you need to encapsulate the link in double squared brackets like this [[Article Name]]. This will create a clickable link to visit the article linked, this is similar to programs like Obsidian.
+
+The other way that you can link articles is just by mentioning similar things. That's it. Think of it as Mundus doing the heavy lifting and figuring out patterns for you. These links are passive and wont be clickable in the main articles. However in the Graph view you can view passive links and Mundus will show you all the related articles; helpful for if you need to find a direction for you plot or for finding links to call back to or even error correction.
+
+
+[font_size=22]4. Maps:[/font_size]
 Creating a map is similar to creating an article. You have the option to upload an existing image or use the map creator tool to design your world.
 
-[b]Timelines:[/b]
-Timelines are essential for organizing your world chronologically. They aren't articles but act as the backbone of your world, linking articles and showing changes over time. Note: Maps created from images are less adjustable compared to those made with the map creation tool.
 
-There are two types of timelines:
+[font_size=22]5. Plugins:[/font_size]
+Mundus is designed to be entirely modular and flexible to what you want to write. This means that Mundus allows for Plugin support designed for the ultimate flexibility.
 
-    [b]Fixed Timeline:[/b]
-        This is your world's main timeline, running from the beginning to the end. There can only be one fixed timeline, serving as the foundation for all articles.
+To find out more about our Plugin support and using Plugins visit the Mundus Docs at ???.
 
-    [b]Generic Timeline:[/b]
-        These are flexible and can be adjusted to fit your needs. You can have as many as you want, and they're great for various purposes. For more advanced information, check out the \"Documentation\" section.
 
-[b]Conclusion:[/b]
+[font_size=27]Conclusion:[/font_size]
+For more in-depth controls and tutorials visit the Mundus Docs at ???.
+
 Keep creating articles, designing your world, and most importantly, enjoy the process of bringing your imagination to life!"
 script = ExtResource("6_51n02")
-markdown_text = "Welcome to Mundus, a user-friendly platform designed for everyone, regardless of age or background. Whether you're setting up a Dungeons & Dragons campaign or crafting a novel, Mundus is here to help you create your own world with ease.
+markdown_text = "## An Introduction
+Welcome to Mundus: World Builder, a user-friendly platform designed to help you build design and distribute your worlds. Regardless of age or background, whether you're setting up a Dungeons & Dragons campaign or crafting a novel, Mundus is here to help you create your unique worlds with ease.
 
-[b]Getting Started:[/b]
-On the left side of this message, you'll find a checklist to guide you through the features of Mundus. Feel free to mark off items as you progress.
+Mundus works on the core concepts of Article based building. Each component of your world can be created with an article: said articles can be linked with other articles forming a web of articles and eventually a story. This approach allows you to create a web of interconnected themes, items, places and more without having to do too much \"mental gymnastics\". However, and this is important, Mundus is fluid and modular meaning you can design your world in what ever way is easiest.
 
-[b]Articles:[/b]
-These are the building blocks of your world, like swords, spells, characters, and buildings. To create an article, click the plus icon in the files panel, select an article type, and start filling in the details.
 
-[b]Link Points:[/b]
-Think of these as tags or keywords. They create strong connections between articles with similar themes, helping Mundus highlight these relationships.
+### 1. Getting Started:
+The basics of the screen before you; go like this. Upon starting Mundus for the first time there will be this Start Guide front and centre \"THAT'S ME! HELLO!\"; this is where the content of your world will be shown. That includes Maps, Characters, Cities, and Lore. Around the content panel are the utility panels. These utility panels house things such as your projects File Tree, the Inspector, and the Terminal.
 
-[b]Maps:[/b]
+
+### 2. Articles:
+In the File Tree you will notice its blank. This is because we haven't created any files or folders for your project yet.
+
+You can select one of the starting project folder templates by clicking on a button bellow, or you can create your first file or folder by clicking the \" + \" button at the top of the panel.
+
+#### 2a. Folders:
+In the File Panel you can create Folders, I know amazing right. These folders are there to contain the different elements of your project. By default there are two created that you cant see right now. These are the Assets Folder and the Trash Folder. These Folders are hidden as you don't really need to interact with them. You can create a viewable folder by clicking the + at the top of the Files Panel and selecting Folder. 
+
+#### 2b. Files:
+You can create and view the different files that make up your project from the File Panel. These files are the individual articles that be modified within the editor. You can create files by selecting the + button at the top of the Files Panel and selecting the files option.
+
+
+### 3. Linking Articles:
+You can link articles by mentioning the article in question. to create a proper link that can be clicked on you need to encapsulate the link in double squared brackets like this [[Article Name]]. This will create a clickable link to visit the article linked, this is similar to programs like Obsidian.
+
+The other way that you can link articles is just by mentioning similar things. That's it. Think of it as Mundus doing the heavy lifting and figuring out patterns for you. These links are passive and wont be clickable in the main articles. However in the Graph view you can view passive links and Mundus will show you all the related articles; helpful for if you need to find a direction for you plot or for finding links to call back to or even error correction.
+
+
+### 4. Maps:
 Creating a map is similar to creating an article. You have the option to upload an existing image or use the map creator tool to design your world.
 
-[b]Timelines:[/b]
-Timelines are essential for organizing your world chronologically. They aren't articles but act as the backbone of your world, linking articles and showing changes over time. Note: Maps created from images are less adjustable compared to those made with the map creation tool.
 
-There are two types of timelines:
+### 5. Plugins:
+Mundus is designed to be entirely modular and flexible to what you want to write. This means that Mundus allows for Plugin support designed for the ultimate flexibility.
 
-    [b]Fixed Timeline:[/b]
-        This is your world's main timeline, running from the beginning to the end. There can only be one fixed timeline, serving as the foundation for all articles.
+To find out more about our Plugin support and using Plugins visit the Mundus Docs at ???.
 
-    [b]Generic Timeline:[/b]
-        These are flexible and can be adjusted to fit your needs. You can have as many as you want, and they're great for various purposes. For more advanced information, check out the \"Documentation\" section.
 
-[b]Conclusion:[/b]
+## Conclusion:
+For more in-depth controls and tutorials visit the Mundus Docs at ???.
+
 Keep creating articles, designing your world, and most importantly, enjoy the process of bringing your imagination to life!"
 h1 = SubResource("Resource_8d020")
 h2 = SubResource("Resource_61l65")

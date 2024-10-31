@@ -53,6 +53,7 @@ func OpenProject():
 	get_parent().get_parent().get_parent().hide()
 	get_parent().get_parent().get_parent().get_parent().get_node("CenterContainer").show()
 	InteractiveSceneChanger.load_scene("res://Scenes/Main.tscn")
+	InteractiveSceneChanger.change_scene_immediately = true
 	InteractiveSceneChanger.start_load()
 
 func DeleteProject():
